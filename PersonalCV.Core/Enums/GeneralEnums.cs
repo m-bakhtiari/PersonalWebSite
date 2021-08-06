@@ -25,7 +25,10 @@ namespace PersonalCV.Core.Enums
             CountOfCustomers = 13,
             YearsCountOfExperience = 14,
             FactsText = 15,
-            SkillsText=16,
+            SkillsText = 16,
+            TelegramUrl = 17,
+            InstagramUrl = 18,
+            WhatsappUrl = 19
         }
     }
 }

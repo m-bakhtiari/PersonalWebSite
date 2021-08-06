@@ -1,0 +1,37 @@
+﻿@model IEnumerable<PersonalCV.Core.Entities.TemplateGroup>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="direction: rtl" class="container">
+    <h1>گروه بندی قالب ها</h1>
+
+    <p>
+        <a href="/Admin/TemplateGroups/Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    عنوان
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        <a href="/Admin/TemplateGroups/Edit/@item.Id">Edit</a> |
+                        <a href="/Admin/TemplateGroups/Delete/@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
