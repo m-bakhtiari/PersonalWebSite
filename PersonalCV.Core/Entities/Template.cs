@@ -12,6 +12,9 @@ namespace PersonalCV.Core.Entities
         [Required]
         public string Title { get; set; }
 
+        [MaxLength(200)]
+        public string Code { get; set; }
+
         [MaxLength(3600)]
         public string SiteUrlForPreview { get; set; }
 

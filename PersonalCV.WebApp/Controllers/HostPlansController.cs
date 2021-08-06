@@ -1,51 +1,53 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
-using System.Linq;
-using System.Threading.Tasks;
+using PersonalCV.Core.Services;
 
-namespace PersonalCV.WebApp.Areas.Admin.Controllers
+namespace PersonalCV.WebApp.Controllers
 {
-    [Area("Admin")]
-    public class TemplateGroupsController : Controller
+    public class HostPlansController : Controller
     {
-        private readonly PersonalCVContext _context;
+        private readonly HostPlanService _hostPlanService;
 
-        public TemplateGroupsController(PersonalCVContext context)
+        public HostPlansController(HostPlanService hostPlanService)
         {
-            _context = context;
+            _hostPlanService = hostPlanService;
         }
 
-        // GET: Admin/TemplateGroups
+        // GET: HostPlans
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TemplateGroups.ToListAsync());
+            return View(await _hostPlanService.GetAll());
         }
 
-        // GET: Admin/TemplateGroups/Create
+        // GET: HostPlans/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/TemplateGroups/Create
+        // POST: HostPlans/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title")] TemplateGroup templateGroup)
+        public async Task<IActionResult> Create(HostPlan hostPlan)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(templateGroup);
-                await _context.SaveChangesAsync();
+                await _hostPlanService.CreateHostPlan(hostPlan);
                 return RedirectToAction(nameof(Index));
             }
-            return View(templateGroup);
+            return View(hostPlan);
         }
 
-        // GET: Admin/TemplateGroups/Edit/5
+        // GET: HostPlans/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -53,22 +55,22 @@ namespace PersonalCV.WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var templateGroup = await _context.TemplateGroups.FindAsync(id);
-            if (templateGroup == null)
+            var hostPlan = await _hostPlanService.GetHostPlanById(id.Value);
+            if (hostPlan == null)
             {
                 return NotFound();
             }
-            return View(templateGroup);
+            return View(hostPlan);
         }
 
-        // POST: Admin/TemplateGroups/Edit/5
+        // POST: HostPlans/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title")] TemplateGroup templateGroup)
+        public async Task<IActionResult> Edit(int id, HostPlan hostPlan)
         {
-            if (id != templateGroup.Id)
+            if (id != hostPlan.Id)
             {
                 return NotFound();
             }
@@ -77,12 +79,11 @@ namespace PersonalCV.WebApp.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(templateGroup);
-                    await _context.SaveChangesAsync();
+                    await _hostPlanService.UpdateHostPlan(hostPlan);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TemplateGroupExists(templateGroup.Id))
+                    if (!await _hostPlanService.HostPlanExists(hostPlan.Id))
                     {
                         return NotFound();
                     }
@@ -93,10 +94,10 @@ namespace PersonalCV.WebApp.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(templateGroup);
+            return View(hostPlan);
         }
 
-        // GET: Admin/TemplateGroups/Delete/5
+        // GET: HostPlans/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -104,30 +105,23 @@ namespace PersonalCV.WebApp.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var templateGroup = await _context.TemplateGroups
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (templateGroup == null)
+            var hostPlan = await _hostPlanService.GetHostPlanById(id.Value);
+            if (hostPlan == null)
             {
                 return NotFound();
             }
 
-            return View(templateGroup);
+            return View(hostPlan);
         }
 
-        // POST: Admin/TemplateGroups/Delete/5
+        // POST: HostPlans/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var templateGroup = await _context.TemplateGroups.FindAsync(id);
-            _context.TemplateGroups.Remove(templateGroup);
-            await _context.SaveChangesAsync();
+            var hostPlan = await _hostPlanService.GetHostPlanById(id);
+            await _hostPlanService.DeleteHostPlan(hostPlan);
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool TemplateGroupExists(int id)
-        {
-            return _context.TemplateGroups.Any(e => e.Id == id);
         }
     }
 }

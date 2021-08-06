@@ -17,6 +17,7 @@ namespace PersonalCV.Core.Context
         public DbSet<SiteInfo> SiteInfos { get; set; }
         public DbSet<TemplateGroup> TemplateGroups { get; set; }
         public DbSet<Template> Templates { get; set; }
+        public DbSet<HostPlan> HostPlans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

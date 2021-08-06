@@ -8,7 +8,7 @@
     <h1>گروه بندی قالب ها</h1>
 
     <p>
-        <a href="/Admin/TemplateGroups/Create">Create New</a>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
     </p>
     <table class="table">
         <thead>
@@ -27,8 +27,8 @@
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
                     <td>
-                        <a href="/Admin/TemplateGroups/Edit/@item.Id">Edit</a> |
-                        <a href="/Admin/TemplateGroups/Delete/@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-warning">Delete</a>
                     </td>
                 </tr>
             }

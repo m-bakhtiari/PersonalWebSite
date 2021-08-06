@@ -21,12 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <ProjectReference Include="..\PersonalCV.Core\PersonalCV.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PersonalCV.Core\PersonalCV.Core.csproj" />
+    <Folder Include="wwwroot\assets\img\Template\" />
   </ItemGroup>
 
 </Project>
