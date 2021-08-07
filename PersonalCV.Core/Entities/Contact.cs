@@ -17,5 +17,10 @@ namespace PersonalCV.Core.Entities
         public string Subject { get; set; }
 
         public string Message { get; set; }
+
+        public bool IsRead { get; set; }
+
+        [MaxLength(200)]
+        public string Phone { get; set; }
     }
 }

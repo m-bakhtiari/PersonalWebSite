@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace PersonalCV.Core.Extensions
 {
@@ -20,7 +20,7 @@ namespace PersonalCV.Core.Extensions
             where TEnum : struct, IComparable, IFormattable, IConvertible
         {
             var values = from TEnum e in Enum.GetValues(typeof(TEnum))
-                select new { Id = e, Name = e.ToString() };
+                         select new { Id = e, Name = e.ToString() };
             return new SelectList(values, "Id", "Name", enumObj);
         }
     }

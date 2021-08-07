@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
 using PersonalCV.Core.Enums;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PersonalCV.Core.Services
 {
@@ -27,13 +24,14 @@ namespace PersonalCV.Core.Services
 
         public async Task Update(SiteInfo siteInfo)
         {
-            _context.Update(siteInfo);
+            _context.SiteInfos.Update(siteInfo);
             await _context.SaveChangesAsync();
         }
 
         public async Task Delete(SiteInfo siteInfo)
         {
-
+            _context.SiteInfos.Remove(siteInfo);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<SiteInfo>> GetAll()
