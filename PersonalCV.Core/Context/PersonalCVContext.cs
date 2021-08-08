@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using PersonalCV.Core.Consts;
 using PersonalCV.Core.Entities;
+using PersonalCV.Core.Enums;
 
 namespace PersonalCV.Core.Context
 {
@@ -27,6 +30,18 @@ namespace PersonalCV.Core.Context
 
             foreach (var fk in cascadeFKs)
                 fk.DeleteBehavior = DeleteBehavior.Restrict;
+
+            modelBuilder.Entity<SiteInfo>().HasData(new List<SiteInfo>()
+            {
+                new SiteInfo()
+                {
+                    Id = 1,Key = GeneralEnums.GeneralEnum.Username, Value = Const.Username,
+                },
+                new SiteInfo()
+                {
+                    Id = 2,Key = GeneralEnums.GeneralEnum.Password, Value = Const.Password,
+                }
+            });
 
             base.OnModelCreating(modelBuilder);
         }

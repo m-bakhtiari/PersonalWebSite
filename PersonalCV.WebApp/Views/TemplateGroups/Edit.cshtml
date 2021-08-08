@@ -4,7 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
-<div style="direction: rtl" class="container">
+<main id="main">
+<section class="container">
 
     <h1>Edit</h1>
 
@@ -30,7 +31,8 @@
     <div>
         <a asp-action="Index">Back to List</a>
     </div>
-</div>
+</section>
+</main>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

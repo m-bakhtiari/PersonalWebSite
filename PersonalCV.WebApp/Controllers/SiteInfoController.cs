@@ -8,9 +8,11 @@ using PersonalCV.Core.Services;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PersonalCV.WebApp.Controllers
 {
+    [Authorize]
     public class SiteInfoController : Controller
     {
         private readonly SiteInfoService _siteInfoService;

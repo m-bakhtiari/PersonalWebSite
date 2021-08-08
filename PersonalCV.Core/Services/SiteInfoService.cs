@@ -53,5 +53,17 @@ namespace PersonalCV.Core.Services
         {
             return await _context.SiteInfos.AnyAsync(x => x.Key == generalEnum);
         }
+
+        public async Task<bool> IsUsernameExist(string username, string password)
+        {
+            var info = await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == GeneralEnums.GeneralEnum.Username);
+            var model = await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == GeneralEnums.GeneralEnum.Password);
+            if (username == info.Value && password == model.Value)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

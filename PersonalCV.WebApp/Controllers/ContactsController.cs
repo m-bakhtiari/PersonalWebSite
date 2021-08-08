@@ -4,6 +4,7 @@ using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using PersonalCV.Core.Services;
 
 namespace PersonalCV.WebApp.Controllers
@@ -18,12 +19,14 @@ namespace PersonalCV.WebApp.Controllers
         }
 
         // GET: Contacts
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _contactService.GetAll());
         }
 
         // GET: Contacts/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -58,8 +61,8 @@ namespace PersonalCV.WebApp.Controllers
         // POST: Contacts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> SetAsRead(int id)
         {
             try

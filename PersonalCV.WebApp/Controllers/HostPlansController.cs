@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
 using PersonalCV.Core.Services;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PersonalCV.WebApp.Controllers
 {
+    [Authorize]
     public class HostPlansController : Controller
     {
         private readonly HostPlanService _hostPlanService;

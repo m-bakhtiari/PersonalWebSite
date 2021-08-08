@@ -3,9 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Entities;
 using PersonalCV.Core.Services;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PersonalCV.WebApp.Controllers
 {
+    [Authorize]
     public class SkillsController : Controller
     {
         private readonly SkillService _skillService;

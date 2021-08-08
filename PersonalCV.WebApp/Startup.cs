@@ -28,6 +28,11 @@ namespace PersonalCV.WebApp
             #region IoC
 
             services.AddTransient<TemplateGroupService, TemplateGroupService>();
+            services.AddTransient<TemplateService, TemplateService>();
+            services.AddTransient<SiteInfoService, SiteInfoService>();
+            services.AddTransient<SkillService, SkillService>();
+            services.AddTransient<HostPlanService, HostPlanService>();
+            services.AddTransient<ContactService, ContactService>();
 
             #endregion
 
@@ -52,7 +57,7 @@ namespace PersonalCV.WebApp
 
             services.AddDbContext<PersonalCVContext>(options =>
                 {
-                    options.UseSqlServer(Configuration.GetConnectionString("MyCvProjectConnection"));
+                    options.UseSqlServer(Configuration.GetConnectionString("PersonalCvConnection"));
                 }, ServiceLifetime.Transient
             );
 
@@ -73,19 +78,15 @@ namespace PersonalCV.WebApp
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "areas",
-                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
-
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

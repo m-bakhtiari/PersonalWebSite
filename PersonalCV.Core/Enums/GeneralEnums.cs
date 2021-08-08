@@ -9,10 +9,10 @@ namespace PersonalCV.Core.Enums
 {
     public class GeneralEnums
     {
-        public enum GeneralEnum:int
+        public enum GeneralEnum : int
         {
             [Description("AboutUsText")]
-            AboutUsText = 1,
+            AboutText = 1,
 
             [Description("BirthDay")]
             BirthDay = 2,
@@ -36,10 +36,10 @@ namespace PersonalCV.Core.Enums
             Email = 8,
 
             [Description("FreeLance")]
-            FreeLance = 9,
+            FreeLanceText = 9,
 
-            [Description("MyPhoto")]
-            MyPhoto = 10,
+            [Description("SidebarMyPhoto")]
+            SidebarMyPhoto = 10,
 
             [Description("CountOfTestProjects")]
             CountOfTestProjects = 11,
@@ -66,7 +66,22 @@ namespace PersonalCV.Core.Enums
             InstagramUrl = 18,
 
             [Description("WhatsappUrl")]
-            WhatsappUrl = 19
+            WhatsappUrl = 19,
+
+            [Description("Username")]
+            Username = 20,
+
+            [Description("Password")]
+            Password = 21,
+
+            [Description("HeaderMyPhoto")]
+            HeaderMyPhoto = 21,
+
+            [Description("AboutMyPhoto")]
+            AboutMyPhoto = 22,
+
+            [Description("AboutTitle")]
+            AboutTitle=23,
         }
 
     }

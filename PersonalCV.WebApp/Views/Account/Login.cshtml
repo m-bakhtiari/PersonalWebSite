@@ -1,0 +1,34 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "ورود به سایت";
+}
+
+
+<main id="main">
+    <section class="container">
+        <main class="client-page">
+            <div class="container-content">
+                <header><h2> ورود به سایت </h2></header>
+                <div class="form-layer">
+                    <form asp-action="Login" method="post">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="email-address"><i class="zmdi zmdi-email"></i></span>
+                            <input asp-for="Username" type="text" class="form-control" placeholder="نام کاربری" aria-describedby="email-address">
+
+                        </div>
+                        <span asp-validation-for="Password"></span>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="password"><i class="zmdi zmdi-lock"></i></span>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="رمز عبور " aria-describedby="password">
+
+                        </div>
+                        <span asp-validation-for="Password"></span>
+                        <input type="hidden" id="return_url" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+                        <button class="btn btn-success"> ورود به سایت </button>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </section>
+</main>
