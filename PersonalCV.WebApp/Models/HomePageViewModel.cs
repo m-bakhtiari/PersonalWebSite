@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using PersonalCV.Core.Entities;
+﻿using PersonalCV.Core.Entities;
+using System.Collections.Generic;
 
 namespace PersonalCV.WebApp.Models
 {
@@ -28,6 +27,8 @@ namespace PersonalCV.WebApp.Models
         public string InstagramUrl { get; set; }
         public string WhatsappUrl { get; set; }
         public string AboutTitle { get; set; }
+        public string ResumeText { get; set; }
+        public string BiographySummaryText { get; set; }
 
         public List<Skill> Skills { get; set; }
     }

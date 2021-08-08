@@ -81,7 +81,13 @@ namespace PersonalCV.Core.Enums
             AboutMyPhoto = 22,
 
             [Description("AboutTitle")]
-            AboutTitle=23,
+            AboutTitle = 23,
+
+            [Description("ResumeText")]
+            ResumeText = 24,
+
+            [Description("BiographySummaryText")]
+            BiographySummaryText=25,
         }
 
     }

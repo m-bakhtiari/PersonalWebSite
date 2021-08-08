@@ -47,15 +47,15 @@ namespace PersonalCV.WebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public async Task<IActionResult> Create(Contact contact)
+        public async Task<string> Create(Contact contact)
         {
             if (ModelState.IsValid)
             {
                 await _contactService.Add(contact);
-                return Ok();
+                return "Ok";
             }
 
-            return BadRequest();
+            return "Fail";
         }
 
         // POST: Contacts/Edit/5

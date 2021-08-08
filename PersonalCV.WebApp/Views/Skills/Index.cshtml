@@ -17,12 +17,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Title)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SkillDetailTitle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Percent)
-                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -32,12 +26,6 @@
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.Title)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SkillDetailTitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Percent)
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

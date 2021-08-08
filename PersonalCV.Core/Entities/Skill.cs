@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PersonalCV.Core.Entities
 {
@@ -11,10 +12,6 @@ namespace PersonalCV.Core.Entities
         [MaxLength(800)]
         public string Title { get; set; }
 
-        [Required]
-        [MaxLength(500)]
-        public string SkillDetailTitle { get; set; }
-
-        public int Percent { get; set; }
+        public ICollection<SkillDetail> SkillDetails { get; set; }
     }
 }

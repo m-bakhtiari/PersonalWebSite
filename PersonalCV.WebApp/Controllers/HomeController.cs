@@ -17,11 +17,14 @@ namespace PersonalCV.WebApp.Controllers
         private readonly TemplateService _templateService;
         private readonly SkillService _skillService;
         private readonly HostPlanService _hostPlanService;
-
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, HostPlanService hostPlanService)
         {
             _logger = logger;
+            _siteInfoService = siteInfoService;
+            _templateGroupService = templateGroupService;
+            _templateService = templateService;
+            _skillService = skillService;
+            _hostPlanService = hostPlanService;
         }
 
         public async Task<IActionResult> Index()
@@ -46,7 +49,9 @@ namespace PersonalCV.WebApp.Controllers
                 TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
                 Website = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Website)?.Value,
                 WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
+                ResumeText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.ResumeText)?.Value,
                 YearsCountOfExperience = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.Value,
+                BiographySummaryText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.Value,
                 Skills = await _skillService.GetAll(),
             };
             return View(model);
