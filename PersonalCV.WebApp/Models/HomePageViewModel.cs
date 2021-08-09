@@ -31,6 +31,8 @@ namespace PersonalCV.WebApp.Models
         public string BiographySummaryText { get; set; }
 
         public List<Skill> Skills { get; set; }
+
+        public Contact Contact { get; set; }
     }
 
 }

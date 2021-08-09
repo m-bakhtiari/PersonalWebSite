@@ -1,0 +1,35 @@
+﻿@model PersonalCV.Core.Entities.Contact
+
+@{
+    Layout = null;
+}
+
+<div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+    <form class="php-email-form" asp-controller="Contacts" asp-action="Create">
+        <div class="row">
+            <div class="form-group">
+                <label asp-for="Name">Your Name</label>
+                <input asp-for="Name" type="text" name="name" id="name" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Email" for="email">Your Email</label>
+                <input asp-for="Email" type="email" class="form-control" id="email" name="email" />
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Phone" for="phone">Your Phone</label>
+                <input asp-for="Phone" type="text" class="form-control" id="phone" name="phone" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Subject" for="subject">Subject</label>
+            <input asp-for="Subject" type="text" class="form-control" id="subject" name="subject">
+        </div>
+        <div class="form-group">
+            <label asp-for="Message" for="message">Message</label>
+            <textarea asp-for="Message" class="form-control" id="message" name="message" rows="10" required></textarea>
+        </div>
+        <div class="text-center">
+            <input class="btn btn-success" type="submit" value="Send Message"/>
+        </div>
+    </form>
+</div>

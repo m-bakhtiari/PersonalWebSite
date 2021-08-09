@@ -63,7 +63,7 @@
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
                     <div class="count-box">
                         <i class="bi bi-emoji-smile"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfCustomers" data-purecounter-duration="1" class="purecounter"></span>
+                        <span>@Model.CountOfCustomers</span>
                         <p><strong>Happy Clients</strong> that work with me</p>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="count-box">
                         <i class="bi bi-journal-richtext"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfTestProjects" data-purecounter-duration="1" class="purecounter"></span>
+                        <span>@Model.CountOfTestProjects</span>
                         <p><strong>Projects</strong> that do for test</p>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
                     <div class="count-box">
                         <i class="bi bi-headset"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfPublishedProjects" data-purecounter-duration="1" class="purecounter"></span>
+                        <span>@Model.CountOfPublishedProjects</span>
                         <p><strong>Projects</strong> that published</p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
                     <div class="count-box">
                         <i class="bi bi-people"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="@Model.YearsCountOfExperience" data-purecounter-duration="1" class="purecounter"></span>
+                        <span>@Model.CountOfPublishedProjects</span>
                         <p><strong>Years</strong> experience as team and freelancer</p>
                     </div>
                 </div>
@@ -356,103 +356,11 @@
                     </div>
 
                 </div>
-
-                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <form action="Contacts/Create" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                            <div class="form-group">
-                                <label for="name">Your Name</label>
-                                <input type="text" name="name" id="name" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email">Your Email</label>
-                                <input type="email" class="form-control" id="email" name="email" />
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="phone">Your Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" class="form-control" id="subject" name="subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="10" required></textarea>
-                        </div>
-                        <div class="text-center"><button type="submit" id="btnPost">Send Message</button></div>
-                    </form>
-                </div>
-
+                
+                <partial name="_ContactForm" model="@Model.Contact" />
             </div>
 
         </div>
     </section><!-- End Contact Section -->
-
 </main><!-- End #main -->
 <!-- ======= Footer ======= -->
-<!-- Message Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn btn-close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body" id="modalText">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-@section Scripts
-{
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script>
-        $(function () {
-            $("#btnPost").click(function () {
-                debugger;
-                var modelBody = document.getElementById('modalText');
-
-                var contact = new Object();
-                contact.Name = document.getElementById(name);
-                contact.Address = document.getElementById(phone);
-                contact.Email = document.getElementById(email);
-                contact.Subject = document.getElementById(subject);
-                contact.Message = document.getElementById(message);
-                $.ajax({
-                    type: "POST",
-                    url: "/Contacts/Create",
-                    data: JSON.stringify(contact),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        if (response.responseText == "Ok") {
-                            modelBody.innerText = "Thanks for your message";
-                            $('#myModal').modal('show');
-                        }
-                        else {
-                            modelBody.innerText = "Something went wrong please try again later success wrong";
-                            $('#myModal').modal('show');
-                        }
-                    },
-                    failure: function (response) {
-                        modelBody.innerText = "Something went wrong please try again later failure";
-                        $('#myModal').modal('show');
-                    },
-                    error: function (response) {
-                        modelBody.innerText = "Something went wrong please try again later error";
-                        $('#myModal').modal('show');
-                    }
-                });
-
-            });
-        });
-    </script>
-}

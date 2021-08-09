@@ -5,6 +5,7 @@ using PersonalCV.Core.Entities;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using PersonalCV.Core.Services;
 
 namespace PersonalCV.WebApp.Controllers
@@ -47,15 +48,10 @@ namespace PersonalCV.WebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public async Task<string> Create(Contact contact)
+        public async Task<IActionResult> Create(Contact contact)
         {
-            if (ModelState.IsValid)
-            {
-                await _contactService.Add(contact);
-                return "Ok";
-            }
-
-            return "Fail";
+            await _contactService.Add(contact);
+            return View("ContactMessage");
         }
 
         // POST: Contacts/Edit/5
