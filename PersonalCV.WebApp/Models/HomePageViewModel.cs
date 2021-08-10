@@ -29,10 +29,32 @@ namespace PersonalCV.WebApp.Models
         public string AboutTitle { get; set; }
         public string ResumeText { get; set; }
         public string BiographySummaryText { get; set; }
+        public string GithubText { get; set; }
+        public string GithubUrl { get; set; }
+        public string ContactText { get; set; }
+        public string EducationFirstTitle { get; set; }
+        public string EducationFirstYear { get; set; }
+        public string EducationFirstAddress { get; set; }
+        public string EducationSecondTitle { get; set; }
+        public string EducationSecondYear { get; set; }
+        public string EducationSecondAddress { get; set; }
+        public string JobFirstTitle { get; set; }
+        public string JobFirstYear { get; set; }
+        public string JobFirstAddress { get; set; }
+        public string JobFirstDescription1 { get; set; }
+        public string JobFirstDescription2 { get; set; }
+        public string JobFirstDescription3 { get; set; }
+        public string JobSecondTitle { get; set; }
+        public string JobSecondYear { get; set; }
+        public string JobSecondAddress { get; set; }
+        public string JobSecondDescription1 { get; set; }
+        public string JobSecondDescription2 { get; set; }
+        public string JobSecondDescription3 { get; set; }
+        public string TemplateText { get; set; }
 
         public List<Skill> Skills { get; set; }
-
         public Contact Contact { get; set; }
+        public List<TemplateGroup> TemplateGroups { get; set; }
     }
 
 }

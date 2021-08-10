@@ -75,19 +75,76 @@ namespace PersonalCV.Core.Enums
             Password = 21,
 
             [Description("HeaderMyPhoto")]
-            HeaderMyPhoto = 21,
+            HeaderMyPhoto = 22,
 
             [Description("AboutMyPhoto")]
-            AboutMyPhoto = 22,
+            AboutMyPhoto = 23,
 
             [Description("AboutTitle")]
-            AboutTitle = 23,
+            AboutTitle = 24,
 
             [Description("ResumeText")]
-            ResumeText = 24,
+            ResumeText = 25,
+
+            [Description("EducationFirstYear")]
+            EducationFirstYear =26 ,
+
+            [Description("EducationFirstAddress")]
+            EducationFirstAddress =27,
+
+            [Description("EducationSecondTitle")]
+            EducationSecondTitle =28 ,
+
+            [Description("EducationSecondYear")]
+            EducationSecondYear =29 ,
+
+            [Description("EducationSecondAddress")]
+            EducationSecondAddress =30,
+
+            [Description("JobFirstTitle")]
+            JobFirstTitle =31 ,
+
+            [Description("JobFirstYear")]
+            JobFirstYear =32 ,
+
+            [Description("JobFirstAddress")]
+            JobFirstAddress =33,
+
+            [Description("JobFirstDescription1")]
+            JobFirstDescription1 =34,
+
+            [Description("JobFirstDescription2")]
+            JobFirstDescription2 =35,
+
+            [Description("JobFirstDescription3")]
+            JobFirstDescription3 =36,
+
+            [Description("JobSecondTitle")]
+            JobSecondTitle =37 ,
+
+            [Description("JobSecondYear")]
+            JobSecondYear =38 ,
+
+            [Description("JobSecondAddress")]
+            JobSecondAddress =39,
+
+            [Description("JobSecondDescription1")]
+            JobSecondDescription1 =40,
+
+            [Description("JobSecondDescription2")]
+            JobSecondDescription2 =41,
+
+            [Description("JobSecondDescription3")]
+            JobSecondDescription3 =42,
 
             [Description("BiographySummaryText")]
-            BiographySummaryText=25,
+            BiographySummaryText=43,
+
+            [Description("EducationFirstTitle")]
+            EducationFirstTitle = 44,
+
+            [Description("TemplateText")]
+            TemplateText = 45,
         }
 
     }
