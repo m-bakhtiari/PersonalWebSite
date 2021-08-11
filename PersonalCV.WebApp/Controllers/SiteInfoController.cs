@@ -9,6 +9,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using PersonalCV.WebApp.Models;
 
 namespace PersonalCV.WebApp.Controllers
 {
@@ -46,13 +47,19 @@ namespace PersonalCV.WebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(SiteInfo siteInfo)
+        public async Task<IActionResult> Create(SiteInfoViewModel siteInfo)
         {
             if (ModelState.IsValid)
             {
                 if (await _siteInfoService.IsEnumTypeExist(siteInfo.Key) == false)
                 {
-                    await _siteInfoService.Add(siteInfo);
+                    var model = new SiteInfo()
+                    {
+                        Id = siteInfo.Id,
+                        Value = siteInfo.Value,
+                        Key = siteInfo.Key
+                    };
+                    await _siteInfoService.Add(model, siteInfo.Image);
                 }
                 return RedirectToAction(nameof(Index));
             }

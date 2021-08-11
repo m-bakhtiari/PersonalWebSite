@@ -199,8 +199,9 @@
     </section>
 
     <!-- End Github Section -->
-    <partial name="_Template" model="@Tuple.Create(Model.TemplateGroups,Model.TemplateText)" />
-
+    <div id="templatePartial">
+        <partial name="_Template" model="@Model.TemplateViewModel" />
+    </div>
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
         <div class="container">
@@ -236,7 +237,6 @@
                     </div>
 
                 </div>
-
                 <partial name="_ContactForm" model="@Model.Contact" />
             </div>
 
@@ -244,3 +244,18 @@
     </section><!-- End Contact Section -->
 </main><!-- End #main -->
 <!-- ======= Footer ======= -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function LoadTemplate(groupId, pageId) {
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetTemplateGroups?groupId=" + groupId + "&&pageId=" + pageId
+        }).done(function (data, statusText, xhdr) {
+            console.log("Done");
+            $("#templatePartial").after(data);
+        }).fail(function (xhdr, statusText, errorText) {
+            console.log("Failed");
+        });
+    }
+</script>

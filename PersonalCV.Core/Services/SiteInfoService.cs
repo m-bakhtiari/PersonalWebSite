@@ -1,9 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
 using PersonalCV.Core.Enums;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace PersonalCV.Core.Services
 {
@@ -16,8 +20,17 @@ namespace PersonalCV.Core.Services
             _context = context;
         }
 
-        public async Task Add(SiteInfo siteInfo)
+        public async Task Add(SiteInfo siteInfo, [AllowNull] IFormFile image)
         {
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
+                siteInfo.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+            {
+                siteInfo.Value = GenerateUniqCode() + Path.GetExtension(image.FileName);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", siteInfo.Value);
+                await using var stream = new FileStream(imagePath, FileMode.Create);
+                await image.CopyToAsync(stream);
+            }
+
             await _context.SiteInfos.AddAsync(siteInfo);
             await _context.SaveChangesAsync();
         }
@@ -30,6 +43,15 @@ namespace PersonalCV.Core.Services
 
         public async Task Delete(SiteInfo siteInfo)
         {
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
+                siteInfo.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+            {
+                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", siteInfo.Value);
+                if (File.Exists(deleteImagePath))
+                {
+                    File.Delete(deleteImagePath);
+                }
+            }
             _context.SiteInfos.Remove(siteInfo);
             await _context.SaveChangesAsync();
         }
@@ -64,6 +86,18 @@ namespace PersonalCV.Core.Services
             }
 
             return false;
+        }
+
+        public async Task<string> GetTemplateText()
+        {
+            var template =
+                await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == GeneralEnums.GeneralEnum.TemplateText);
+            return template?.Value;
+        }
+
+        private string GenerateUniqCode()
+        {
+            return Guid.NewGuid().ToString().Replace("-", "");
         }
     }
 }

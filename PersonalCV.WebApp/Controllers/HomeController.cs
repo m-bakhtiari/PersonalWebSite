@@ -27,9 +27,17 @@ namespace PersonalCV.WebApp.Controllers
             _hostPlanService = hostPlanService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? groupId, int pageId = 1)
         {
             var siteInfo = await _siteInfoService.GetAll();
+            var template = await _templateGroupService.GetAllByPaging(groupId, pageId);
+            var templateVm = new TemplateViewModel()
+            {
+                PageCount = template.Item2,
+                TemplateGroups = template.Item1,
+                PageId = pageId,
+                TemplateText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TemplateText)?.Value,
+            };
             var model = new HomePageViewModel()
             {
                 Phone = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Phone)?.Value,
@@ -53,8 +61,24 @@ namespace PersonalCV.WebApp.Controllers
                 YearsCountOfExperience = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.Value,
                 BiographySummaryText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.Value,
                 Skills = await _skillService.GetAll(),
+                TemplateViewModel = templateVm,
             };
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetTemplateGroups(int? groupId, int pageId = 1)
+        {
+            var template = await _templateGroupService.GetAllByPaging(groupId, pageId);
+
+            var model = new TemplateViewModel()
+            {
+                PageCount = template.Item2,
+                TemplateGroups = template.Item1,
+                PageId = pageId,
+                TemplateText = await _siteInfoService.GetTemplateText(),
+            };
+            return PartialView("_Template", model);
         }
 
         public IActionResult Privacy()
