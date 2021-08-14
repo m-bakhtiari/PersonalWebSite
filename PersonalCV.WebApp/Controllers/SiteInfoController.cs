@@ -46,7 +46,6 @@ namespace PersonalCV.WebApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SiteInfoViewModel siteInfo)
         {
             if (ModelState.IsValid)
@@ -79,7 +78,20 @@ namespace PersonalCV.WebApp.Controllers
             {
                 return NotFound();
             }
-            return View(siteInfo);
+            var enumData = from GeneralEnums.GeneralEnum e in Enum.GetValues(typeof(GeneralEnums.GeneralEnum))
+                select new
+                {
+                    ID = (int)e,
+                    Name = e.GetEnumDescription()
+                };
+            ViewBag.EnumList = new SelectList(enumData, "ID", "Name");
+            var model = new SiteInfoViewModel()
+            {
+                Value = siteInfo.Value,
+                Key = siteInfo.Key,
+                Id = siteInfo.Id,
+            };
+            return View(model);
         }
 
         // POST: SiteInfo/Edit/5
@@ -87,25 +99,22 @@ namespace PersonalCV.WebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, SiteInfo siteInfo)
+        public async Task<IActionResult> Edit(int id, SiteInfoViewModel siteInfoViewModel)
         {
-            if (id != siteInfo.Id)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (await _siteInfoService.IsEnumTypeExist(siteInfo.Key) == false)
+                    if (await _siteInfoService.IsEnumTypeExist(siteInfoViewModel.Key) == false)
                     {
-                        await _siteInfoService.Update(siteInfo);
+                        var model = new SiteInfo()
+                        { Id = siteInfoViewModel.Id, Key = siteInfoViewModel.Key, Value = siteInfoViewModel.Value };
+                        await _siteInfoService.Update(model, siteInfoViewModel.Image);
                     }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!await _siteInfoService.SiteInfoExists(siteInfo.Id))
+                    if (!await _siteInfoService.SiteInfoExists(siteInfoViewModel.Id))
                     {
                         return NotFound();
                     }
@@ -116,7 +125,7 @@ namespace PersonalCV.WebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(siteInfo);
+            return View(siteInfoViewModel);
         }
 
         // GET: SiteInfo/Delete/5

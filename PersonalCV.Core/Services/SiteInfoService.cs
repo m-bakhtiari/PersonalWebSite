@@ -35,8 +35,23 @@ namespace PersonalCV.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(SiteInfo siteInfo)
+        public async Task Update(SiteInfo siteInfo, [AllowNull] IFormFile image)
         {
+            var oldData = await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == siteInfo.Key);
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
+                siteInfo.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+            {
+                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", oldData.Value);
+                if (File.Exists(deleteImagePath))
+                {
+                    File.Delete(deleteImagePath);
+                }
+
+                siteInfo.Value = GenerateUniqCode() + Path.GetExtension(image.FileName);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", siteInfo.Value);
+                await using var stream = new FileStream(imagePath, FileMode.Create);
+                await image.CopyToAsync(stream);
+            }
             _context.SiteInfos.Update(siteInfo);
             await _context.SaveChangesAsync();
         }

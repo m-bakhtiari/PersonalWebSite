@@ -1,24 +1,25 @@
-﻿@model PersonalCV.Core.Entities.SiteInfo
+﻿@using PersonalCV.Core.Enums
+@model SiteInfoViewModel
 
 @{
     ViewData["Title"] = "Edit";
 }
 
 <main id="main">
-<section class="container">
+    <section class="container">
 
-    <h1>Edit</h1>
+        <h1>Edit</h1>
 
-    <h4>SiteInfo</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Edit">
+        <h4>SiteInfo</h4>
+        <hr />
+        <div class="row">
+            <form asp-action="Edit" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
                 <div class="form-group">
                     <label asp-for="Key" class="control-label"></label>
-                    <select asp-for="Key" class="form-control"></select>
+                    <select class="form-control" asp-for="Key" asp-items="@(ViewBag.EnumList as SelectList)"></select>
+
                     <span asp-validation-for="Key" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -26,19 +27,27 @@
                     <input asp-for="Value" class="form-control" />
                     <span asp-validation-for="Value" class="text-danger"></span>
                 </div>
+                @if (Model.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || Model.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
+                   Model.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+                {
+                    <img src="assets/img/profile/@Model.Value" alt="" style="max-height: 200px;max-width: 200px" />
+                }
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input type="file" asp-for="Image" dir="ltr" />
+                </div>
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
                 </div>
             </form>
         </div>
-    </div>
 
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-</section>
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </section>
 </main>
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

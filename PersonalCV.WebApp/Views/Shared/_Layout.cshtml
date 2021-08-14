@@ -59,6 +59,10 @@
                     <li><a href="#github" class="nav-link scrollto"><i class="bx bx-sitemap"></i> <span>Github</span></a></li>
                     <li><a href="#template" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Templates</span></a></li>
                     <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="/Home/Admin" class="nav-link scrollto"><i class="bx bx-cake"></i> <span>Admin</span></a></li>
+                    }
                 </ul>
             </nav><!-- .nav-menu -->
         </div>
