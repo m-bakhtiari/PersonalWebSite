@@ -5,6 +5,7 @@ using PersonalCV.Core.Entities;
 using PersonalCV.Core.Services;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using PersonalCV.WebApp.Models;
 
 namespace PersonalCV.WebApp.Controllers
 {
@@ -29,8 +30,9 @@ namespace PersonalCV.WebApp.Controllers
         // GET: Templates/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Id");
-            return View();
+            var model = new TemplateViewModel();
+            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Title");
+            return View(model);
         }
 
         // POST: Templates/Create
@@ -38,15 +40,25 @@ namespace PersonalCV.WebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Template template)
+        public async Task<IActionResult> Create(TemplateViewModel templateViewModel)
         {
             if (ModelState.IsValid)
             {
-                await _templateService.Add(template);
+                var template = new Template()
+                {
+                    Code = templateViewModel.Code,
+                    Description = templateViewModel.Description,
+                    GroupId = templateViewModel.GroupId,
+                    MainSiteUrl = templateViewModel.MainSiteUrl,
+                    Price = templateViewModel.Price,
+                    SiteUrlForPreview = templateViewModel.SiteUrlForPreview,
+                    Title = templateViewModel.Title,
+                };
+                await _templateService.Add(template, templateViewModel.Image);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Id", template.GroupId);
-            return View(template);
+            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Title", templateViewModel.GroupId);
+            return View(templateViewModel);
         }
 
         // GET: Templates/Edit/5
@@ -62,8 +74,20 @@ namespace PersonalCV.WebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Id", template.GroupId);
-            return View(template);
+            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Title", template.GroupId);
+            var model = new TemplateViewModel()
+            {
+                Code = template.Code,
+                Description = template.Description,
+                GroupId = template.GroupId,
+                MainSiteUrl = template.MainSiteUrl,
+                Price = template.Price,
+                SiteUrlForPreview = template.SiteUrlForPreview,
+                Title = template.Title,
+                Id = template.Id,
+                MainImage = template.MainImage
+            };
+            return View(model);
         }
 
         // POST: Templates/Edit/5
@@ -71,18 +95,29 @@ namespace PersonalCV.WebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Template template)
+        public async Task<IActionResult> Edit(int id, TemplateViewModel templateViewModel)
         {
-            if (id != template.Id)
+            if (id != templateViewModel.Id)
             {
                 return NotFound();
             }
-
+            var template = new Template()
+            {
+                Code = templateViewModel.Code,
+                Description = templateViewModel.Description,
+                GroupId = templateViewModel.GroupId,
+                MainSiteUrl = templateViewModel.MainSiteUrl,
+                Price = templateViewModel.Price,
+                SiteUrlForPreview = templateViewModel.SiteUrlForPreview,
+                Title = templateViewModel.Title,
+                Id = templateViewModel.Id,
+                MainImage = templateViewModel.MainImage
+            };
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _templateService.Update(template);
+                    await _templateService.Update(template, templateViewModel.Image);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -97,7 +132,7 @@ namespace PersonalCV.WebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Id", template.GroupId);
+            ViewData["GroupId"] = new SelectList(await _templateGroupService.GetAll(), "Id", "Title", template.GroupId);
             return View(template);
         }
 

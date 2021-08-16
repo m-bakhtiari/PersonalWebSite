@@ -31,7 +31,7 @@ namespace PersonalCV.WebApp.Controllers
         {
             var siteInfo = await _siteInfoService.GetAll();
             var template = await _templateGroupService.GetAllByPaging(groupId, pageId);
-            var templateVm = new TemplateViewModel()
+            var templateVm = new TemplatePaging()
             {
                 PageCount = template.Item2,
                 TemplateGroups = template.Item1,
@@ -61,7 +61,7 @@ namespace PersonalCV.WebApp.Controllers
                 YearsCountOfExperience = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.Value,
                 BiographySummaryText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.Value,
                 Skills = await _skillService.GetAll(),
-                TemplateViewModel = templateVm,
+                TemplatePaging = templateVm,
             };
             return View(model);
         }
@@ -71,7 +71,7 @@ namespace PersonalCV.WebApp.Controllers
         {
             var template = await _templateGroupService.GetAllByPaging(groupId, pageId);
 
-            var model = new TemplateViewModel()
+            var model = new TemplatePaging()
             {
                 PageCount = template.Item2,
                 TemplateGroups = template.Item1,

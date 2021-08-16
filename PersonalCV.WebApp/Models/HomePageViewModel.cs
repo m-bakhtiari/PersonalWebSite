@@ -54,7 +54,7 @@ namespace PersonalCV.WebApp.Models
 
         public List<Skill> Skills { get; set; }
         public Contact Contact { get; set; }
-        public TemplateViewModel TemplateViewModel { get; set; }
+        public TemplatePaging TemplatePaging { get; set; }
     }
 
 }
