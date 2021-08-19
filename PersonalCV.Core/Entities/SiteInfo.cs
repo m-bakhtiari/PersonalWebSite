@@ -11,8 +11,5 @@ namespace PersonalCV.Core.Entities
         public GeneralEnums.GeneralEnum Key { get; set; }
 
         public string Value { get; set; }
-
-        public string PersianValue { get; set; }
-
     }
 }
