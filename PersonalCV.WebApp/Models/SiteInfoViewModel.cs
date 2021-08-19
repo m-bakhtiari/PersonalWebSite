@@ -10,6 +10,7 @@ namespace PersonalCV.WebApp.Models
         public GeneralEnums.GeneralEnum Key { get; set; }
 
         public string Value { get; set; }
+        public string PersianValue { get; set; }
 
         public IFormFile Image { get; set; }
     }

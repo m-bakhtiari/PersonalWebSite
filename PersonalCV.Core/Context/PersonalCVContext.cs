@@ -22,6 +22,7 @@ namespace PersonalCV.Core.Context
         public DbSet<Template> Templates { get; set; }
         public DbSet<HostPlan> HostPlans { get; set; }
         public DbSet<SkillDetail> SkillDetails { get; set; }
+        public DbSet<ClientLanguage> ClientLanguages { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

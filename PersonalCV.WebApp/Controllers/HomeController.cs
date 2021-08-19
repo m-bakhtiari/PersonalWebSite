@@ -17,7 +17,9 @@ namespace PersonalCV.WebApp.Controllers
         private readonly TemplateService _templateService;
         private readonly SkillService _skillService;
         private readonly HostPlanService _hostPlanService;
-        public HomeController(ILogger<HomeController> logger, SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, HostPlanService hostPlanService)
+        private readonly ClientLanguageService _clientLanguageService;
+
+        public HomeController(ILogger<HomeController> logger, SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, HostPlanService hostPlanService, ClientLanguageService clientLanguageService)
         {
             _logger = logger;
             _siteInfoService = siteInfoService;
@@ -25,10 +27,15 @@ namespace PersonalCV.WebApp.Controllers
             _templateService = templateService;
             _skillService = skillService;
             _hostPlanService = hostPlanService;
+            _clientLanguageService = clientLanguageService;
         }
 
         public async Task<IActionResult> Index(int? groupId, int pageId = 1)
         {
+            if (await _clientLanguageService.IsIPExist(Request.HttpContext.Connection.RemoteIpAddress?.ToString()) == false)
+            {
+                await _clientLanguageService.Add(Request.HttpContext.Connection.RemoteIpAddress?.ToString());
+            }
             var siteInfo = await _siteInfoService.GetAll();
             var template = await _templateGroupService.GetAllByPaging(groupId, pageId);
             var templateVm = new TemplatePaging()
@@ -40,29 +47,78 @@ namespace PersonalCV.WebApp.Controllers
             };
             var model = new HomePageViewModel()
             {
-                Phone = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Phone)?.Value,
-                BirthDay = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BirthDay)?.Value,
-                Email = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                AboutText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.AboutText)?.Value,
-                Age = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Age)?.Value,
-                City = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.City)?.Value,
-                CountOfCustomers = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfCustomers)?.Value,
-                CountOfPublishedProjects = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfPublishedProjects)?.Value,
-                CountOfTestProjects = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfTestProjects)?.Value,
-                Degree = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Degree)?.Value,
-                FactsText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FactsText)?.Value,
-                FreeLanceText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FreeLanceText)?.Value,
-                InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)?.Value,
-                SkillsText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SkillsText)?.Value,
-                TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
-                Website = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Website)?.Value,
-                WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
-                ResumeText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.ResumeText)?.Value,
-                YearsCountOfExperience = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.Value,
-                BiographySummaryText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.Value,
                 Skills = await _skillService.GetAll(),
                 TemplatePaging = templateVm,
             };
+            if (await _clientLanguageService.IsInEnglish(Request.HttpContext.Connection.RemoteIpAddress?.ToString()))
+            {
+                model.Phone = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Phone)?.Value;
+                model.BirthDay = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BirthDay)?.Value;
+                model.Email = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value;
+                model.AboutText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.AboutText)?.Value;
+                model.Age = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Age)?.Value;
+                model.City = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.City)?.Value;
+                model.CountOfCustomers =
+                    siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfCustomers)?.Value;
+                model.CountOfPublishedProjects = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfPublishedProjects)?.Value;
+                model.CountOfTestProjects = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfTestProjects)?.Value;
+                model.Degree = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Degree)?.Value;
+                model.FactsText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FactsText)?.Value;
+                model.FreeLanceText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FreeLanceText)
+                    ?.Value;
+                model.InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)
+                    ?.Value;
+                model.SkillsText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SkillsText)
+                    ?.Value;
+                model.TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)
+                    ?.Value;
+                model.Website = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Website)?.Value;
+                model.WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)
+                    ?.Value;
+                model.ResumeText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.ResumeText)
+                    ?.Value;
+                model.YearsCountOfExperience = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.Value;
+                model.BiographySummaryText = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.Value;
+            }
+            else
+            {
+                model.Phone = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Phone)?.PersianValue;
+                model.BirthDay = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BirthDay)?.PersianValue;
+                model.Email = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.PersianValue;
+                model.AboutText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.AboutText)?.PersianValue;
+                model.Age = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Age)?.PersianValue;
+                model.City = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.City)?.PersianValue;
+                model.CountOfCustomers =
+                    siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfCustomers)?.PersianValue;
+                model.CountOfPublishedProjects = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfPublishedProjects)?.PersianValue;
+                model.CountOfTestProjects = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfTestProjects)?.PersianValue;
+                model.Degree = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Degree)?.PersianValue;
+                model.FactsText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FactsText)?.PersianValue;
+                model.FreeLanceText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FreeLanceText)
+                    ?.PersianValue;
+                model.InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)
+                    ?.PersianValue;
+                model.SkillsText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SkillsText)
+                    ?.PersianValue;
+                model.TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)
+                    ?.PersianValue;
+                model.Website = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Website)?.PersianValue;
+                model.WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)
+                    ?.PersianValue;
+                model.ResumeText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.ResumeText)
+                    ?.PersianValue;
+                model.YearsCountOfExperience = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.PersianValue;
+                model.BiographySummaryText = siteInfo
+                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.PersianValue;
+            }
+
             return View(model);
         }
 

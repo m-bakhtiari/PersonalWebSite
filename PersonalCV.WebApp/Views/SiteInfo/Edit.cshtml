@@ -27,8 +27,13 @@
                     <input asp-for="Value" class="form-control" />
                     <span asp-validation-for="Value" class="text-danger"></span>
                 </div>
+                <div class="form-group">
+                    <label asp-for="PersianValue" class="control-label"></label>
+                    <input asp-for="PersianValue" class="form-control" />
+                    <span asp-validation-for="PersianValue" class="text-danger"></span>
+                </div>
                 @if (Model.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || Model.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
-                   Model.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+                  Model.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
                 {
                     <img src="assets/img/profile/@Model.Value" alt="" style="max-height: 200px;max-width: 200px" />
                 }
