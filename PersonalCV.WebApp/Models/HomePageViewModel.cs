@@ -13,7 +13,7 @@ namespace PersonalCV.WebApp.Models
         public string Age { get; set; }
         public string Degree { get; set; }
         public string Email { get; set; }
-        public string FreeLanceText { get; set; }
+        public string LinkedIn { get; set; }
         public string HeaderMyPhoto { get; set; }
         public string SidebarMyPhoto { get; set; }
         public string AboutMyPhoto { get; set; }

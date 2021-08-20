@@ -35,7 +35,8 @@ namespace PersonalCV.Core.Services
 
         public async Task UpdateGroup(TemplateGroup templateGroup)
         {
-            _context.TemplateGroups.Update(templateGroup);
+            var oldData = await _context.TemplateGroups.FindAsync(templateGroup.Id);
+            _context.Entry(oldData).CurrentValues.SetValues(templateGroup);
             await _context.SaveChangesAsync();
         }
 

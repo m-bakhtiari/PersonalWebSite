@@ -35,8 +35,8 @@ namespace PersonalCV.Core.Enums
             [Description("Email")]
             Email = 8,
 
-            [Description("FreeLance")]
-            FreeLanceText = 9,
+            [Description("LinkedIn")]
+            LinkedIn = 9,
 
             [Description("SidebarMyPhoto")]
             SidebarMyPhoto = 10,

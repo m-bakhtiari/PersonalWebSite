@@ -23,7 +23,8 @@ namespace PersonalCV.Core.Services
 
         public async Task Update(Skill skill)
         {
-            _context.Skills.Update(skill);
+            var oldData = await _context.Skills.FindAsync(skill.Id);
+            _context.Entry(oldData).CurrentValues.SetValues(skill);
             await _context.SaveChangesAsync();
         }
 

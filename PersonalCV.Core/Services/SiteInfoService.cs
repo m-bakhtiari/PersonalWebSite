@@ -52,7 +52,7 @@ namespace PersonalCV.Core.Services
                 await using var stream = new FileStream(imagePath, FileMode.Create);
                 await image.CopyToAsync(stream);
             }
-            _context.SiteInfos.Update(siteInfo);
+            _context.Entry(oldData).CurrentValues.SetValues(siteInfo);
             await _context.SaveChangesAsync();
         }
 
@@ -86,8 +86,12 @@ namespace PersonalCV.Core.Services
             return await _context.SiteInfos.AnyAsync(e => e.Id == id);
         }
 
-        public async Task<bool> IsEnumTypeExist(GeneralEnums.GeneralEnum generalEnum)
+        public async Task<bool> IsEnumTypeExist(int? id, GeneralEnums.GeneralEnum generalEnum)
         {
+            if (id.HasValue)
+            {
+                return await _context.SiteInfos.AnyAsync(x => x.Key == generalEnum && x.Id != id);
+            }
             return await _context.SiteInfos.AnyAsync(x => x.Key == generalEnum);
         }
 

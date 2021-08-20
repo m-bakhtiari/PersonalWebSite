@@ -27,16 +27,6 @@ namespace PersonalCV.WebApp
         {
             services.AddControllersWithViews();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: MyAllowSpecificOrigins,
-                    builder =>
-                    {
-                        builder.WithOrigins("https://localhost:44382/",
-                            "http://www.contoso.com");
-                    });
-            });
-
             #region IoC
 
             services.AddTransient<TemplateGroupService, TemplateGroupService>();
@@ -45,6 +35,7 @@ namespace PersonalCV.WebApp
             services.AddTransient<SkillService, SkillService>();
             services.AddTransient<HostPlanService, HostPlanService>();
             services.AddTransient<ContactService, ContactService>();
+            services.AddTransient<SkillDetailService, SkillDetailService>();
 
             #endregion
 
@@ -69,8 +60,9 @@ namespace PersonalCV.WebApp
 
             services.AddDbContext<PersonalCVContext>(options =>
                 {
+                    options.EnableSensitiveDataLogging(true);
                     options.UseSqlServer(Configuration.GetConnectionString("PersonalCvConnection"));
-                }, ServiceLifetime.Transient
+                }
             );
 
             #endregion

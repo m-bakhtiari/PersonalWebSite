@@ -50,7 +50,7 @@ namespace PersonalCV.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (await _siteInfoService.IsEnumTypeExist(siteInfo.Key) == false)
+                if (await _siteInfoService.IsEnumTypeExist(siteInfo.Id, siteInfo.Key) == false)
                 {
                     var model = new SiteInfo()
                     {
@@ -79,11 +79,11 @@ namespace PersonalCV.WebApp.Controllers
                 return NotFound();
             }
             var enumData = from GeneralEnums.GeneralEnum e in Enum.GetValues(typeof(GeneralEnums.GeneralEnum))
-                select new
-                {
-                    ID = (int)e,
-                    Name = e.GetEnumDescription()
-                };
+                           select new
+                           {
+                               ID = (int)e,
+                               Name = e.GetEnumDescription()
+                           };
             ViewBag.EnumList = new SelectList(enumData, "ID", "Name");
             var model = new SiteInfoViewModel()
             {
@@ -105,7 +105,7 @@ namespace PersonalCV.WebApp.Controllers
             {
                 try
                 {
-                    if (await _siteInfoService.IsEnumTypeExist(siteInfoViewModel.Key) == false)
+                    if (await _siteInfoService.IsEnumTypeExist(id, siteInfoViewModel.Key) == false)
                     {
                         var model = new SiteInfo()
                         { Id = siteInfoViewModel.Id, Key = siteInfoViewModel.Key, Value = siteInfoViewModel.Value };

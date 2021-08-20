@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PersonalCV.Core.Services
 {
@@ -26,7 +23,8 @@ namespace PersonalCV.Core.Services
 
         public async Task Update(SkillDetail skillDetail)
         {
-            _context.SkillDetails.Update(skillDetail);
+            var oldData = await _context.SkillDetails.FindAsync(skillDetail.Id);
+            _context.Entry(oldData).CurrentValues.SetValues(skillDetail);
             await _context.SaveChangesAsync();
         }
 
@@ -38,7 +36,7 @@ namespace PersonalCV.Core.Services
 
         public async Task<List<SkillDetail>> GetAll()
         {
-            return await _context.SkillDetails.ToListAsync();
+            return await _context.SkillDetails.Include(x => x.Skill).ToListAsync();
         }
 
         public async Task<SkillDetail> GetItemById(int id)

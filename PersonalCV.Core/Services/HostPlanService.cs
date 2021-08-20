@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PersonalCV.Core.Services
 {
@@ -36,7 +33,8 @@ namespace PersonalCV.Core.Services
 
         public async Task UpdateHostPlan(HostPlan hostPlan)
         {
-            _context.HostPlans.Update(hostPlan);
+            var oldData = await _context.HostPlans.FindAsync(hostPlan.Id);
+            _context.Entry(oldData).CurrentValues.SetValues(hostPlan);
             await _context.SaveChangesAsync();
         }
 

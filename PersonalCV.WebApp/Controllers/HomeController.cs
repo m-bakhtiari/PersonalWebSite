@@ -57,7 +57,7 @@ namespace PersonalCV.WebApp.Controllers
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfTestProjects)?.Value,
                 Degree = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Degree)?.Value,
                 FactsText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FactsText)?.Value,
-                FreeLanceText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FreeLanceText)
+                LinkedIn = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.LinkedIn)
                     ?.Value,
                 InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)
                     ?.Value,

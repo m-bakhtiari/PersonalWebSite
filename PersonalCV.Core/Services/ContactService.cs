@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PersonalCV.Core.Services
 {

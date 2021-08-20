@@ -1,15 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using PersonalCV.Core.Enums;
 
 namespace PersonalCV.Core.Services
 {
@@ -36,18 +33,19 @@ namespace PersonalCV.Core.Services
         public async Task Update(Template template, [AllowNull] IFormFile image)
         {
             var oldData = await _context.Templates.FindAsync(template.Id);
-            var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", oldData.MainImage);
-            if (File.Exists(deleteImagePath))
+            if (image != null)
             {
-                File.Delete(deleteImagePath);
+                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", oldData.MainImage);
+                if (File.Exists(deleteImagePath))
+                {
+                    File.Delete(deleteImagePath);
+                }
+                template.MainImage = GenerateUniqCode() + Path.GetExtension(image.FileName);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", template.MainImage);
+                await using var stream = new FileStream(imagePath, FileMode.Create);
+                await image.CopyToAsync(stream);
             }
-
-            template.MainImage = GenerateUniqCode() + Path.GetExtension(image.FileName);
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", template.MainImage);
-            await using var stream = new FileStream(imagePath, FileMode.Create);
-            await image.CopyToAsync(stream);
-
-            _context.Templates.Update(template);
+            _context.Entry(oldData).CurrentValues.SetValues(template);
             await _context.SaveChangesAsync();
         }
 
