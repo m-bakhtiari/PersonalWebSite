@@ -31,11 +31,12 @@ namespace PersonalCV.WebApp.Controllers
         public async Task<IActionResult> Index(int? groupId, int pageId = 1)
         {
             var siteInfo = await _siteInfoService.GetAll();
-            var template = await _templateGroupService.GetAllByPaging(groupId, pageId);
+            var template = await _templateService.GetAllByPaging(groupId, pageId);
             var templateVm = new TemplatePaging()
             {
                 PageCount = template.Item2,
-                TemplateGroups = template.Item1,
+                Templates = template.Item1,
+                TemplateGroups = await _templateGroupService.GetAll(),
                 PageId = pageId,
                 TemplateText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TemplateText)?.Value,
             };
@@ -76,22 +77,31 @@ namespace PersonalCV.WebApp.Controllers
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.Value,
             };
 
-
+            ViewBag.IsAllSelected = "true";
             return View(model);
         }
 
         [HttpGet]
         public async Task<ActionResult> GetTemplateGroups(int? groupId, int pageId = 1)
         {
-            var template = await _templateGroupService.GetAllByPaging(groupId, pageId);
+            var template = await _templateService.GetAllByPaging(groupId, pageId);
 
             var model = new TemplatePaging()
             {
                 PageCount = template.Item2,
-                TemplateGroups = template.Item1,
+                Templates = template.Item1,
+                TemplateGroups = await _templateGroupService.GetAll(),
                 PageId = pageId,
                 TemplateText = await _siteInfoService.GetTemplateText(),
             };
+            if (groupId.HasValue==false)
+            {
+                ViewBag.IsAllSelected = "true";
+            }
+            else
+            {
+                ViewBag.IsAllSelected = "false";
+            }
             return PartialView("_Template", model);
         }
 

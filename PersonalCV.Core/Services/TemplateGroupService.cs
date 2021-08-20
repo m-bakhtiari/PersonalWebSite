@@ -50,20 +50,5 @@ namespace PersonalCV.Core.Services
             _context.TemplateGroups.Remove(templateGroup);
             await _context.SaveChangesAsync();
         }
-
-        public async Task<Tuple<List<TemplateGroup>, int>> GetAllByPaging(int? groupId, int pageId = 1)
-        {
-            IQueryable<TemplateGroup> groups = _context.TemplateGroups.Include(x => x.Templates);
-            if (groupId.HasValue)
-            {
-                groups = groups.Where(x => x.Id == groupId);
-            }
-
-            var countAll = await groups.CountAsync();
-            var skip = (pageId - 1) * 9;
-            var groupsItem = await groups.Skip(skip).Take(9).ToListAsync();
-
-            return Tuple.Create(groupsItem, countAll);
-        }
     }
 }

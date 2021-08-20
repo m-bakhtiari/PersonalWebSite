@@ -65,7 +65,7 @@
                         <div class="count-box">
                             <i class="bi bi-emoji-smile"></i>
                             <span>@Model.CountOfCustomers</span>
-                            <p><strong>Happy Clients</strong> that work with me</p>
+                            <p><strong>تعداد مشتریان که </strong> با من کار کرده اند</p>
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@
                         <div class="count-box">
                             <i class="bi bi-journal-richtext"></i>
                             <span>@Model.CountOfTestProjects</span>
-                            <p><strong>Projects</strong> that do for test</p>
+                            <p><strong>پروژه</strong> به طور آموزشی انجام داده ام</p>
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                         <div class="count-box">
                             <i class="bi bi-headset"></i>
                             <span>@Model.CountOfPublishedProjects</span>
-                            <p><strong>Projects</strong> that published</p>
+                            <p><strong>پروژه</strong> منتشر شده</p>
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
                         <div class="count-box">
                             <i class="bi bi-people"></i>
                             <span>@Model.CountOfPublishedProjects</span>
-                            <p><strong>Years</strong> experience as team and freelancer</p>
+                            <p><strong>سال</strong> تجربه کار حرفه ای</p>
                         </div>
                     </div>
                 </div>
@@ -131,15 +131,15 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Resume</h2>
+                    <h2>رزومه</h2>
                     <p>@Model.ResumeText</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6" data-aos="fade-up">
-                        <h3 class="resume-title">Sumary</h3>
+                        <h3 class="resume-title">خلاصه</h3>
                         <div class="resume-item pb-0">
-                            <h4>Mohammadreza Bakhtiari</h4>
+                            <h4>محمدرضا بختیاری</h4>
                             <p><em>@Model.BiographySummaryText</em></p>
                             <ul>
                                 <li>@Model.City</li>
@@ -148,7 +148,7 @@
                             </ul>
                         </div>
 
-                        <h3 class="resume-title">Education</h3>
+                        <h3 class="resume-title">مدرک آکادمیک</h3>
                         <div class="resume-item">
                             <h4>@Model.EducationFirstTitle</h4>
                             <h5>@Model.EducationFirstYear</h5>
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="resume-title">Professional Experience</h3>
+                        <h3 class="resume-title">تجربه کار حرفه ای</h3>
                         <div class="resume-item">
                             <h4>@Model.JobFirstTitle</h4>
                             <h5>@Model.JobFirstYear</h5>
@@ -193,7 +193,7 @@
 
             <div class="container">
                 <div class="section-title">
-                    <h2>Github</h2>
+                    <h2>آدرس گیت هاب</h2>
                     <p>@Model.GithubText</p>
                     <a href="@Model.GithubUrl">@Model.GithubUrl</a>
                 </div>
@@ -210,7 +210,7 @@
             <div class="container">
 
                 <div class="section-title">
-                    <h2>Contact</h2>
+                    <h2>تماس با من</h2>
                     <p>@Model.ContactText</p>
                 </div>
 
@@ -220,19 +220,19 @@
                         <div class="info">
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
-                                <h4>Location:</h4>
+                                <h4>آدرس:</h4>
                                 <p>@Model.City</p>
                             </div>
 
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
-                                <h4>Email:</h4>
+                                <h4>ایمیل:</h4>
                                 <p>@Model.Email</p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
-                                <h4>Call:</h4>
+                                <h4>تلفن:</h4>
                                 <p>@Model.Phone</p>
                             </div>
 
@@ -256,7 +256,7 @@
             type: "GET",
             url: "/Home/GetTemplateGroups?groupId=" + groupId + "&&pageId=" + pageId
         }).done(function (data, statusText, xhdr) {
-            $("#templatePartial").after(data);
+            $("#templatePartial").html(data);
         }).fail(function (xhdr, statusText, errorText) {
         });
     }

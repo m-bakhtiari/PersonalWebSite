@@ -9,5 +9,6 @@ namespace PersonalCV.WebApp.Models
         public int? PageId { get; set; } = 1;
         public int PageCount { get; set; }
         public List<TemplateGroup> TemplateGroups { get; set; }
+        public List<Template> Templates { get; set; }
     }
 }

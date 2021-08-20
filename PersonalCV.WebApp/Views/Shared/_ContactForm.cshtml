@@ -8,28 +8,28 @@
     <form class="php-email-form" asp-controller="Contacts" asp-action="Create">
         <div class="row">
             <div class="form-group">
-                <label asp-for="Name">Your Name</label>
+                <label asp-for="Name">نام شما</label>
                 <input asp-for="Name" type="text" name="name" id="name" class="form-control">
             </div>
             <div class="form-group col-md-6">
-                <label asp-for="Email" for="email">Your Email</label>
+                <label asp-for="Email" for="email">ایمیل شما</label>
                 <input asp-for="Email" type="email" class="form-control" id="email" name="email" />
             </div>
             <div class="form-group col-md-6">
-                <label asp-for="Phone" for="phone">Your Phone</label>
-                <input asp-for="Phone" type="text" class="form-control" id="phone" name="phone" required/>
+                <label asp-for="Phone" for="phone">شماره تماس</label>
+                <input asp-for="Phone" type="text" class="form-control" id="phone" name="phone" required />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Subject" for="subject">Subject</label>
+            <label asp-for="Subject" for="subject">موضوع</label>
             <input asp-for="Subject" type="text" class="form-control" id="subject" name="subject">
         </div>
         <div class="form-group">
-            <label asp-for="Message" for="message">Message</label>
+            <label asp-for="Message" for="message">متن پیام</label>
             <textarea asp-for="Message" class="form-control" id="message" name="message" rows="10" required></textarea>
         </div>
         <div class="text-center">
-            <input class="btn btn-success" type="submit" value="Send Message"/>
+            <input class="btn btn-success" type="submit" value="ارسال پیام" />
         </div>
     </form>
 </div>

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PersonalCV.Core.Services
@@ -78,6 +79,21 @@ namespace PersonalCV.Core.Services
         private string GenerateUniqCode()
         {
             return Guid.NewGuid().ToString().Replace("-", "");
+        }
+
+        public async Task<Tuple<List<Template>, int>> GetAllByPaging(int? groupId, int pageId = 1)
+        {
+            IQueryable<Template> templates = _context.Templates;
+            if (groupId.HasValue)
+            {
+                templates = templates.Where(x => x.GroupId == groupId);
+            }
+
+            var countAll = await templates.CountAsync();
+            var skip = (pageId - 1) * 9;
+            var groupsItem = await templates.Skip(skip).Take(9).ToListAsync();
+
+            return Tuple.Create(groupsItem, countAll);
         }
     }
 }
