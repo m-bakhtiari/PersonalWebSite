@@ -87,64 +87,73 @@ namespace PersonalCV.Core.Enums
             ResumeText = 25,
 
             [Description("EducationFirstYear")]
-            EducationFirstYear =26 ,
+            EducationFirstYear = 26,
 
             [Description("EducationFirstAddress")]
-            EducationFirstAddress =27,
+            EducationFirstAddress = 27,
 
             [Description("EducationSecondTitle")]
-            EducationSecondTitle =28 ,
+            EducationSecondTitle = 28,
 
             [Description("EducationSecondYear")]
-            EducationSecondYear =29 ,
+            EducationSecondYear = 29,
 
             [Description("EducationSecondAddress")]
-            EducationSecondAddress =30,
+            EducationSecondAddress = 30,
 
             [Description("JobFirstTitle")]
-            JobFirstTitle =31 ,
+            JobFirstTitle = 31,
 
             [Description("JobFirstYear")]
-            JobFirstYear =32 ,
+            JobFirstYear = 32,
 
             [Description("JobFirstAddress")]
-            JobFirstAddress =33,
+            JobFirstAddress = 33,
 
             [Description("JobFirstDescription1")]
-            JobFirstDescription1 =34,
+            JobFirstDescription1 = 34,
 
             [Description("JobFirstDescription2")]
-            JobFirstDescription2 =35,
+            JobFirstDescription2 = 35,
 
             [Description("JobFirstDescription3")]
-            JobFirstDescription3 =36,
+            JobFirstDescription3 = 36,
 
             [Description("JobSecondTitle")]
-            JobSecondTitle =37 ,
+            JobSecondTitle = 37,
 
             [Description("JobSecondYear")]
-            JobSecondYear =38 ,
+            JobSecondYear = 38,
 
             [Description("JobSecondAddress")]
-            JobSecondAddress =39,
+            JobSecondAddress = 39,
 
             [Description("JobSecondDescription1")]
-            JobSecondDescription1 =40,
+            JobSecondDescription1 = 40,
 
             [Description("JobSecondDescription2")]
-            JobSecondDescription2 =41,
+            JobSecondDescription2 = 41,
 
             [Description("JobSecondDescription3")]
-            JobSecondDescription3 =42,
+            JobSecondDescription3 = 42,
 
             [Description("BiographySummaryText")]
-            BiographySummaryText=43,
+            BiographySummaryText = 43,
 
             [Description("EducationFirstTitle")]
             EducationFirstTitle = 44,
 
             [Description("TemplateText")]
             TemplateText = 45,
+
+            [Description("ContactText")]
+            ContactText = 46,
+
+            [Description("GithubUrl")]
+            GithubUrl = 47,
+
+            [Description("GithubText")]
+            GithubText = 48,
         }
 
     }
