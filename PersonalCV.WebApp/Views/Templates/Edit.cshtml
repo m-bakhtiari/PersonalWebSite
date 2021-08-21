@@ -4,74 +4,70 @@
     ViewData["Title"] = "Edit";
 }
 
-<main id="main">
-    <section class="container">
 
-        <h1>Edit</h1>
 
-        <h4>Template</h4>
-        <hr />
-        <div class="row">
-            <form asp-action="Edit" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="Title" class="control-label"></label>
-                    <input asp-for="Title" class="form-control" />
-                    <span asp-validation-for="Title" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Code" class="control-label"></label>
-                    <input asp-for="Code" class="form-control" />
-                    <span asp-validation-for="Code" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="SiteUrlForPreview" class="control-label"></label>
-                    <input asp-for="SiteUrlForPreview" class="form-control" />
-                    <span asp-validation-for="SiteUrlForPreview" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MainSiteUrl" class="control-label"></label>
-                    <input asp-for="MainSiteUrl" class="form-control" />
-                    <span asp-validation-for="MainSiteUrl" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Description" class="control-label"></label>
-                    <input asp-for="Description" class="form-control" />
-                    <span asp-validation-for="Description" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Price" class="control-label"></label>
-                    <input asp-for="Price" class="form-control" />
-                    <span asp-validation-for="Price" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="MainImage" class="control-label"></label>
-                    <input asp-for="MainImage" class="form-control" />
-                    <span asp-validation-for="MainImage" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="GroupId" class="control-label"></label>
-                    <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId as SelectList"></select>
-                    <span asp-validation-for="GroupId" class="text-danger"></span>
-                </div>
-                <img src="assets/img/template/@Model.MainImage" alt="" style="max-height: 200px;max-width: 200px" />
-                <div class="form-group">
-                    <label asp-for="Image" class="control-label"></label>
-                    <input type="file" asp-for="Image" dir="ltr" />
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
+<div class="container">
+    <h1>Edit</h1>
 
-        <div>
-            <a asp-action="Index">Back to List</a>
-        </div>
-    </section>
-</main>
+    <h4>Template</h4>
+    <hr />
+    <div class="row">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SiteUrlForPreview" class="control-label"></label>
+                <input asp-for="SiteUrlForPreview" class="form-control" />
+                <span asp-validation-for="SiteUrlForPreview" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainSiteUrl" class="control-label"></label>
+                <input asp-for="MainSiteUrl" class="form-control" />
+                <span asp-validation-for="MainSiteUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainImage" class="control-label"></label>
+                <input asp-for="MainImage" class="form-control" />
+                <span asp-validation-for="MainImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupId" class="control-label"></label>
+                <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId as SelectList"></select>
+                <span asp-validation-for="GroupId" class="text-danger"></span>
+            </div>
+            <img src="assets/img/template/@Model.MainImage" alt="" style="max-height: 200px;max-width: 200px" />
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input type="file" asp-for="Image" dir="ltr" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>

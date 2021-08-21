@@ -36,7 +36,7 @@ namespace PersonalCV.Core.Services
 
         public async Task<List<Skill>> GetAll()
         {
-            return await _context.Skills.ToListAsync();
+            return await _context.Skills.Include(x => x.SkillDetails).ToListAsync();
         }
 
         public async Task<Skill> GetItemById(int id)

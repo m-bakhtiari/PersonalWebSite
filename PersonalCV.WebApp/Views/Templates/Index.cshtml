@@ -4,79 +4,78 @@
     ViewData["Title"] = "Index";
 }
 
-<main id="main">
-    <section class="container">
 
-        <h1>Index</h1>
 
-        <p>
-            <a class="btn btn-primary" asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
+<div class="container">
+    <h1>Index</h1>
+
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Code)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SiteUrlForPreview)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MainSiteUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MainImage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TemplateGroup)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Title)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Code)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SiteUrlForPreview)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MainSiteUrl)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Description)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Price)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.MainImage)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TemplateGroup)
-                    </th>
-                    <th></th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SiteUrlForPreview)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MainSiteUrl)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <img src="assets/img/template/@item.MainImage" alt="" style="max-height: 150px;max-width: 150px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TemplateGroup.Id)
+                    </td>
+                    <td>
+                        <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Code)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SiteUrlForPreview)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MainSiteUrl)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
-                        <td>
-                            <img src="assets/img/template/@item.MainImage" alt="" style="max-height: 150px;max-width: 150px" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TemplateGroup.Id)
-                        </td>
-                        <td>
-                            <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </section>
-</main>
+            }
+        </tbody>
+    </table>
+</div>
