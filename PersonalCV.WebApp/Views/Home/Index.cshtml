@@ -146,16 +146,18 @@
 
                     @foreach (var skill in Model.Skills)
                     {
-                        <div class="row">
+                        <div class="container row">
                             <h2>@skill.Title</h2>
                             @if (skill.SkillDetails != null)
                             {
                                 @foreach (var detail in skill.SkillDetails)
                                 {
-                                    <div class="progress1">
-                                        <div class="progress-value1 bg-primary" style="width: @detail.Percent%"><span>@detail.Title (@detail.Percent%)</span></div>
+                                    <div class="col-md-6">
+                                        <span>@detail.Title</span>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @detail.Percent%;" aria-valuenow="@detail.Percent" aria-valuemin="0" aria-valuemax="100">@detail.Percent%</div>
+                                        </div>
                                     </div>
-                                    <br />
                                 }
                             }
                         </div>

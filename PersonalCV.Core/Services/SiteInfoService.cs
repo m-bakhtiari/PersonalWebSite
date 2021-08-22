@@ -6,6 +6,7 @@ using PersonalCV.Core.Enums;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
@@ -112,6 +113,13 @@ namespace PersonalCV.Core.Services
             var template =
                 await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == GeneralEnums.GeneralEnum.TemplateText);
             return template?.Value;
+        }
+
+        public async Task<List<SiteInfo>> GetInfoForErrorPage()
+        {
+            return await _context.SiteInfos.Where(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl &&
+                                                 x.Key == GeneralEnums.GeneralEnum.InstagramUrl && x.Key == GeneralEnums.GeneralEnum.TelegramUrl &&
+               x.Key == GeneralEnums.GeneralEnum.LinkedIn && x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
         }
 
         private string GenerateUniqCode()

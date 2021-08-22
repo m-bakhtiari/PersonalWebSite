@@ -28,6 +28,13 @@
 
 @RenderBody()
 
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container alert alert-success" style="direction: rtl">
+        <a href="/Home/Admin" target="_self">Admin</a>
+    </div>
+}
+
 <!-- Vendor JS Files -->
 <script src="~/assets/vendor/aos/aos.js"></script>
 <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

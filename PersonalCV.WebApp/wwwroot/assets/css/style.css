@@ -27,6 +27,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway", sans-serif;
 }
 
+.progress {
+    height: 23px;
+}
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -1034,40 +1037,5 @@ section {
         position: static;
         width: auto;
         padding-right: 20px;
-    }
-}
-
-/* Progress Bar 1 */
-.progress1 {
-    background: rgba(0, 0, 0, 0.1);
-    justify-content: flex-start;
-    border-radius: 100px;
-    align-items: center;
-    position: relative;
-    padding: 10px 10px;
-    display: flex;
-    height: 40px;
-    width: 50%;
-    margin-top: 15px;
-}
-
-.progress-value1 {
-    animation: load 3s normal forwards;
-    box-shadow: 0 10px 40px -10px #fff;
-    border-radius: 100px;
-    height: 30px;
-    width: 0;
-}
-
-    .progress-value1 span {
-        color: #fff;
-        font-size: 14px;
-        text-align: center;
-        display: block;
-    }
-
-@keyframes load {
-    0% {
-        width: 0;
     }
 }

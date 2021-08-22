@@ -154,7 +154,9 @@ namespace PersonalCV.Core.Enums
 
             [Description("GithubText")]
             GithubText = 48,
-        }
 
+            [Description("NotFoundPageBackground")]
+            NotFoundPageBackground = 49,
+        }
     }
 }

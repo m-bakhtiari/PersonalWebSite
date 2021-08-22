@@ -89,7 +89,7 @@ namespace PersonalCV.WebApp.Controllers
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.JobFirstDescription2)?.Value,
                 JobFirstDescription3 = siteInfo
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.JobFirstDescription3)?.Value,
-                JobSecondDescription1  = siteInfo
+                JobSecondDescription1 = siteInfo
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.JobSecondDescription1)?.Value,
                 JobSecondDescription2 = siteInfo
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.JobSecondDescription2)?.Value,
@@ -146,7 +146,7 @@ namespace PersonalCV.WebApp.Controllers
                 PageId = pageId,
                 TemplateText = await _siteInfoService.GetTemplateText(),
             };
-            if (groupId.HasValue==false)
+            if (groupId.HasValue == false)
             {
                 ViewBag.IsAllSelected = "true";
             }
@@ -162,10 +162,19 @@ namespace PersonalCV.WebApp.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [Route("Error")]
+        public async Task<IActionResult> Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var model = await _siteInfoService.GetInfoForErrorPage();
+            return View(new ErrorViewModel
+            {
+                TelegramUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
+                InstagramUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)?.Value,
+                WhatsAppUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
+                LinkedInUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.LinkedIn)?.Value,
+                EmailUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                NotFoundPageBackground = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground)?.Value,
+            });
         }
 
         public ActionResult Admin()
