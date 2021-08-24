@@ -43,9 +43,9 @@
             <br />
             @foreach (var template in Model.Templates)
             {
-                <div class="row portfolio-container">
+                <div class="portfolio-container">
 
-                    <a href="toplearn.com" target="_blank">
+                    <a href="@template.SiteUrlForPreview" target="_blank">
                         <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                             <div class="portfolio-wrap">
                                 <img src="assets/img/template/@template.MainImage" class="img-fluid" alt="">

@@ -1,32 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using PersonalCV.Core.Context;
-using PersonalCV.Core.Entities;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using PersonalCV.Core.Entities;
 using PersonalCV.Core.Services;
+using System.Threading.Tasks;
+using PersonalCV.Core.Enums;
+using PersonalCV.WebApp.Models;
 
 namespace PersonalCV.WebApp.Controllers
 {
     public class ContactsController : Controller
     {
         private readonly ContactService _contactService;
+        private readonly SiteInfoService _siteInfoService;
 
-        public ContactsController(ContactService contactService)
+        public ContactsController(ContactService contactService, SiteInfoService siteInfoService)
         {
             _contactService = contactService;
+            _siteInfoService = siteInfoService;
         }
 
-        // GET: Contacts
         [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _contactService.GetAll());
         }
 
-        // GET: Contacts/Details/5
         [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
@@ -44,19 +44,22 @@ namespace PersonalCV.WebApp.Controllers
             return View(contact);
         }
 
-        // POST: Contacts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         public async Task<IActionResult> Create(Contact contact)
         {
             await _contactService.Add(contact);
-            return View("ContactMessage");
+            var model = await _siteInfoService.GetInfoForErrorPage();
+            return View("ContactMessage", new ErrorViewModel
+            {
+                TelegramUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
+                InstagramUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)?.Value,
+                WhatsAppUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
+                LinkedInUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.LinkedIn)?.Value,
+                EmailUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                NotFoundPageBackground = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground)?.Value,
+            });
         }
 
-        // POST: Contacts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> SetAsRead(int id)
