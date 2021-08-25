@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PersonalCV.WebApp.Models;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using PersonalCV.Core.Enums;
 using PersonalCV.Core.Services;
+using PersonalCV.WebApp.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PersonalCV.WebApp.Controllers
 {
@@ -77,7 +76,7 @@ namespace PersonalCV.WebApp.Controllers
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.BiographySummaryText)?.Value,
                 SidebarMyPhoto = siteInfo
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)?.Value,
-                HeaderMyPhoto = siteInfo
+                HeaderPhoto = siteInfo
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)?.Value,
                 AboutMyPhoto = siteInfo
                     .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.AboutMyPhoto)?.Value,

@@ -41,23 +41,22 @@
                 </div>
             </div>
             <br />
-            @foreach (var template in Model.Templates)
-            {
-                <div class="portfolio-container">
-
+            <div class="portfolio-container">
+                @foreach (var template in Model.Templates)
+                {
                     <a href="@template.SiteUrlForPreview" target="_blank">
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app p-1">
                             <div class="portfolio-wrap">
-                                <img src="assets/img/template/@template.MainImage" class="img-fluid" alt="">
+                                <img src="assets/img/template/@template.MainImage" class="img-fluid" alt="template image">
                                 <div class="portfolio-links">
-                                    <p class="portfolio-lightbox" title="@template.Title">@template.Title</p>
+                                    <p class="portfolio-lightbox" title="@template.Title">@template.Title - (کد: @template.Code )</p>
                                 </div>
-                                <p class="text-center fw-bold text-dark">@template.Title</p>
+                                <p class="text-center fw-bold text-dark">@template.Title - (کد: @template.Code )</p>
                             </div>
                         </div>
                     </a>
-                </div>
-            }
+                }
+            </div>
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-center">
                     @for (int i = 1; i <= Model.PageCount; i++)

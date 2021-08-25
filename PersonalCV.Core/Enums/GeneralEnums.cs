@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace PersonalCV.Core.Enums
 {
@@ -11,152 +6,125 @@ namespace PersonalCV.Core.Enums
     {
         public enum GeneralEnum : int
         {
-            [Description("AboutUsText")]
+            [Description("AboutText")]
             AboutText = 1,
 
-            [Description("BirthDay")]
-            BirthDay = 2,
-
-            [Description("Website")]
-            Website = 3,
-
             [Description("Phone")]
-            Phone = 4,
-
-            [Description("City")]
-            City = 5,
+            Phone = 2,
 
             [Description("Age")]
-            Age = 6,
-
-            [Description("Degree")]
-            Degree = 7,
+            Age = 3,
 
             [Description("Email")]
-            Email = 8,
+            Email = 4,
 
             [Description("LinkedIn")]
-            LinkedIn = 9,
-
-            [Description("SidebarMyPhoto")]
-            SidebarMyPhoto = 10,
+            LinkedIn = 5,
 
             [Description("CountOfTestProjects")]
-            CountOfTestProjects = 11,
+            CountOfTestProjects = 6,
 
             [Description("CountOfPublishedProjects")]
-            CountOfPublishedProjects = 12,
+            CountOfPublishedProjects = 7,
 
             [Description("CountOfCustomers")]
-            CountOfCustomers = 13,
+            CountOfCustomers = 8,
 
             [Description("YearsCountOfExperience")]
-            YearsCountOfExperience = 14,
-
-            [Description("FactsText")]
-            FactsText = 15,
-
-            [Description("SkillsText")]
-            SkillsText = 16,
+            YearsCountOfExperience = 9,
 
             [Description("TelegramUrl")]
-            TelegramUrl = 17,
+            TelegramUrl = 10,
 
             [Description("InstagramUrl")]
-            InstagramUrl = 18,
+            InstagramUrl = 11,
 
             [Description("WhatsappUrl")]
-            WhatsappUrl = 19,
+            WhatsappUrl = 12,
 
             [Description("Username")]
-            Username = 20,
+            Username = 13,
 
             [Description("Password")]
-            Password = 21,
+            Password = 14,
 
-            [Description("HeaderMyPhoto")]
-            HeaderMyPhoto = 22,
-
-            [Description("AboutMyPhoto")]
-            AboutMyPhoto = 23,
+            [Description("HeaderPhoto")]
+            HeaderMyPhoto = 15,
 
             [Description("AboutTitle")]
-            AboutTitle = 24,
+            AboutTitle = 16,
 
-            [Description("ResumeText")]
-            ResumeText = 25,
+            [Description("FirstEducationTime")]
+            FirstEducationTime = 17,
 
-            [Description("EducationFirstYear")]
-            EducationFirstYear = 26,
+            [Description("FirstEducationDegree")]
+            FirstEducationDegree = 18,
 
-            [Description("EducationFirstAddress")]
-            EducationFirstAddress = 27,
+            [Description("FirstEducationTitle")]
+            FirstEducationTitle = 19,
 
-            [Description("EducationSecondTitle")]
-            EducationSecondTitle = 28,
+            [Description("FirstEducationName")]
+            FirstEducationName = 20,
 
-            [Description("EducationSecondYear")]
-            EducationSecondYear = 29,
+            [Description("FirstEducationDescription")]
+            FirstEducationDescription = 21,
 
-            [Description("EducationSecondAddress")]
-            EducationSecondAddress = 30,
+            [Description("SecondEducationTime")]
+            SecondEducationTime = 22,
+
+            [Description("SecondEducationDegree")]
+            SecondEducationDegree = 23,
+
+            [Description("SecondEducationTitle")]
+            SecondEducationTitle = 24,
+
+            [Description("SecondEducationName")]
+            SecondEducationName = 25,
+
+            [Description("SecondEducationDescription")]
+            SecondEducationDescription = 26,
 
             [Description("JobFirstTitle")]
-            JobFirstTitle = 31,
+            JobFirstTitle = 27,
 
             [Description("JobFirstYear")]
-            JobFirstYear = 32,
+            JobFirstYear = 28,
 
-            [Description("JobFirstAddress")]
-            JobFirstAddress = 33,
+            [Description("JobFirstSubject")]
+            JobFirstAddress = 29,
 
             [Description("JobFirstDescription1")]
-            JobFirstDescription1 = 34,
-
-            [Description("JobFirstDescription2")]
-            JobFirstDescription2 = 35,
-
-            [Description("JobFirstDescription3")]
-            JobFirstDescription3 = 36,
+            JobFirstDescription1 = 30,
 
             [Description("JobSecondTitle")]
-            JobSecondTitle = 37,
+            JobSecondTitle = 31,
 
             [Description("JobSecondYear")]
-            JobSecondYear = 38,
+            JobSecondYear = 32,
 
-            [Description("JobSecondAddress")]
-            JobSecondAddress = 39,
+            [Description("JobSecondSubject")]
+            JobSecondAddress = 33,
 
-            [Description("JobSecondDescription1")]
-            JobSecondDescription1 = 40,
+            [Description("JobSecondDescription")]
+            JobSecondDescription1 = 34,
 
-            [Description("JobSecondDescription2")]
-            JobSecondDescription2 = 41,
+            [Description("Language")]
+            Language = 35,
 
-            [Description("JobSecondDescription3")]
-            JobSecondDescription3 = 42,
-
-            [Description("BiographySummaryText")]
-            BiographySummaryText = 43,
-
-            [Description("EducationFirstTitle")]
-            EducationFirstTitle = 44,
-
-            [Description("TemplateText")]
-            TemplateText = 45,
-
-            [Description("ContactText")]
-            ContactText = 46,
+            [Description("Address")]
+            Address = 36,
 
             [Description("GithubUrl")]
-            GithubUrl = 47,
+            GithubUrl = 37,
 
             [Description("GithubText")]
-            GithubText = 48,
+            GithubText = 38,
 
             [Description("NotFoundPageBackground")]
-            NotFoundPageBackground = 49,
+            NotFoundPageBackground = 39,
+
+            [Description("ProfilePhoto")]
+            ProfilePhoto = 40,
         }
     }
 }

@@ -1,318 +1,571 @@
 ﻿@model HomePageViewModel
 
 @{
-    ViewData["Title"] = "صفحه اصلی";
+    Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-
-<body>
-    <div style="direction: rtl">
-
-        <!-- ======= Mobile nav toggle button ======= -->
-        <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-        <!-- ======= Header ======= -->
-        <header id="header">
-            <div class="d-flex flex-column">
-
-                <div class="profile">
-                    <img src="~/assets/img/profile/@Model.SidebarMyPhoto" alt="profile" class="img-fluid rounded-circle">
-                    <h1 class="text-light text-center"><a href="/">محمدرضا بختیاری</a></h1>
-                    <div class="social-links mt-3 text-center">
-                        <a href="@Model.WhatsappUrl" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
-                        <a href="@Model.LinkedIn" class="facebook"><i class="bx bxl-linkedin"></i></a>
-                        <a href="@Model.InstagramUrl" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="@Model.Email" class="google-plus"><i class="bx bxl-google"></i></a>
-                        <a href="@Model.TelegramUrl" class="telegram"><i class="bx bxl-telegram"></i></a>
-                    </div>
+<header>
+    <div class="profile-page sidebar-collapse">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
+            <div class="container">
+                <div class="navbar-translate" style="direction: ltr !important">
+                    <a class="navbar-brand" href="#" rel="tooltip">Creative CV</a>
+                    <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
                 </div>
-
-                <nav id="navbar" class="nav-menu navbar">
-                    <ul>
-                        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>خانه</span></a></li>
-                        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>بیوگرافی</span></a></li>
-                        <li><a href="#skills" class="nav-link scrollto"><i class="bx bxs-trophy"></i> <span>مهارت ها</span></a></li>
-                        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>رزومه</span></a></li>
-                        <li><a href="#github" class="nav-link scrollto"><i class="bx bx-sitemap"></i> <span>گیت هاب</span></a></li>
-                        <li><a href="#template" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>قالب های سایت</span></a></li>
-                        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>تماس با من</span></a></li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li><a href="/Home/Admin" class="nav-link scrollto"><i class="bx bx-cake"></i> <span>ادمین</span></a></li>
-                        }
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
                     </ul>
-                </nav><!-- .nav-menu -->
+                </div>
             </div>
-        </header><!-- End Header -->
-        <!-- ======= Hero Section ======= -->
-        <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="width: 100%;height: 100vh;background: url('/assets/img/profile/@Model.HeaderMyPhoto') top center;background-size: cover;">
-            <div class="hero-container">
-                <h1>محمدرضا بختیاری</h1>
-                <p>من برنامه نویس <span class="typed" data-typed-items="بک اند , فرانت اند , فریلنسر"></span> هستم</p>
-            </div>
-        </section><!-- End Hero -->
-
-        <main id="main">
-            <!-- ======= About Section ======= -->
-            <section id="about" class="about">
-                <div class="container">
-                    <div class="section-title">
-                        <h2>بیوگرافی</h2>
-                        <p>@Model.AboutText</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <img src="assets/img/profile/@Model.HeaderMyPhoto" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-lg-8 pt-4 pt-lg-0 content">
-                            <h3>@Model.AboutTitle</h3>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <ul>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>تاریخ تولد:</strong> <span>@Model.BirthDay</span></li>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>وب سایت:</strong> <span>@Model.Website</span></li>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>تلفن:</strong> <span>@Model.Phone</span></li>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>شهر:</strong> <span>@Model.City</span></li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-6">
-                                    <ul>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>سن:</strong> <span>@Model.Age</span></li>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>مدرک:</strong> <span>@Model.Degree</span></li>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>ایمیل:</strong> <span>@Model.Email</span></li>
-                                        <li><i class="bi bi-chevron-right"></i> <strong>لینکدین :</strong> <span>@Model.LinkedIn</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section><!-- End About Section -->
-            <!-- ======= Facts Section ======= -->
-            <section id="facts" class="facts">
-                <div class="container">
-
-                    <div class="section-title">
-                        <h2>Facts</h2>
-                        <p>@Model.FactsText</p>
-                    </div>
-
-                    <div class="row no-gutters">
-
-                        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                            <div class="count-box">
-                                <i class="bi bi-emoji-smile"></i>
-                                <span>@Model.CountOfCustomers</span>
-                                <p><strong>تعداد مشتریان که </strong> با من کار کرده اند</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                            <div class="count-box">
-                                <i class="bi bi-journal-richtext"></i>
-                                <span>@Model.CountOfTestProjects</span>
-                                <p><strong>پروژه</strong> به طور آموزشی انجام داده ام</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                            <div class="count-box">
-                                <i class="bi bi-headset"></i>
-                                <span>@Model.CountOfPublishedProjects</span>
-                                <p><strong>پروژه</strong> منتشر شده</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                            <div class="count-box">
-                                <i class="bi bi-people"></i>
-                                <span>@Model.CountOfPublishedProjects</span>
-                                <p><strong>سال</strong> تجربه کار حرفه ای</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- End Facts Section -->
-            <!-- ======= Skills Section ======= -->
-            <section id="skills">
-                <div class="container">
-
-                    <div class="section-title">
-                        <h2>مهارت ها</h2>
-                        <p>@Model.SkillsText</p>
-                    </div>
-
-                    @foreach (var skill in Model.Skills)
-                    {
-                        <div class="container row">
-                            <h2>@skill.Title</h2>
-                            @if (skill.SkillDetails != null)
-                            {
-                                @foreach (var detail in skill.SkillDetails)
-                                {
-                                    <div class="col-md-6">
-                                        <span>@detail.Title</span>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @detail.Percent%;" aria-valuenow="@detail.Percent" aria-valuemin="0" aria-valuemax="100">@detail.Percent%</div>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                        </div>
-                        <br />
-                    }
-                </div>
-            </section><!-- End Skills Section -->
-            <!-- ======= Resume Section ======= -->
-            <section id="resume" class="resume">
-                <div class="container">
-
-                    <div class="section-title">
-                        <h2>رزومه</h2>
-                        <p>@Model.ResumeText</p>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h3 class="resume-title">خلاصه</h3>
-                            <div class="resume-item pb-0">
-                                <h4>محمدرضا بختیاری</h4>
-                                <p><em>@Model.BiographySummaryText</em></p>
-                                <ul>
-                                    <li>@Model.City</li>
-                                    <li>@Model.Phone</li>
-                                    <li>@Model.Email</li>
-                                </ul>
-                            </div>
-
-                            <h3 class="resume-title">مدرک آکادمیک</h3>
-                            <div class="resume-item">
-                                <h4>@Model.EducationFirstTitle</h4>
-                                <h5>@Model.EducationFirstYear</h5>
-                                <p><em>@Model.EducationFirstAddress</em></p>
-                            </div>
-                            <div class="resume-item">
-                                <h4>@Model.EducationSecondTitle</h4>
-                                <h5>@Model.EducationSecondYear</h5>
-                                <p><em>@Model.EducationSecondAddress</em></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <h3 class="resume-title">تجربه کار حرفه ای</h3>
-                            <div class="resume-item">
-                                <h4>@Model.JobFirstTitle</h4>
-                                <h5>@Model.JobFirstYear</h5>
-                                <p><em>@Model.JobFirstAddress</em></p>
-                                <ul>
-                                    <li>@Model.JobFirstDescription1</li>
-                                    <li>@Model.JobFirstDescription2</li>
-                                    <li>@Model.JobFirstDescription3</li>
-                                </ul>
-                            </div>
-                            <div class="resume-item">
-                                <h4>@Model.JobSecondTitle</h4>
-                                <h5>@Model.JobSecondYear</h5>
-                                <p><em>@Model.JobSecondAddress</em></p>
-                                <ul>
-                                    <li>@Model.JobSecondDescription1</li>
-                                    <li>@Model.JobSecondDescription2</li>
-                                    <li>@Model.JobSecondDescription3</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section><!-- End Resume Section -->
-            <!-- ======= Github Section ======= -->
-
-            <section id="github" class="portfolio section-bg">
-
-                <div class="container">
-                    <div class="section-title">
-                        <h2>آدرس گیت هاب</h2>
-                        <p>@Model.GithubText</p>
-                        <a href="@Model.GithubUrl">@Model.GithubUrl</a>
-                    </div>
-                </div>
-
-            </section>
-
-            <!-- End Github Section -->
-            <div id="templatePartial">
-                <partial name="_Template" model="@Model.TemplatePaging" />
-            </div>
-            <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
-                <div class="container">
-
-                    <div class="section-title">
-                        <h2>تماس با من</h2>
-                        <p>@Model.ContactText</p>
-                    </div>
-
-                    <div class="row">
-                        <partial name="_ContactForm" model="@Model.Contact" />
-
-                        <div class="col-lg-5 d-flex align-items-stretch">
-                            <div class="info">
-                                <div class="address">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <h4>آدرس:</h4>
-                                    <p>@Model.City</p>
-                                </div>
-
-                                <div class="email">
-                                    <i class="bi bi-envelope"></i>
-                                    <h4>ایمیل:</h4>
-                                    <p>@Model.Email</p>
-                                </div>
-
-                                <div class="phone">
-                                    <i class="bi bi-phone"></i>
-                                    <h4>تلفن:</h4>
-                                    <p>@Model.Phone</p>
-                                </div>
-
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section><!-- End Contact Section -->
-        </main><!-- End #main -->
-        <!-- ======= Footer ======= -->
+        </nav>
     </div>
+</header>
 
-    <footer id="footer">
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>bakhtiari.info</span></strong>
-            </div>
-            <div class="credits">
-                طراحی شده توسط <a href="https://bakhtiari.info/">محمدرضا بختیاری</a>
+<div class="page-content">
+    <div>
+        <div class="profile-page">
+            <div class="wrapper">
+                <div class="page-header page-header-small" filter-color="green">
+                    <div class="page-header-image" data-parallax="true" style="background-image: url('images/profile/@Model.HeaderPhoto')"></div>
+                    <div class="container">
+                        <div class="content-center">
+                            <div class="cc-profile-image"><a href="#"><img src="images/profile/@Model.ProfilePhoto" alt="Image" /></a></div>
+                            <div class="h2 title">Anthony Barnett</div>
+                            <p class="category text-white">Web Developer, Graphic Designer,  Photographer</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="#" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="container">
+                            <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Facebook"><i class="fa fa-facebook"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Google+"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer><!-- End  Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
-</body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-    function LoadTemplate(groupId, pageId) {
-        $.ajax({
-            type: "GET",
-            url: "/Home/GetTemplateGroups?groupId=" + groupId + "&&pageId=" + pageId
-        }).done(function (data, statusText, xhdr) {
-            $("#templatePartial").html(data);
-        }).fail(function (xhdr, statusText, errorText) {
-        });
-    }
-</script>
+        <div class="section" id="about">
+            <div class="container">
+                <div class="card" data-aos="fade-up" data-aos-offset="10">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card-body">
+                                <div class="h4 mt-0 title">About</div>
+                                <p>@Model.AboutText</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card-body">
+                                <div class="h4 mt-0 title">Basic Information</div>
+                                <div class="row">
+                                    <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
+                                    <div class="col-sm-8">@Model.Age</div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+                                    <div class="col-sm-8">@Model.Email</div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
+                                    <div class="col-sm-8">@Model.Email</div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
+                                    <div class="col-sm-8">@Model.Address</div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
+                                    <div class="col-sm-8">@Model.Language</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="skill">
+            <div class="container">
+                <div class="h4 text-center mb-4 title">Professional Skills</div>
+                <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">HTML</span>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">CSS</span>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">JavaScript</span>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">SASS</span>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">Bootstrap</span>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">Photoshop</span>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="h4 text-center mb-4 title">Portfolio</div>
+                        <div class="nav-align-center">
+                            <ul class="nav nav-pills nav-pills-primary" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role="tablist"><i class="fa fa-picture-o" aria-hidden="true"></i></a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography" role="tablist"><i class="fa fa-camera" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content gallery mt-5">
+                    <div class="tab-pane active" id="web-development">
+                        <div class="ml-auto mr-auto">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#web-development">
+                                            <figure class="cc-effect">
+                                                <img src="images/project-1.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Recent Project</div>
+                                                    <p>Web Development</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#web-development">
+                                            <figure class="cc-effect">
+                                                <img src="images/project-2.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Startup Project</div>
+                                                    <p>Web Development</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#web-development">
+                                            <figure class="cc-effect">
+                                                <img src="images/project-3.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Food Order Project</div>
+                                                    <p>Web Development</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#web-development">
+                                            <figure class="cc-effect">
+                                                <img src="images/project-4.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Web Advertising Project</div>
+                                                    <p>Web Development</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="graphic-design" role="tabpanel">
+                        <div class="ml-auto mr-auto">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#graphic-design">
+                                            <figure class="cc-effect">
+                                                <img src="images/graphic-design-1.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Triangle Pattern</div>
+                                                    <p>Graphic Design</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#graphic-design">
+                                            <figure class="cc-effect">
+                                                <img src="images/graphic-design-2.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Abstract Umbrella</div>
+                                                    <p>Graphic Design</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#graphic-design">
+                                            <figure class="cc-effect">
+                                                <img src="images/graphic-design-3.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Cube Surface Texture</div>
+                                                    <p>Graphic Design</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#graphic-design">
+                                            <figure class="cc-effect">
+                                                <img src="images/graphic-design-4.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Abstract Line</div>
+                                                    <p>Graphic Design</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="Photography" role="tabpanel">
+                        <div class="ml-auto mr-auto">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#Photography">
+                                            <figure class="cc-effect">
+                                                <img src="images/photography-1.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Photoshoot</div>
+                                                    <p>Photography</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#Photography">
+                                            <figure class="cc-effect">
+                                                <img src="images/photography-3.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Wedding Photoshoot</div>
+                                                    <p>Photography</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#Photography">
+                                            <figure class="cc-effect">
+                                                <img src="images/photography-2.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Beach Photoshoot</div>
+                                                    <p>Photography</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                                        <a href="#Photography">
+                                            <figure class="cc-effect">
+                                                <img src="images/photography-4.jpg" alt="Image" />
+                                                <figcaption>
+                                                    <div class="h4">Nature Photoshoot</div>
+                                                    <p>Photography</p>
+                                                </figcaption>
+                                            </figure>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="experience">
+            <div class="container cc-experience">
+                <div class="h4 text-center mb-4 title">Work Experience</div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body cc-experience-header">
+                                <p>March 2016 - Present</p>
+                                <div class="h5">CreativeM</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <div class="h5">Front End Developer</div>
+                                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body cc-experience-header">
+                                <p>April 2014 - March 2016</p>
+                                <div class="h5">WebNote</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <div class="h5">Web Developer</div>
+                                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body cc-experience-header">
+                                <p>April 2013 - February 2014</p>
+                                <div class="h5">WEBM</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <div class="h5">Intern</div>
+                                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container cc-education">
+                <div class="h4 text-center mb-4 title">Education</div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body cc-education-header">
+                                <p>2013 - 2015</p>
+                                <div class="h5">Master's Degree</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <div class="h5">Master of Information Technology</div>
+                                <p class="category">University of Computer Science</p>
+                                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body cc-education-header">
+                                <p>2009 - 2013</p>
+                                <div class="h5">Bachelor's Degree</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <div class="h5">Bachelor of Computer Science</div>
+                                <p class="category">University of Computer Science</p>
+                                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body cc-education-header">
+                                <p>2007 - 2009</p>
+                                <div class="h5">High School</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <div class="h5">Science and Mathematics</div>
+                                <p class="category">School of Secondary board</p>
+                                <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="reference">
+            <div class="container cc-reference">
+                <div class="h4 mb-4 text-center title">References</div>
+                <div class="card" data-aos="zoom-in">
+                    <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#cc-Indicators" data-slide-to="0"></li>
+                            <li data-target="#cc-Indicators" data-slide-to="1"></li>
+                            <li data-target="#cc-Indicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 cc-reference-header">
+                                        <img src="images/reference-image-1.jpg" alt="Image" />
+                                        <div class="h5 pt-2">Aiyana</div>
+                                        <p class="category">CEO / WEBM</p>
+                                    </div>
+                                    <div class="col-lg-10 col-md-9">
+                                        <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 cc-reference-header">
+                                        <img src="images/reference-image-2.jpg" alt="Image" />
+                                        <div class="h5 pt-2">Braiden</div>
+                                        <p class="category">CEO / Creativem</p>
+                                    </div>
+                                    <div class="col-lg-10 col-md-9">
+                                        <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-md-3 cc-reference-header">
+                                        <img src="images/reference-image-3.jpg" alt="Image" />
+                                        <div class="h5 pt-2">Alexander</div>
+                                        <p class="category">CEO / Webnote</p>
+                                    </div>
+                                    <div class="col-lg-10 col-md-9">
+                                        <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper, laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient fringilla rhoncus eleifend.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="contact">
+            <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
+                <div class="container">
+                    <div class="cc-contact">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="card mb-0" data-aos="zoom-in">
+                                    <div class="h4 text-center title">Contact Me</div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card-body">
+                                                <form action="https://formspree.io/your@email.com" method="POST">
+                                                    <div class="p pb-3"><strong>Feel free to contact me </strong></div>
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <div>
+                                                                <span><i class="fa fa-user-circle"></i></span>
+                                                                <input class="form-control" type="text" name="name" placeholder="Name" required="required" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <div>
+                                                                <span><i class="fa fa-file-text"></i></span>
+                                                                <input class="form-control" type="text" name="Subject" placeholder="Subject" required="required" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <div>
+                                                                <span><i class="fa fa-envelope"></i></span>
+                                                                <input class="form-control" type="email" name="_replyto" placeholder="E-mail" required="required" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <button class="btn btn-primary" type="submit">Send</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card-body">
+                                                <p class="mb-0"><strong>Address </strong></p>
+                                                <p class="pb-2">140, City Center, New York, U.S.A</p>
+                                                <p class="mb-0"><strong>Phone</strong></p>
+                                                <p class="pb-2">+1718-111-0011</p>
+                                                <p class="mb-0"><strong>Email</strong></p>
+                                                <p>anthony@company.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+    <div class="h4 title text-center">Anthony Barnett</div>
+    <div class="text-center text-muted">
+        <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
+    </div>
+</footer>

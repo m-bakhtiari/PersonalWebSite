@@ -25,8 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\assets\img\profile\" />
-    <Folder Include="wwwroot\assets\img\template\" />
+    <Folder Include="wwwroot\images\profile\" />
+    <Folder Include="wwwroot\images\template\" />
+    <Folder Include="wwwroot\scripts\core\" />
+    <Folder Include="wwwroot\scripts\plugins\" />
   </ItemGroup>
 
 </Project>
