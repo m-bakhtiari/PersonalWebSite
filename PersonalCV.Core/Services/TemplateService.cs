@@ -23,7 +23,7 @@ namespace PersonalCV.Core.Services
         public async Task Add(Template template, [AllowNull] IFormFile image)
         {
             template.MainImage = GenerateUniqCode() + Path.GetExtension(image.FileName);
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", template.MainImage);
+            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/template", template.MainImage);
             await using var stream = new FileStream(imagePath, FileMode.Create);
             await image.CopyToAsync(stream);
 
@@ -36,13 +36,13 @@ namespace PersonalCV.Core.Services
             var oldData = await _context.Templates.FindAsync(template.Id);
             if (image != null)
             {
-                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", oldData.MainImage);
+                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/template", oldData.MainImage);
                 if (File.Exists(deleteImagePath))
                 {
                     File.Delete(deleteImagePath);
                 }
                 template.MainImage = GenerateUniqCode() + Path.GetExtension(image.FileName);
-                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", template.MainImage);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/template", template.MainImage);
                 await using var stream = new FileStream(imagePath, FileMode.Create);
                 await image.CopyToAsync(stream);
             }
@@ -52,7 +52,7 @@ namespace PersonalCV.Core.Services
 
         public async Task Delete(Template template)
         {
-            var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/template", template.MainImage);
+            var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/template", template.MainImage);
             if (File.Exists(deleteImagePath))
             {
                 File.Delete(deleteImagePath);

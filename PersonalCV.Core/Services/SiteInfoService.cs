@@ -23,11 +23,10 @@ namespace PersonalCV.Core.Services
 
         public async Task Add(SiteInfo siteInfo, [AllowNull] IFormFile image)
         {
-            if (siteInfo.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
-                siteInfo.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
             {
                 siteInfo.Value = GenerateUniqCode() + Path.GetExtension(image.FileName);
-                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", siteInfo.Value);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile", siteInfo.Value);
                 await using var stream = new FileStream(imagePath, FileMode.Create);
                 await image.CopyToAsync(stream);
             }
@@ -39,17 +38,16 @@ namespace PersonalCV.Core.Services
         public async Task Update(SiteInfo siteInfo, [AllowNull] IFormFile image)
         {
             var oldData = await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == siteInfo.Key);
-            if (siteInfo.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
-                siteInfo.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
             {
-                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", oldData.Value);
+                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile", oldData.Value);
                 if (File.Exists(deleteImagePath))
                 {
                     File.Delete(deleteImagePath);
                 }
 
                 siteInfo.Value = GenerateUniqCode() + Path.GetExtension(image.FileName);
-                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", siteInfo.Value);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile", siteInfo.Value);
                 await using var stream = new FileStream(imagePath, FileMode.Create);
                 await image.CopyToAsync(stream);
             }
@@ -59,10 +57,9 @@ namespace PersonalCV.Core.Services
 
         public async Task Delete(SiteInfo siteInfo)
         {
-            if (siteInfo.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
-                siteInfo.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
             {
-                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/assets/img/profile", siteInfo.Value);
+                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile", siteInfo.Value);
                 if (File.Exists(deleteImagePath))
                 {
                     File.Delete(deleteImagePath);
@@ -108,12 +105,6 @@ namespace PersonalCV.Core.Services
             return false;
         }
 
-        public async Task<string> GetTemplateText()
-        {
-            var template =
-                await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == GeneralEnums.GeneralEnum.TemplateText);
-            return template?.Value;
-        }
 
         public async Task<List<SiteInfo>> GetInfoForErrorPage()
         {

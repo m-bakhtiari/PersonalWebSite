@@ -4,6 +4,77 @@
     Layout = null;
 }
 
+<div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
+    <div class="container">
+        <div class="cc-contact">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card mb-0" data-aos="zoom-in">
+                        <div class="h4 text-center title">Contact Me</div>
+                        <form action="https://formspree.io/your@email.com" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="p pb-3"><strong>Feel free to contact me </strong></div>
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <div>
+                                                    <span><i class="fa fa-user-circle"></i>نام شما</span>
+                                                    <input class="form-control" type="text" placeholder="Name" asp-for="Name" name="name" id="name" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <div>
+                                                    <span><i class="fa fa-file-text"></i>موضوع</span>
+                                                    <input class="form-control" type="text" asp-for="Subject" name="Subject" placeholder="Subject" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <div>
+                                                    <span><i class="fa fa-phonr"></i>تلفن شما</span>
+                                                    <input class="form-control" type="text" asp-for="Phone" placeholder="Phone" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <div>
+                                                    <span><i class="fa fa-envelope"></i>ایمیل شما</span>
+                                                    <input class="form-control" type="email" asp-for="Email" placeholder="E-mail" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <input class="btn btn-primary" type="submit" value="Send">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <textarea rows="10" class="form-control" name="message" asp-for="Message" placeholder="Your Message" required="required"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
     <form class="php-email-form" asp-controller="Contacts" asp-action="Create">
         <div class="row">

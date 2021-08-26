@@ -55,7 +55,7 @@
                 <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId as SelectList"></select>
                 <span asp-validation-for="GroupId" class="text-danger"></span>
             </div>
-            <img src="assets/img/template/@Model.MainImage" alt="" style="max-height: 200px;max-width: 200px" />
+            <img src="images/template/@Model.MainImage" alt="" style="max-height: 200px;max-width: 200px" />
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
                 <input type="file" asp-for="Image" dir="ltr" />

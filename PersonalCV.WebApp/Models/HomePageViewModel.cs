@@ -6,7 +6,6 @@ namespace PersonalCV.WebApp.Models
     public class HomePageViewModel
     {
         public string AboutText { get; set; }
-        public string Website { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
         public string Age { get; set; }
@@ -35,11 +34,11 @@ namespace PersonalCV.WebApp.Models
         public string SecondEducationDescription { get; set; }
         public string FirstJobYear { get; set; }
         public string FirstJobTitle { get; set; }
-        public string FirstJobAddressSubject { get; set; }
+        public string FirstJobSubject { get; set; }
         public string FirstJobDescription { get; set; }
         public string SecondJobYear { get; set; }
         public string SecondJobTitle { get; set; }
-        public string SecondJobAddressSubject { get; set; }
+        public string SecondJobSubject { get; set; }
         public string SecondJobDescription { get; set; }
         public string Language { get; set; }
 

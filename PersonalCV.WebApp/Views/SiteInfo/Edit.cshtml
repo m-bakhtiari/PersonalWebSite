@@ -25,10 +25,9 @@
                 <textarea asp-for="Value" class="form-control" rows="10"></textarea>
                 <span asp-validation-for="Value" class="text-danger"></span>
             </div>
-            @if (Model.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || Model.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto ||
-             Model.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto)
+            @if (Model.Key == GeneralEnums.GeneralEnum.ProfilePhoto || Model.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
             {
-                <img src="assets/img/profile/@Model.Value" alt="" style="max-height: 200px;max-width: 200px" />
+                <img src="images/profile/@Model.Value" alt="" style="max-height: 200px;max-width: 200px" />
             }
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>

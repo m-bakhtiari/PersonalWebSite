@@ -5,51 +5,49 @@
     ViewData["Title"] = "Index";
 }
 
- 
+
 <div class="container">
 
-<h1>Index</h1>
+    <h1>Index</h1>
 
-        <p>
-            <a class="btn btn-primary" asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Key)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Value)
+                </th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Key)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Value)
-                    </th>
-                    <th>Operation</th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Key)
+                    </td>
+                    <td>
+                        @if (item.Key == GeneralEnums.GeneralEnum.ProfilePhoto || item.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
+                        {
+                            <img src="images/profile/@item.Value" alt="" style="max-height: 500px;max-width: 500px" />
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Value)
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Key)
-                        </td>
-                        <td>
-                            @if (item.Key == GeneralEnums.GeneralEnum.AboutMyPhoto || item.Key == GeneralEnums.GeneralEnum.SidebarMyPhoto ||
-                               item.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
-                            {
-                                <img src="assets/img/profile/@item.Value" alt="" style="max-height: 500px;max-width: 500px" />
-                            }
-                            else
-                            {
-                                @Html.DisplayFor(modelItem => item.Value)
-                            }
-                        </td>
-                        <td>
-                            <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-     </div>
- 
+            }
+        </tbody>
+    </table>
+</div>
