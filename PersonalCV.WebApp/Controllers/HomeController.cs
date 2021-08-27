@@ -5,6 +5,7 @@ using PersonalCV.Core.Services;
 using PersonalCV.WebApp.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PersonalCV.WebApp.Controllers
 {
@@ -46,28 +47,38 @@ namespace PersonalCV.WebApp.Controllers
                 Email = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
                 AboutText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.AboutText)?.Value,
                 Age = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Age)?.Value,
-                CountOfCustomers = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfCustomers)
-                    ?.Value,
-                CountOfPublishedProjects = siteInfo
-                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfPublishedProjects)?.Value,
-                CountOfTestProjects = siteInfo
-                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfTestProjects)?.Value,
-                LinkedIn = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.LinkedIn)
-                    ?.Value,
-                InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)
-                    ?.Value,
-                TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)
-                    ?.Value,
-                WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)
-                    ?.Value,
-                YearsCountOfExperience = siteInfo
-                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.Value,
-                HeaderPhoto = siteInfo
-                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)?.Value,
-                GithubUrl = siteInfo
-                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.GithubUrl)?.Value,
-                GithubText = siteInfo
-                    .FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.GithubText)?.Value,
+                CountOfCustomers = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfCustomers)?.Value,
+                CountOfPublishedProjects = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfPublishedProjects)?.Value,
+                CountOfTestProjects = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.CountOfTestProjects)?.Value,
+                LinkedIn = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.LinkedIn)?.Value,
+                InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)?.Value,
+                TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
+                WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
+                YearsCountOfExperience = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.YearsCountOfExperience)?.Value,
+                HeaderPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)?.Value,
+                GithubUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.GithubUrl)?.Value,
+                GithubText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.GithubText)?.Value,
+                ProfilePhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.ProfilePhoto)?.Value,
+                FirstEducationDegree = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstEducationDegree)?.Value,
+                FirstEducationDescription = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstEducationDescription)?.Value,
+                FirstEducationName = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstEducationName)?.Value,
+                FirstEducationTime = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstEducationTime)?.Value,
+                FirstEducationTitle = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstEducationTitle)?.Value,
+                Address = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Address)?.Value,
+                FirstJobDescription = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstJobDescription)?.Value,
+                FirstJobSubject = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstJobSubject)?.Value,
+                FirstJobTitle = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstJobTitle)?.Value,
+                FirstJobYear = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.FirstJobYear)?.Value,
+                Language = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Language)?.Value,
+                SecondEducationDegree = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondEducationDegree)?.Value,
+                SecondEducationDescription = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondEducationDescription)?.Value,
+                SecondEducationName = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondEducationName)?.Value,
+                SecondEducationTime = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondEducationTime)?.Value,
+                SecondEducationTitle = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondEducationTitle)?.Value,
+                SecondJobDescription = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondJobDescription)?.Value,
+                SecondJobSubject = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondJobSubject)?.Value,
+                SecondJobTitle = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondJobTitle)?.Value,
+                SecondJobYear = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondJobYear)?.Value,
             };
 
             ViewBag.IsAllSelected = "true";
@@ -117,6 +128,7 @@ namespace PersonalCV.WebApp.Controllers
             });
         }
 
+        [Authorize]
         public ActionResult Admin()
         {
             return View();

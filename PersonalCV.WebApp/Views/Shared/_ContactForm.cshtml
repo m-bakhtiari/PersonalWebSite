@@ -11,7 +11,7 @@
                 <div class="col-md-9">
                     <div class="card mb-0" data-aos="zoom-in">
                         <div class="h4 text-center title">Contact Me</div>
-                        <form action="https://formspree.io/your@email.com" method="POST">
+                        <form asp-controller="Contacts" asp-action="Create">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="card-body">
@@ -19,7 +19,7 @@
                                         <div class="row mb-3">
                                             <div class="col">
                                                 <div>
-                                                    <span><i class="fa fa-user-circle"></i>نام شما</span>
+                                                    <span><i class="fa fa-user-circle pl-2 fa-2x"></i>نام شما</span>
                                                     <input class="form-control" type="text" placeholder="Name" asp-for="Name" name="name" id="name" />
                                                 </div>
                                             </div>
@@ -27,7 +27,7 @@
                                         <div class="row mb-3">
                                             <div class="col">
                                                 <div>
-                                                    <span><i class="fa fa-file-text"></i>موضوع</span>
+                                                    <span><i class="fa fa-file-text pl-2 fa-2x"></i>موضوع</span>
                                                     <input class="form-control" type="text" asp-for="Subject" name="Subject" placeholder="Subject" />
                                                 </div>
                                             </div>
@@ -35,7 +35,7 @@
                                         <div class="row mb-3">
                                             <div class="col">
                                                 <div>
-                                                    <span><i class="fa fa-phonr"></i>تلفن شما</span>
+                                                    <span><i class="fa fa-phone pl-2 fa-2x"></i>تلفن شما</span>
                                                     <input class="form-control" type="text" asp-for="Phone" placeholder="Phone" />
                                                 </div>
                                             </div>
@@ -43,15 +43,9 @@
                                         <div class="row mb-3">
                                             <div class="col">
                                                 <div>
-                                                    <span><i class="fa fa-envelope"></i>ایمیل شما</span>
+                                                    <span><i class="fa fa-envelope pl-2 fa-2x"></i>ایمیل شما</span>
                                                     <input class="form-control" type="email" asp-for="Email" placeholder="E-mail" />
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <input class="btn btn-primary" type="submit" value="Send">
                                             </div>
                                         </div>
                                     </div>
@@ -60,9 +54,17 @@
                                     <div class="card-body">
                                         <div class="col">
                                             <div class="form-group">
-                                                <textarea rows="10" class="form-control" name="message" asp-for="Message" placeholder="Your Message" required="required"></textarea>
+                                                <span><i class="fa fa-pencil pl-2 fa-2x"></i>پیام</span>
+                                                <textarea rows="7" class="form-control" name="message" asp-for="Message" placeholder="Your Message" required="required"></textarea>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col">
+                                        <input class="btn btn-primary btn-block mb-4" type="submit" value="ارسال">
                                     </div>
                                 </div>
                             </div>
@@ -75,32 +77,3 @@
 </div>
 
 
-<div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-    <form class="php-email-form" asp-controller="Contacts" asp-action="Create">
-        <div class="row">
-            <div class="form-group">
-                <label asp-for="Name">نام شما</label>
-                <input asp-for="Name" type="text" name="name" id="name" class="form-control">
-            </div>
-            <div class="form-group col-md-6">
-                <label asp-for="Email" for="email">ایمیل شما</label>
-                <input asp-for="Email" type="email" class="form-control" id="email" name="email" />
-            </div>
-            <div class="form-group col-md-6">
-                <label asp-for="Phone" for="phone">شماره تماس</label>
-                <input asp-for="Phone" type="text" class="form-control" id="phone" name="phone" required />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Subject" for="subject">موضوع</label>
-            <input asp-for="Subject" type="text" class="form-control" id="subject" name="subject">
-        </div>
-        <div class="form-group">
-            <label asp-for="Message" for="message">متن پیام</label>
-            <textarea asp-for="Message" class="form-control" id="message" name="message" rows="10" required></textarea>
-        </div>
-        <div class="text-center">
-            <input class="btn btn-success" type="submit" value="ارسال پیام" />
-        </div>
-    </form>
-</div>

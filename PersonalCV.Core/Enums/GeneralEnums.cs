@@ -85,28 +85,28 @@ namespace PersonalCV.Core.Enums
             SecondEducationDescription = 26,
 
             [Description("JobFirstTitle")]
-            JobFirstTitle = 27,
+            FirstJobTitle = 27,
 
             [Description("JobFirstYear")]
-            JobFirstYear = 28,
+            FirstJobYear = 28,
 
             [Description("JobFirstSubject")]
-            JobFirstAddress = 29,
+            FirstJobAddress = 29,
 
-            [Description("JobFirstDescription1")]
-            JobFirstDescription1 = 30,
+            [Description("JobFirstDescription")]
+            FirstJobDescription = 30,
 
             [Description("JobSecondTitle")]
-            JobSecondTitle = 31,
+            SecondJobTitle = 31,
 
             [Description("JobSecondYear")]
-            JobSecondYear = 32,
+            SecondJobYear = 32,
 
             [Description("JobSecondSubject")]
-            JobSecondAddress = 33,
+            SecondJobAddress = 33,
 
             [Description("JobSecondDescription")]
-            JobSecondDescription1 = 34,
+            SecondJobDescription = 34,
 
             [Description("Language")]
             Language = 35,
@@ -125,6 +125,12 @@ namespace PersonalCV.Core.Enums
 
             [Description("ProfilePhoto")]
             ProfilePhoto = 40,
+
+            [Description("FirstJobSubject")]
+            FirstJobSubject = 41,
+
+            [Description("SecondJobSubject")]
+            SecondJobSubject = 42,
         }
     }
 }
