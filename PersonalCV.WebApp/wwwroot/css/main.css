@@ -7131,7 +7131,7 @@ Created using IcoMoon - icomoon.io
 }
 
     .progress-container .progress-bar {
-        height: 5px;
+        height: 10px;
         transform: scaleX(0);
         transition: transform 2s ease-in-out;
         transform-origin: right;

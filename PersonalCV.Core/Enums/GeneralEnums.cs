@@ -131,6 +131,9 @@ namespace PersonalCV.Core.Enums
 
             [Description("SecondJobSubject")]
             SecondJobSubject = 42,
+
+            [Description("CvFileForDownload")]
+            CvFileForDownload=43,
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.IO;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PersonalCV.Core.Enums;
 using PersonalCV.Core.Services;
@@ -132,6 +133,15 @@ namespace PersonalCV.WebApp.Controllers
         public ActionResult Admin()
         {
             return View();
+        }
+
+        [HttpGet("download")]
+        public async Task<IActionResult> GetBlobDownload()
+        {
+            var filename = await _siteInfoService.GetCvLink();
+            var path = $"{Directory.GetCurrentDirectory()}/wwwroot/images/profile/{filename}";
+            var mediaType = "application/x-rar-compressed";
+            return PhysicalFile(path, mediaType, filename);
         }
     }
 }

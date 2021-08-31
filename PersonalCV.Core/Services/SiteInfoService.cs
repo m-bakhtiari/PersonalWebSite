@@ -113,6 +113,12 @@ namespace PersonalCV.Core.Services
                x.Key == GeneralEnums.GeneralEnum.LinkedIn && x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
         }
 
+        public async Task<string> GetCvLink()
+        {
+            var link = await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == GeneralEnums.GeneralEnum.CvFileForDownload);
+            return link.Value;
+        }
+
         private string GenerateUniqCode()
         {
             return Guid.NewGuid().ToString().Replace("-", "");
