@@ -119,6 +119,13 @@ namespace PersonalCV.Core.Services
             return link.Value;
         }
 
+        public async Task<List<SiteInfo>> GetLayoutInfo()
+        {
+            return await _context.SiteInfos.Where(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl &&
+                                                       x.Key == GeneralEnums.GeneralEnum.InstagramUrl && x.Key == GeneralEnums.GeneralEnum.TelegramUrl &&
+                                                       x.Key == GeneralEnums.GeneralEnum.LinkedIn && x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
+        }
+
         private string GenerateUniqCode()
         {
             return Guid.NewGuid().ToString().Replace("-", "");

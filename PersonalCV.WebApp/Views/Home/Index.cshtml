@@ -37,8 +37,9 @@
                             <div class="cc-profile-image"><a href="/"><img src="images/profile/@Model.ProfilePhoto" alt="Image" /></a></div>
                             <div class="h2 title">محمدرضا بختیاری</div>
                             <p class="category text-white">برنامه نویس بک اند ، فرانت اند و فول استک</p>
-                            <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">سفارش پروژه</a>
+                            <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">تماس با من</a>
                             <a class="btn btn-primary" href="/download" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">دانلود رزومه</a>
+                            <a class="btn btn-primary" href="/shopping" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">سفارش پروژه</a>
                         </div>
                     </div>
                     <div class="section">
@@ -133,17 +134,49 @@
                 }
             </div>
         </div>
-        <div class="section" id="portfolio">
-            <partial name="_Template" model="@Model.TemplatePaging" />
-        </div>
-        <div class="section" id="experience">
+        <div class="section">
             <div class="container cc-experience">
                 <div class="h4 text-center mb-4 title">سابقه کار</div>
+                <div class="row no-gutters">
+
+                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-animate" data-aos="fade-up">
+                        <div class="count-box">
+                            <i class="fa fa-smile-o"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfCustomers" data-purecounter-duration="0" class="purecounter">@Model.CountOfCustomers</span>
+                            <p><strong>مشتریان</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        <div class="count-box">
+                            <i class="fa fa-book"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfPublishedProjects" data-purecounter-duration="0" class="purecounter">@Model.CountOfPublishedProjects</span>
+                            <p><strong>پروژه</strong> که پابلیش شده اند</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        <div class="count-box">
+                            <i class="fa fa-headphones"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfTestProjects" data-purecounter-duration="0" class="purecounter">@Model.CountOfTestProjects</span>
+                            <p><strong>پروژه</strong> به صورت آموزشی انجام شده</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        <div class="count-box">
+                            <i class="fa fa-clock-o"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="@Model.YearsCountOfExperience" data-purecounter-duration="0" class="purecounter">@Model.YearsCountOfExperience</span>
+                            <p><strong>سال</strong> کار به صورت حرفه ای</p>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="card">
                     <div class="row">
                         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body cc-experience-header">
-                                <p>@Model.FirstJobYear</p>
+                                <p class="pr-2">@Model.FirstJobYear</p>
                                 <div class="h5 pr-2">@Model.FirstJobTitle</div>
                             </div>
                         </div>
@@ -159,7 +192,7 @@
                     <div class="row">
                         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body cc-experience-header">
-                                <p>@Model.SecondJobYear</p>
+                                <p class="pr-2">@Model.SecondJobYear</p>
                                 <div class="h5 pr-2">@Model.SecondJobTitle</div>
                             </div>
                         </div>
@@ -180,14 +213,14 @@
                     <div class="row">
                         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body cc-education-header">
-                                <p>@Model.FirstEducationTime</p>
+                                <p class="pr-2">@Model.FirstEducationTime</p>
                                 <div class="h5 pr-2">@Model.FirstEducationDegree</div>
                             </div>
                         </div>
                         <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body">
                                 <div class="h5">@Model.FirstEducationTitle</div>
-                                <p class="category">@Model.FirstEducationName</p>
+                                <p class="category pr-2">@Model.FirstEducationName</p>
                                 <p>@Model.FirstEducationDescription</p>
                             </div>
                         </div>
@@ -197,7 +230,7 @@
                     <div class="row">
                         <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
                             <div class="card-body cc-education-header">
-                                <p>@Model.SecondEducationTime</p>
+                                <p class="pr-2">@Model.SecondEducationTime</p>
                                 <div class="h5 pr-2">@Model.SecondEducationDegree</div>
                             </div>
                         </div>
@@ -213,7 +246,9 @@
             </div>
         </div>
         <div class="section" id="contact">
-            <partial name="_ContactForm" model="@Model.Contact" />
+            <div class="cc-contact-information" style="background-image: url('~/images/profile/@Model.MapPhoto')">
+                <partial name="_ContactForm" model="@Model.Contact" />
+            </div>
         </div>
     </div>
 </div>
@@ -237,9 +272,11 @@
     </div>
     <div class="h4 title text-center">محمدرضا بختیاری</div>
     <div class="text-center text-muted">
-        <p>تمامی حقوق مادی و معنوی این سایت متعلق به 
+        <p>
+            تمامی حقوق مادی و معنوی این سایت متعلق به
             <a href="/">محمدرضا بختیاری</a>
-            می باشد و هرگونه کپی برداری غیرقانونی محسوب خواهد شد</p>
+            می باشد و هرگونه کپی برداری غیرقانونی محسوب خواهد شد
+        </p>
     </div>
 </footer>
 

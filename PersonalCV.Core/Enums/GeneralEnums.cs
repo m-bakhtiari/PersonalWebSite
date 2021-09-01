@@ -134,6 +134,9 @@ namespace PersonalCV.Core.Enums
 
             [Description("CvFileForDownload")]
             CvFileForDownload=43,
+
+            [Description("MapPhoto")]
+            MapPhoto=44,
         }
     }
 }

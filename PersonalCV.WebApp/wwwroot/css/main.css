@@ -7254,3 +7254,48 @@ a.credit {
 .section {
     padding-bottom: 0;
 }
+
+/* Extra place for add statistics part */
+.count-box {
+    padding: 30px;
+    width: 100%;
+}
+
+.count-box i {
+    display: block;
+    font-size: 44px;
+    color: #149ddd;
+    float: right;
+    line-height: 0;
+}
+
+.count-box span {
+    font-size: 48px;
+    line-height: 20px;
+    display: block;
+    font-weight: 700;
+    color: #050d18;
+    margin-right: 45px;
+}
+
+.count-box p {
+    padding: 15px 0 0 0;
+    margin: 0 0 0 60px;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    color: #122f57;
+}
+
+.count-box a {
+    font-weight: 600;
+    display: block;
+    margin-top: 20px;
+    color: #122f57;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    transition: ease-in-out 0.3s;
+}
+
+.count-box a:hover {
+    color: #1f5297;
+}

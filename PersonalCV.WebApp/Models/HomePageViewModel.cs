@@ -41,10 +41,10 @@ namespace PersonalCV.WebApp.Models
         public string SecondJobSubject { get; set; }
         public string SecondJobDescription { get; set; }
         public string Language { get; set; }
+        public string MapPhoto { get; set; }
 
         public List<Skill> Skills { get; set; }
         public Contact Contact { get; set; }
-        public TemplatePaging TemplatePaging { get; set; }
     }
 
 }

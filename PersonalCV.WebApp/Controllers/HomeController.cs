@@ -12,16 +12,14 @@ namespace PersonalCV.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly SiteInfoService _siteInfoService;
         private readonly TemplateGroupService _templateGroupService;
         private readonly TemplateService _templateService;
         private readonly SkillService _skillService;
         private readonly HostPlanService _hostPlanService;
 
-        public HomeController(ILogger<HomeController> logger, SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, HostPlanService hostPlanService)
+        public HomeController(SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, HostPlanService hostPlanService)
         {
-            _logger = logger;
             _siteInfoService = siteInfoService;
             _templateGroupService = templateGroupService;
             _templateService = templateService;
@@ -80,6 +78,7 @@ namespace PersonalCV.WebApp.Controllers
                 SecondJobSubject = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondJobSubject)?.Value,
                 SecondJobTitle = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondJobTitle)?.Value,
                 SecondJobYear = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.SecondJobYear)?.Value,
+                MapPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.MapPhoto)?.Value,
             };
 
             ViewBag.IsAllSelected = "true";
@@ -142,6 +141,14 @@ namespace PersonalCV.WebApp.Controllers
             var path = $"{Directory.GetCurrentDirectory()}/wwwroot/images/profile/{filename}";
             var mediaType = "application/x-rar-compressed";
             return PhysicalFile(path, mediaType, filename);
+        }
+
+        [Route("shopping")]
+        public async Task<IActionResult> ShoppingPage()
+        {
+
+
+            return View("Shopping");
         }
     }
 }

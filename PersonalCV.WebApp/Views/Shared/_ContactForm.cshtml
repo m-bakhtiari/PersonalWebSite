@@ -4,7 +4,6 @@
     Layout = null;
 }
 
-<div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
     <div class="container">
         <div class="cc-contact">
             <div class="row">
@@ -20,7 +19,7 @@
                                             <div class="col">
                                                 <div>
                                                     <span><i class="fa fa-user-circle pl-2 fa-2x"></i>نام شما</span>
-                                                    <input class="form-control" type="text" placeholder="Name" asp-for="Name" name="name" id="name" />
+                                                    <input class="form-control" type="text" placeholder="نام شما" asp-for="Name" name="name" id="name" />
                                                 </div>
                                             </div>
                                         </div>
@@ -28,15 +27,15 @@
                                             <div class="col">
                                                 <div>
                                                     <span><i class="fa fa-file-text pl-2 fa-2x"></i>موضوع</span>
-                                                    <input class="form-control" type="text" asp-for="Subject" name="Subject" placeholder="Subject" />
+                                                    <input class="form-control" type="text" asp-for="Subject" name="Subject" placeholder="موضوع" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col">
                                                 <div>
-                                                    <span><i class="fa fa-phone pl-2 fa-2x"></i>تلفن شما</span>
-                                                    <input class="form-control" type="text" asp-for="Phone" placeholder="Phone" />
+                                                    <span><i class="fa fa-phone pl-2 fa-2x"></i>تلفن</span>
+                                                    <input class="form-control" id="phone" type="text" asp-for="Phone" placeholder="تلفن" required="required" />
                                                 </div>
                                             </div>
                                         </div>
@@ -44,7 +43,7 @@
                                             <div class="col">
                                                 <div>
                                                     <span><i class="fa fa-envelope pl-2 fa-2x"></i>ایمیل شما</span>
-                                                    <input class="form-control" type="email" asp-for="Email" placeholder="E-mail" />
+                                                    <input class="form-control" id="email" type="email" asp-for="Email" placeholder="ایمیل شما" />
                                                 </div>
                                             </div>
                                         </div>
@@ -74,4 +73,3 @@
             </div>
         </div>
     </div>
-</div>
