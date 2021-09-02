@@ -16,32 +16,21 @@ namespace PersonalCV.WebApp.Controllers
         private readonly TemplateGroupService _templateGroupService;
         private readonly TemplateService _templateService;
         private readonly SkillService _skillService;
-        private readonly HostPlanService _hostPlanService;
 
-        public HomeController(SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, HostPlanService hostPlanService)
+        public HomeController(SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService)
         {
             _siteInfoService = siteInfoService;
             _templateGroupService = templateGroupService;
             _templateService = templateService;
             _skillService = skillService;
-            _hostPlanService = hostPlanService;
         }
 
-        public async Task<IActionResult> Index(int? groupId, int pageId = 1)
+        public async Task<IActionResult> Index()
         {
             var siteInfo = await _siteInfoService.GetAll();
-            var template = await _templateService.GetAllByPaging(groupId, pageId);
-            var templateVm = new TemplatePaging()
-            {
-                PageCount = template.Item2,
-                Templates = template.Item1,
-                TemplateGroups = await _templateGroupService.GetAll(),
-                PageId = pageId,
-            };
             var model = new HomePageViewModel
             {
                 Skills = await _skillService.GetAll(),
-                TemplatePaging = templateVm,
                 Phone = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Phone)?.Value,
                 Email = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
                 AboutText = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.AboutText)?.Value,
@@ -144,11 +133,30 @@ namespace PersonalCV.WebApp.Controllers
         }
 
         [Route("shopping")]
-        public async Task<IActionResult> ShoppingPage()
+        public async Task<IActionResult> ShoppingPage(int? groupId, int pageId = 1)
         {
-
-
-            return View("Shopping");
+            var siteInfo = await _siteInfoService.GetAll();
+            var template = await _templateService.GetAllByPaging(groupId, pageId);
+            var templateVm = new TemplatePaging()
+            {
+                PageCount = template.Item2,
+                Templates = template.Item1,
+                TemplateGroups = await _templateGroupService.GetAll(),
+                PageId = pageId,
+            };
+            var model = new ShoppingViewModel()
+            {
+                TemplatePaging = templateVm,
+                Email = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                ProfilePhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                HeaderPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                LinkedIn = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                MapPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+            };
+            return View("Shopping", model);
         }
     }
 }

@@ -108,9 +108,9 @@ namespace PersonalCV.Core.Services
 
         public async Task<List<SiteInfo>> GetInfoForErrorPage()
         {
-            return await _context.SiteInfos.Where(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl &&
-                                                 x.Key == GeneralEnums.GeneralEnum.InstagramUrl && x.Key == GeneralEnums.GeneralEnum.TelegramUrl &&
-               x.Key == GeneralEnums.GeneralEnum.LinkedIn && x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
+            return await _context.SiteInfos.Where(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl ||
+                                                 x.Key == GeneralEnums.GeneralEnum.InstagramUrl || x.Key == GeneralEnums.GeneralEnum.TelegramUrl ||
+               x.Key == GeneralEnums.GeneralEnum.LinkedIn || x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
         }
 
         public async Task<string> GetCvLink()
@@ -121,9 +121,9 @@ namespace PersonalCV.Core.Services
 
         public async Task<List<SiteInfo>> GetLayoutInfo()
         {
-            return await _context.SiteInfos.Where(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl &&
-                                                       x.Key == GeneralEnums.GeneralEnum.InstagramUrl && x.Key == GeneralEnums.GeneralEnum.TelegramUrl &&
-                                                       x.Key == GeneralEnums.GeneralEnum.LinkedIn && x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
+            return await _context.SiteInfos.Where(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl ||
+                                                       x.Key == GeneralEnums.GeneralEnum.InstagramUrl || x.Key == GeneralEnums.GeneralEnum.TelegramUrl ||
+                                                       x.Key == GeneralEnums.GeneralEnum.LinkedIn || x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
         }
 
         private string GenerateUniqCode()
