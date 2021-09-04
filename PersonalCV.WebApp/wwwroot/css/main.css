@@ -7421,7 +7421,6 @@ a.credit {
         #pricing .price-holder .number .duration {
             display: inline-block;
             font-family: 'Montserrat-Regular', sans-serif;
-            font-size: 15px;
             opacity: 0.5;
             color: #ffffff;
         }
@@ -7434,7 +7433,7 @@ a.credit {
             list-style: none;
             padding: 0;
             margin: 0;
-            text-align: left;
+            text-align: right;
         }
 
             #pricing .plan-box .plan-box-content ul.c-list li.c-item {
@@ -7442,6 +7441,7 @@ a.credit {
                 font-size: 12px;
                 padding-top: 6px;
                 padding-bottom: 6px;
+                text-align: right;
             }
 
                 #pricing .plan-box .plan-box-content ul.c-list li.c-item .fa {

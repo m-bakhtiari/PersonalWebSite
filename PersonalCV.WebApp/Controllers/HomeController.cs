@@ -16,13 +16,15 @@ namespace PersonalCV.WebApp.Controllers
         private readonly TemplateGroupService _templateGroupService;
         private readonly TemplateService _templateService;
         private readonly SkillService _skillService;
+        private readonly WhoisDomainCheckerService _whoisDomainCheckerService;
 
-        public HomeController(SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService)
+        public HomeController(SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, WhoisDomainCheckerService whoisDomainCheckerService)
         {
             _siteInfoService = siteInfoService;
             _templateGroupService = templateGroupService;
             _templateService = templateService;
             _skillService = skillService;
+            _whoisDomainCheckerService = whoisDomainCheckerService;
         }
 
         public async Task<IActionResult> Index()
@@ -148,15 +150,20 @@ namespace PersonalCV.WebApp.Controllers
             {
                 TemplatePaging = templateVm,
                 Email = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                ProfilePhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                HeaderPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                LinkedIn = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                MapPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
-                WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
+                ProfilePhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.ProfilePhoto)?.Value,
+                HeaderPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)?.Value,
+                InstagramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.InstagramUrl)?.Value,
+                LinkedIn = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.LinkedIn)?.Value,
+                MapPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.MapPhoto)?.Value,
+                TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
+                WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
             };
             return View("Shopping", model);
+        }
+
+        public async Task<bool> CheckDomain(string domain)
+        {
+            return await _whoisDomainCheckerService.CheckDomain(domain);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PersonalCV.Core.Entities;
+﻿using System.Collections.Generic;
+using PersonalCV.Core.Entities;
 
 namespace PersonalCV.WebApp.Models
 {
@@ -6,6 +7,7 @@ namespace PersonalCV.WebApp.Models
     {
         public TemplatePaging TemplatePaging { get; set; }
         public Contact Contact { get; set; }
+        public List<HostPlan> HostPlans { get; set; }
 
         public string Email { get; set; }
         public string LinkedIn { get; set; }

@@ -36,6 +36,7 @@ namespace PersonalCV.WebApp
             services.AddTransient<HostPlanService, HostPlanService>();
             services.AddTransient<ContactService, ContactService>();
             services.AddTransient<SkillDetailService, SkillDetailService>();
+            services.AddTransient<WhoisDomainCheckerService, WhoisDomainCheckerService>();
 
             #endregion
 

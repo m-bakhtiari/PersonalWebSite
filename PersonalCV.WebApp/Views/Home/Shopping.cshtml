@@ -15,10 +15,10 @@
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">اطلاعات</a></li>
-                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">مهارت ها</a></li>
-                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">قالب سایت</a></li>
-                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">تجربه</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#profile">پروفایل</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">قالب های سایت</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#pricing">هاست</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#domain">دامین</a></li>
                         <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">ارسال پیام</a></li>
                     </ul>
                 </div>
@@ -29,7 +29,7 @@
 
 <div class="page-content">
     <div>
-        <div class="profile-page">
+        <div id="profile" class="profile-page">
             <div class="wrapper">
                 <div class="page-header page-header-small" filter-color="green">
                     <div class="page-header-image" data-parallax="true" style="background-image: url('images/profile/@Model.HeaderPhoto')"></div>
@@ -71,184 +71,76 @@
         </div>
         <div id="pricing" class="container-fluid">
             <div class="container">
-                <div class="row text-center">
+                <div>
                     <div class="col-xs-12 row-title">
-                        <h4>Pricing the Priceless</h4>
-                        <h5>Best prices ever for Search and Register your Domain name!</h5>
+                        <h4>پلن های هاست</h4>
+                        <h5>متناسب با سایت خود یکی از پلن های زیر را انتخاب نمایید</h5>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="plan-box">
-                            <div class="plan-box-header color-bg1">
-                                <div class="plan-title">Starter</div>
-                                <div class="price-holder">
-                                    <div class="currency">$</div>
-                                    <div class="number">
-                                        <div class="num-big">3</div>
-                                        <div class="num-small-holder">
-                                            <div class="num-small">.38<div class="duration">/mo</div></div>
-                                        </div>
-                                    </div>
+                    @foreach (var item in Model.HostPlans)
+                    {
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="plan-box">
+                                <div class="plan-box-header color-bg1">
+                                    <div class="plan-title h3">@item.Title</div>
+                                </div>
+                                <div class="plan-box-content">
+                                    <ul class="c-list">
+                                        @foreach (var des in item.Description.Split("-"))
+                                        {
+                                            @if (string.IsNullOrWhiteSpace(des) == false)
+                                            {
+
+                                        <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i><span class="pr-1">سثبثسب سثب</span></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="plan-box-button">
+                                    <a class="color-bg1"></a>
                                 </div>
                             </div>
-                            <div class="plan-box-content">
-                                <ul class="c-list">
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Unlimited Storage</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>500 Protected Files</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>All Sharing Features</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Realtime Revoke</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Access to Party Integrations</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Free Native Apps</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>QNote Editor</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Offline File Access</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Basic Versioning</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Single Sign on</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>2-Factor Autentication</li>
-                                </ul>
-                            </div>
-                            <div class="plan-box-button">
-                                <a class="color-bg1" href="#">Select plan</a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="plan-box best-seller">
-                            <div class="plan-box-header color-bg2">
-                                <div class="plan-title">Advanced</div>
-                                <div class="price-holder">
-                                    <div class="currency">$</div>
-                                    <div class="number">
-                                        <div class="num-big">5</div>
-                                        <div class="num-small-holder">
-                                            <div class="num-small">.38<div class="duration">/mo</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="plan-box-content">
-                                <ul class="c-list">
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Unlimited Storage</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>500 Protected Files</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>All Sharing Features</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Realtime Revoke</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Access to Party Integrations</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Free Native Apps</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>QNote Editor</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Offline File Access</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Basic Versioning</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Single Sign on</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>2-Factor Autentication</li>
-                                </ul>
-                            </div>
-                            <div class="plan-box-button">
-                                <a class="color-bg2" href="#">Select plan</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="plan-box">
-                            <div class="plan-box-header color-bg3">
-                                <div class="plan-title">Ultra</div>
-                                <div class="price-holder">
-                                    <div class="currency">$</div>
-                                    <div class="number">
-                                        <div class="num-big">8</div>
-                                        <div class="num-small-holder">
-                                            <div class="num-small">.38<div class="duration">/mo</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="plan-box-content">
-                                <ul class="c-list">
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Unlimited Storage</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>500 Protected Files</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>All Sharing Features</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Realtime Revoke</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Access to Party Integrations</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Free Native Apps</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>QNote Editor</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Offline File Access</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Basic Versioning</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>Single Sign on</li>
-                                    <li class="c-item not-inc"><i class="fa fa-check" aria-hidden="true"></i>2-Factor Autentication</li>
-                                </ul>
-                            </div>
-                            <div class="plan-box-button">
-                                <a class="color-bg3" href="#">Select plan</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="plan-box">
-                            <div class="plan-box-header color-bg4">
-                                <div class="plan-title">Pro</div>
-                                <div class="price-holder">
-                                    <div class="currency">$</div>
-                                    <div class="number">
-                                        <div class="num-big">13</div>
-                                        <div class="num-small-holder">
-                                            <div class="num-small">.38<div class="duration">/mo</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="plan-box-content">
-                                <ul class="c-list">
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Unlimited Storage</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>500 Protected Files</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>All Sharing Features</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Realtime Revoke</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Access to Party Integrations</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Free Native Apps</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>QNote Editor</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Offline File Access</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Basic Versioning</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>Single Sign on</li>
-                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i>2-Factor Autentication</li>
-                                </ul>
-                            </div>
-                            <div class="plan-box-button">
-                                <a class="color-bg4" href="#">Select plan</a>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
-        <section class="calltoaction section_sapce cover-image" style="background-color: black">
-            <div class="row row-search">
-                <div class="container">
-                    <div class="col-sm-12 col-md-8 center-block">
-                        <div class="row no-gutter cta-content row-search">
-                            <div class="offerdescription">
-                                <h2 class="text-uppercase  text-center">Hosting with FREE domain. </h2>
-                                <p class=" text-center">We are Providing Free Domain for every month new extentions.</p>
+        <div id="domain">
+            <section class="calltoaction section_sapce cover-image" style="background-color: black">
+                <div class="row row-search">
+                    <div class="container">
+                        <div class="col-sm-12 col-md-8 center-block">
+                            <div class="row no-gutter cta-content row-search">
+                                <div class="offerdescription">
+                                    <h2 class="text-uppercase  text-center">Hosting with FREE domain. </h2>
+                                    <p class=" text-center">We are Providing Free Domain for every month new extentions.</p>
+                                </div>
                             </div>
+                            <form class="form-inline domainsearch" method="post" action="#">
+                                <div class="row no-gutter row-search">
+                                    <div class="col-sm-8 bg-white">
+                                        <input type="text" class="form-control" name="sld" onfocus="if (this.value == 'Enter your domain') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter your domain';}" value="Enter your domain">
+                                    </div>
+                                    <div class="col-sm-2 bg-white mt-2">
+                                        <select name="tld" class="form-control">
+                                            <option>.com</option>
+                                            <option>.net</option>
+                                            <option>.org</option>
+                                            <option>.eu</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="submit" class="btn btn-new" style="width:100%">SEARCH</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <form class="form-inline domainsearch" method="post" action="#">
-                            <div class="row no-gutter row-search">
-                                <div class="col-sm-8 bg-white">
-                                    <input type="text" class="form-control" name="sld" onfocus="if (this.value == 'Enter your domain') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter your domain';}" value="Enter your domain">
-                                </div>
-                                <div class="col-sm-2 bg-white mt-2">
-                                    <select name="tld" class="form-control">
-                                        <option>.com</option>
-                                        <option>.net</option>
-                                        <option>.org</option>
-                                        <option>.eu</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2">
-                                    <button type="submit" class="btn btn-new" style="width:100%">SEARCH</button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+        </div>
         <div class="section" id="contact">
             <div class="cc-contact-information" style="background-image: url('~/images/profile/@Model.MapPhoto')">
                 <partial name="_ContactForm" model="@Model.Contact" />

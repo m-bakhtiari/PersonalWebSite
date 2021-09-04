@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PersonalCV.Core.Entities
@@ -16,13 +16,6 @@ namespace PersonalCV.Core.Entities
         [Required]
         public string CompanyName { get; set; }
 
-        [Display(Name = "فضا")]
-        public int Capacity { get; set; }
-
-        [Display(Name = "پهنای باند ماهیانه")]
-        public int BandwidthPerMonth { get; set; }
-
-        [Display(Name = "وبسایت اضافی")]
-        public int ExtraWebSite { get; set; }
+        public string Description { get; set; }
     }
 }

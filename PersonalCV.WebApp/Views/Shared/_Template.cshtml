@@ -1,7 +1,7 @@
 ﻿@model TemplatePaging
 
 <div class="container">
-    <div class="row">
+    <div>
         <div class="col-md-6 ml-auto mr-auto">
             <div class="h4 text-center mb-4 title">Portfolio</div>
             <div class="nav-align-center nav nav-pills nav-pills-primary">
@@ -41,7 +41,7 @@
                     @foreach (var temp in Model.Templates)
                     {
                         <div class="cc-porfolio-image img-raised col-md-6 mt-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                            <a href="#web-development">
+                            <a href="@temp.SiteUrlForPreview">
                                 <figure class="cc-effect">
                                     <img src="images/template/@temp.MainImage" alt="Image"/>
                                     <figcaption>
@@ -54,77 +54,16 @@
                         </div>
                     }
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@*<form method="get" action="/TemplateGroups/GetAllByPaging">
-        <section id="template" class="portfolio section-bg">
-            <div class="container">
-
-                <div class="section-title">
-                    <h2>Templates</h2>
-                    <p>@Model.TemplateText</p>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12 d-flex justify-content-center">
-
-                        @if (ViewBag.IsAllSelected == "true")
-                        {
-                            <input onclick="LoadTemplate(null,null)" value="همه" type="button" class="btn btn-outline-primary me-2 active fw-bold">
-                        }
-                        else
-                        {
-                            <input onclick="LoadTemplate(null,null)" value="همه" type="button" class="btn btn-outline-primary me-2 fw-bold">
-                        }
-                        @foreach (var group in Model.TemplateGroups)
-                        {
-                            @if (ViewBag.IsAllSelected == "true")
-                            {
-                                <input onclick="LoadTemplate(@group.Id,null)" value="@group.Title" type="button" class="btn btn-outline-primary me-2 fw-bold" />
-                            }
-                            else
-                            {
-                                @if (Model.Templates.Any())
-                                {
-                                    <input onclick="LoadTemplate(@group.Id, null)" value="@group.Title" type="button" class="btn btn-outline-primary fw-bold me-2 @(group.Id == Model.Templates?.FirstOrDefault().GroupId ? "active" : "")">
-                                }
-                                else
-                                {
-                                    <input onclick="LoadTemplate(@group.Id,null)" value="@group.Title" type="button" class="btn btn-outline-primary me-2 fw-bold" />
-                                }
-                            }
-                        }
-                    </div>
-                </div>
-                <br />
-                <div class="portfolio-container">
-                    @foreach (var template in Model.Templates)
-                    {
-                        <a href="@template.SiteUrlForPreview" target="_blank">
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-app p-1">
-                                <div class="portfolio-wrap">
-                                    <img src="images/template/@template.MainImage" class="img-fluid" alt="template image">
-                                    <div class="portfolio-links">
-                                        <p class="portfolio-lightbox" title="@template.Title">@template.Title - (کد: @template.Code )</p>
-                                    </div>
-                                    <p class="text-center fw-bold text-dark">@template.Title - (کد: @template.Code )</p>
-                                </div>
-                            </div>
-                        </a>
-                    }
-                </div>
+                <br/>
                 <div class="row">
                     <div class="col-lg-12 d-flex justify-content-center">
                         @for (int i = 1; i <= Model.PageCount; i++)
                         {
-                            <input onclick="LoadTemplate(null,@i)" value="@i" type="button" class="btn btn-outline-primary me-2 @(Model.PageId==i?"active":"")" />
+                            <input onclick="LoadTemplate(null,@i)" value="@i" type="button" class="btn btn-outline-primary @(Model.PageId==i?"bg-success":"")" />
                         }
                     </div>
                 </div>
             </div>
-        </section>
-
-    </form>*@
+        </div>
+    </div>
+</div>

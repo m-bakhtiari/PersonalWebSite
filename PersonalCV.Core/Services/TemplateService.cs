@@ -89,9 +89,14 @@ namespace PersonalCV.Core.Services
                 templates = templates.Where(x => x.GroupId == groupId);
             }
 
-            var countAll = await templates.CountAsync();
-            var skip = (pageId - 1) * 9;
-            var groupsItem = await templates.Skip(skip).Take(9).ToListAsync();
+            var pageCount = 6;
+            var countAll = (int)Math.Floor((decimal)await templates.CountAsync() / pageCount);
+            if (await templates.CountAsync() % pageCount != 0)
+            {
+                countAll = countAll + 1;
+            }
+            var skip = (pageId - 1) * pageCount;
+            var groupsItem = await templates.Skip(skip).Take(pageCount).ToListAsync();
 
             return Tuple.Create(groupsItem, countAll);
         }
