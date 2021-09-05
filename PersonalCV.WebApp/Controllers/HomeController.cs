@@ -161,6 +161,7 @@ namespace PersonalCV.WebApp.Controllers
             return View("Shopping", model);
         }
 
+        [HttpGet]
         public async Task<bool> CheckDomain(string domain)
         {
             return await _whoisDomainCheckerService.CheckDomain(domain);

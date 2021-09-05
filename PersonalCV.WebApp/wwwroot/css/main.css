@@ -7304,7 +7304,6 @@ a.credit {
 
 #pricing {
     padding-top: 60px;
-    padding-bottom: 60px;
     background-color: #f1f6fc;
 }
 
@@ -7509,7 +7508,7 @@ a.credit {
 
 @media only screen and (min-width: 767px) {
     .section_sapce {
-        padding: 100px 0;
+        padding: 50px 0;
     }
 } 
 
@@ -7692,7 +7691,7 @@ a.credit {
         border: 0;
     }
 
-    .domainsearch button[type="submit"] {
+    .domainsearch button {
         border-radius: 0 3px 3px 0;
         color: #fff;
         cursor: pointer;

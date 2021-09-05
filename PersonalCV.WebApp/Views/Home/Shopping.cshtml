@@ -78,30 +78,33 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach (var item in Model.HostPlans)
+                    @if (Model.HostPlans != null)
                     {
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <div class="plan-box">
-                                <div class="plan-box-header color-bg1">
-                                    <div class="plan-title h3">@item.Title</div>
-                                </div>
-                                <div class="plan-box-content">
-                                    <ul class="c-list">
-                                        @foreach (var des in item.Description.Split("-"))
-                                        {
-                                            @if (string.IsNullOrWhiteSpace(des) == false)
+                        @foreach (var item in Model.HostPlans)
+                        {
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="plan-box">
+                                    <div class="plan-box-header color-bg1">
+                                        <div class="plan-title h3">@item.Title</div>
+                                    </div>
+                                    <div class="plan-box-content">
+                                        <ul class="c-list">
+                                            @foreach (var des in item.Description.Split("-"))
                                             {
+                                                @if (string.IsNullOrWhiteSpace(des) == false)
+                                                {
 
-                                        <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i><span class="pr-1">سثبثسب سثب</span></li>
+                                                    <li class="c-item"><i class="fa fa-check" aria-hidden="true"></i><span class="pr-1">سثبثسب سثب</span></li>
+                                                }
                                             }
-                                        }
-                                    </ul>
-                                </div>
-                                <div class="plan-box-button">
-                                    <a class="color-bg1"></a>
+                                        </ul>
+                                    </div>
+                                    <div class="plan-box-button">
+                                        <a class="color-bg1"></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     }
                 </div>
             </div>
@@ -113,28 +116,38 @@
                         <div class="col-sm-12 col-md-8 center-block">
                             <div class="row no-gutter cta-content row-search">
                                 <div class="offerdescription">
-                                    <h2 class="text-uppercase  text-center">Hosting with FREE domain. </h2>
-                                    <p class=" text-center">We are Providing Free Domain for every month new extentions.</p>
+                                    <h2 class="text-uppercase  text-center">نام دامنه</h2>
+                                    <p class=" text-center">نام دامنه ی خود را انتخاب نمایید و گزینه پیدا کن را بزنید در صورت تایید و خالی بودن دامنه شما می توانید آن دامنه را انتخاب نمایید</p>
                                 </div>
                             </div>
-                            <form class="form-inline domainsearch" method="post" action="#">
+                            <div class="form-inline domainsearch">
                                 <div class="row no-gutter row-search">
-                                    <div class="col-sm-8 bg-white">
-                                        <input type="text" class="form-control" name="sld" onfocus="if (this.value == 'Enter your domain') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter your domain';}" value="Enter your domain">
+                                    <div class="col-sm-8 bg-white mt-2">
+                                        <input type="text" class="form-control" id="sld" name="sld" placeholder="Enter your domain">
                                     </div>
-                                    <div class="col-sm-2 bg-white mt-2">
-                                        <select name="tld" class="form-control">
+                                    <div class="col-sm-2 bg-white mt-2 pt-3">
+                                        <select name="tld" id="tld" class="form-control">
                                             <option>.com</option>
                                             <option>.net</option>
                                             <option>.org</option>
-                                            <option>.eu</option>
+                                            <option>.ir</option>
                                         </select>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <button type="submit" class="btn btn-new" style="width:100%">SEARCH</button>
+                                    <div class="col-sm-2 mt-2">
+                                        <button onclick="SearchDomain()" class="btn btn-new" style="width:100%">بگرد</button>
                                     </div>
                                 </div>
-                            </form>
+                                <div id="TrueSearchResult" style="display: none">
+                                    <i class="fa fa-check-circle fa-5x text-success"></i>
+                                    <span class="h3 text-success">دامنه انتخابی آزاد می باشد شما می توانید آن را انتخاب نمایید</span>
+                                    <i class="fa fa-check-circle fa-5x text-success"></i>
+                                </div>
+                                <div id="FalseSearchResult" style="display: none">
+                                    <i class="fa fa-check-circle fa-5x text-danger"></i>
+                                    <span class="h3 text-danger">دامنه مورد نظر انتخاب شده است . نام دیگری انتخاب نمایید یا پسوند دامنه را تغییر دهید</span>
+                                    <i class="fa fa-check-circle fa-5x text-danger"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,5 +199,28 @@
             $("#portfolio").html(data);
         }).fail(function (xhdr, statusText, errorText) {
         });
+    }
+
+    function SearchDomain() {
+        var name = document.getElementById("sld").value;
+        var domain = document.getElementById("tld").value;
+        if (name != null) {
+            $.ajax({
+                type: "GET",
+                url: "/Home/CheckDomain?domain=" + name + domain
+            }).done(function (data, statusText, xhdr) {
+                if (data.toString() === "true") {
+                    document.getElementById('TrueSearchResult').style.display = "block";
+                    document.getElementById('FalseSearchResult').style.display = "none";
+                }
+                else if (data.toString() === "false") {
+                    document.getElementById('TrueSearchResult').style.display = "none";
+                    document.getElementById('FalseSearchResult').style.display = "block";
+                }
+            }).fail(function (xhdr, statusText, errorText) {
+                document.getElementById('TrueSearchResult').style.display = "none";
+                document.getElementById('FalseSearchResult').style.display = "none";
+            });
+        }
     }
 </script>

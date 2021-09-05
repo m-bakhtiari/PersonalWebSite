@@ -20,6 +20,7 @@
                         <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">تجربه</a></li>
                         <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">تحصیلات</a></li>
                         <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">ارسال پیام</a></li>
+                        <li class="nav-item"><a class="nav-link smooth-scroll" href="#github">گیت هاب</a></li>
                     </ul>
                 </div>
             </div>
@@ -246,6 +247,28 @@
                 </div>
             </div>
         </div>
+        <div id="github" class="section">
+            <div class="container cc-education">
+                <div class="h4 text-center mb-4 title">گیت هاب</div>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body cc-education-header">
+                                <i class="fa fa-github"></i>
+                                <p class="pr-2">گیت هاب</p>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <div class="h5">@Model.GithubText</div>
+                                <p>@Model.GithubUrl</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="section" id="contact">
             <div class="cc-contact-information" style="background-image: url('~/images/profile/@Model.MapPhoto')">
                 <partial name="_ContactForm" model="@Model.Contact" />
