@@ -10,7 +10,7 @@
         <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
             <div class="container">
                 <div class="navbar-translate" style="direction: ltr !important">
-                    <a class="navbar-brand" href="#" rel="tooltip">محمدرضا بختیاری</a>
+                    <a class="navbar-brand" href="/" rel="tooltip">محمدرضا بختیاری</a>
                     <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
                 </div>
                 <div class="collapse navbar-collapse justify-content-end" id="navigation">
@@ -40,6 +40,7 @@
                             <p class="category text-white">برنامه نویس بک اند ، فرانت اند و فول استک</p>
                             <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">سفارش پروژه</a>
                             <a class="btn btn-primary" href="/download" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">دانلود رزومه</a>
+                            <a class="btn btn-primary" href="/" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">صفحه اصلی</a>
                         </div>
                     </div>
                     <div class="section">
@@ -188,6 +189,43 @@
         </p>
     </div>
 </footer>
+
+<aside id="Social-Sidebar" class="Pos-Left Style-Square Size-Small Label-Fancy">
+    <ul>
+
+        <li><a href="/" rel="nofollow" class="fa fa-phone text-white"><span>@Model.Phone</span></a></li>
+
+        <li>
+            <a href="@Model.InstagramUrl" target="_blank" class="fa fa-instagram"
+               rel="nofollow" style="background:none repeat scroll 0% 0% orangered;">
+                <span style="background:none repeat scroll 0% 0% orangered;">اینستاگرام</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="@Model.TelegramUrl" target="_blank" class="fa fa-telegram"
+               rel="nofollow" style="background:none repeat scroll 0% 0% #234999;">
+                <span style="background:none repeat scroll 0% 0% #234999;">تلگرام</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="@Model.LinkedIn" rel="nofollow" class="fa fa-google-plus"
+               style="background:none repeat scroll 0% 0% #E34429;">
+                <span style="background:none repeat scroll 0% 0% #E34429;">لینکدین</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="@Model.WhatsappUrl" rel="nofollow" class="fa fa-whatsapp"
+               style="background:none repeat scroll 0% 0% #008000;">
+                <span style="background: none repeat scroll 0% 0% #008000;">واتس اپ</span>
+            </a>
+        </li>
+
+    </ul>
+</aside>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">

@@ -1,6 +1,15 @@
 ﻿
+@font-face {
+    font-family: Vazir;
+    src: url('~/fonts/Vazir.eot') format('eot'),url('~/fonts/Vazir.ttf') format('ttf'),url('~/fonts/Vazir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     direction: rtl;
+    font-family: 'Vazir';
+    font-weight: normal;
 }
 
 .bootstrap-switch {
@@ -7261,44 +7270,44 @@ a.credit {
     width: 100%;
 }
 
-.count-box i {
-    display: block;
-    font-size: 44px;
-    color: #149ddd;
-    float: right;
-    line-height: 0;
-}
+    .count-box i {
+        display: block;
+        font-size: 44px;
+        color: #149ddd;
+        float: right;
+        line-height: 0;
+    }
 
-.count-box span {
-    font-size: 48px;
-    line-height: 20px;
-    display: block;
-    font-weight: 700;
-    color: #050d18;
-    margin-right: 45px;
-}
+    .count-box span {
+        font-size: 48px;
+        line-height: 20px;
+        display: block;
+        font-weight: 700;
+        color: #050d18;
+        margin-right: 45px;
+    }
 
-.count-box p {
-    padding: 15px 0 0 0;
-    margin: 0 0 0 60px;
-    font-family: "Raleway", sans-serif;
-    font-size: 14px;
-    color: #122f57;
-}
+    .count-box p {
+        padding: 15px 0 0 0;
+        margin: 0 0 0 60px;
+        font-family: "Raleway", sans-serif;
+        font-size: 14px;
+        color: #122f57;
+    }
 
-.count-box a {
-    font-weight: 600;
-    display: block;
-    margin-top: 20px;
-    color: #122f57;
-    font-size: 15px;
-    font-family: "Poppins", sans-serif;
-    transition: ease-in-out 0.3s;
-}
+    .count-box a {
+        font-weight: 600;
+        display: block;
+        margin-top: 20px;
+        color: #122f57;
+        font-size: 15px;
+        font-family: "Poppins", sans-serif;
+        transition: ease-in-out 0.3s;
+    }
 
-.count-box a:hover {
-    color: #1f5297;
-}
+        .count-box a:hover {
+            color: #1f5297;
+        }
 
 /* Site Plan Template */
 
@@ -7308,7 +7317,7 @@ a.credit {
 }
 
     #pricing .row-title {
-        text-align: center!important;
+        text-align: center !important;
     }
 
         #pricing .row-title h4 {
@@ -7501,16 +7510,16 @@ a.credit {
     box-shadow: 1px 4px 15px -5px rgba(0, 166, 63,1);
 }
 
-.btn-new:hover, .btn-new:active, .btn-new:focus {
-    background: #00a63f !important;
-    color: #fff;
-}
+    .btn-new:hover, .btn-new:active, .btn-new:focus {
+        background: #00a63f !important;
+        color: #fff;
+    }
 
 @media only screen and (min-width: 767px) {
     .section_sapce {
         padding: 50px 0;
     }
-} 
+}
 
 .center-block {
     display: block;
@@ -7522,10 +7531,10 @@ a.credit {
     margin: 0 auto;
 }
 
-.row.no-gutter [class*='col-']:not(:first-child), .row.no-gutter [class*='col-']:not(:last-child) {
-    padding-left: 0;
-    padding-right: 0;
-}
+    .row.no-gutter [class*='col-']:not(:first-child), .row.no-gutter [class*='col-']:not(:last-child) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
 .pricingtables.shared .row.no-gutter [class*='col-']:not(:first-child) {
     padding-left: 0px;
@@ -7715,7 +7724,7 @@ a.credit {
     width: 100%;
 }
 
-.row-search.full-width {
+    .row-search.full-width {
         margin-bottom: 0;
         margin-left: auto;
         margin-right: auto;
@@ -7724,13 +7733,1602 @@ a.credit {
         width: 100%;
     }
 
-.row-search.no-gutter {
+    .row-search.no-gutter {
         margin: 0 auto;
     }
 
-.row-search.no-gutter [class*='col-']:not(:first-child), .row.no-gutter [class*='col-']:not(:last-child) {
-        padding-left: 0;
-        padding-right: 0;
-    }
+        .row-search.no-gutter [class*='col-']:not(:first-child), .row.no-gutter [class*='col-']:not(:last-child) {
+            padding-left: 0;
+            padding-right: 0;
+        }
 /* End of Call to Action */
 
+/* Sidebar social networks */
+#Social-Sidebar ol,
+#Social-Sidebar
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+#Social-Sidebar a,
+#Social-Sidebar a:hover,
+#Social-Sidebar a:active {
+    text-decoration: none
+}
+
+    #Social-Sidebar a
+    img {
+        border: none
+    }
+
+#Social-Sidebar
+span {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box
+}
+
+#Social-Sidebar {
+    position: fixed;
+    z-index: 1000;
+    top: 25%
+}
+
+    #Social-Sidebar ul li a:hover
+    span {
+        opacity: 1
+    }
+
+    #Social-Sidebar ul li
+    a {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 21px;
+        text-align: center;
+        position: relative;
+        display: block;
+        background: #333;
+        color: #FFF
+    }
+
+        #Social-Sidebar ul li a:hover,
+        #Social-Sidebar ul li a span,
+        #Social-Sidebar ul li a span:before {
+            background: #444
+        }
+
+        #Social-Sidebar ul li a
+        span {
+            width: 0;
+            -webkit-transition: opacity .3s, left .4s, right .4s, top .4s, bottom .4s;
+            -moz-transition: opacity .3s, left .4s, right .4s, top .4s, bottom .4s;
+            -ms-transition: opacity .3s, left .4s, right .4s, top .4s, bottom .4s;
+            -o-transition: opacity .3s, left .4s, right .4s, top .4s, bottom .4s;
+            transition: opacity .3s, left .4s, right .4s, top .4s, bottom .4s, width .4s;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            filter: alpha(opacity=0);
+            white-space: nowrap;
+            opacity: 0;
+            position: absolute;
+            z-index: -1
+        }
+
+    #Social-Sidebar.Label-Square ul li a
+    span {
+        margin-left: -5px;
+        padding: 0 8px 0 13px;
+        min-width: 80px;
+        width: auto;
+        height: inherit;
+        line-height: 35px;
+        font-size: 16px
+    }
+
+    #Social-Sidebar.Label-Square.Pos-Right ul li a
+    span {
+        margin-right: -5px;
+        padding: 0 13px 0 8px
+    }
+
+    #Social-Sidebar.Label-Square.Large ul li a
+    span {
+        line-height: 52px;
+        font-size: 16px
+    }
+
+    #Social-Sidebar.Label-Square.Pos-Left ul li a
+    span {
+        text-align: left
+    }
+
+    #Social-Sidebar.Label-Square.Pos-Right ul li a
+    span {
+        text-align: right
+    }
+
+    #Social-Sidebar.Label-Square.Pos-Left.Circle ul li a
+    span {
+        margin-left: -16px;
+        padding-left: 24px
+    }
+
+    #Social-Sidebar.Label-Square.Pos-Right.Circle ul li a
+    span {
+        margin-right: -16px;
+        padding-right: 24px
+    }
+
+    #Social-Sidebar.Label-Square.Pos-Left.Circle.Large ul li a
+    span {
+        margin-left: -24px;
+        padding-left: 32px
+    }
+
+    #Social-Sidebar.Label-Square.Pos-Right.Circle.Large ul li a
+    span {
+        margin-right: -24px;
+        padding-right: 32px
+    }
+
+    #Social-Sidebar.Label-Curve ul li a
+    span {
+        margin-left: -5px;
+        padding: 0 8px 0 13px;
+        min-width: 80px;
+        width: auto;
+        height: inherit;
+        line-height: 35px;
+        font-size: 16px;
+        font-weight: normal;
+        -webkit-border-radius: 0 5px 5px 0;
+        -moz-border-radius: 0 5px 5px 0;
+        border-radius: 0 5px 5px 0
+    }
+
+    #Social-Sidebar.Label-Curve.Pos-Right ul li a
+    span {
+        margin-right: -5px;
+        padding: 0 13px 0 8px;
+        -webkit-border-radius: 5px 0 0 5px;
+        -moz-border-radius: 5px 0 0 5px;
+        border-radius: 5px 0 0 5px
+    }
+
+    #Social-Sidebar.Label-Curve.Large ul li a
+    span {
+        line-height: 52px;
+        font-size: 16px
+    }
+
+    #Social-Sidebar.Label-Curve.Pos-Left ul li a
+    span {
+        text-align: center;
+        font-family: 'seven1', 'seven-en-webfont';
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    #Social-Sidebar.Label-Curve.Pos-Right ul li a
+    span {
+        text-align: right
+    }
+
+    #Social-Sidebar.Label-Curve.Pos-Left.Circle ul li a
+    span {
+        margin-left: -16px;
+        padding-left: 24px
+    }
+
+    #Social-Sidebar.Label-Curve.Pos-Right.Circle ul li a
+    span {
+        margin-right: -16px;
+        padding-right: 24px
+    }
+
+    #Social-Sidebar.Label-Curve.Pos-Left.Circle.Large ul li a
+    span {
+        margin-left: -24px;
+        padding-left: 32px
+    }
+
+    #Social-Sidebar.Label-Curve.Pos-Right.Circle.Large ul li a
+    span {
+        margin-right: -24px;
+        padding-right: 32px
+    }
+
+    #Social-Sidebar.Label-Round ul li a
+    span {
+        margin-left: -5px;
+        padding: 0 8px 0 13px;
+        min-width: 80px;
+        width: auto;
+        height: inherit;
+        line-height: 35px;
+        font-size: 16px;
+        -webkit-border-radius: 0 25px 25px 0;
+        -moz-border-radius: 0 25px 25px 0;
+        border-radius: 0 25px 25px 0
+    }
+
+    #Social-Sidebar.Label-Round.Pos-Right ul li a
+    span {
+        margin-right: -5px;
+        padding: 0 13px 0 8px;
+        -webkit-border-radius: 25px 0 0 25px;
+        -moz-border-radius: 25px 0 0 25px;
+        border-radius: 25px 0 0 25px
+    }
+
+    #Social-Sidebar.Label-Round.Large ul li a
+    span {
+        line-height: 52px;
+        font-size: 16px
+    }
+
+    #Social-Sidebar.Label-Round.Pos-Left ul li a
+    span {
+        text-align: left
+    }
+
+    #Social-Sidebar.Label-Round.Pos-Right ul li a
+    span {
+        text-align: right
+    }
+
+    #Social-Sidebar.Label-Round.Pos-Left.Circle ul li a
+    span {
+        margin-left: -16px;
+        padding-left: 24px
+    }
+
+    #Social-Sidebar.Label-Round.Pos-Right.Circle ul li a
+    span {
+        margin-right: -16px;
+        padding-right: 24px
+    }
+
+    #Social-Sidebar.Label-Round.Pos-Left.Circle.Large ul li a
+    span {
+        margin-left: -24px;
+        padding-left: 32px
+    }
+
+    #Social-Sidebar.Label-Round.Pos-Right.Circle.Large ul li a
+    span {
+        margin-right: -24px;
+        padding-right: 32px
+    }
+
+    #Social-Sidebar.Label-Fancy ul li a
+    span {
+        margin-top: -16px;
+        padding: 4px 8px;
+        min-width: 80px;
+        width: auto;
+        line-height: 24px;
+        font-size: 16px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        top: 50%
+    }
+
+        #Social-Sidebar.Label-Fancy ul li a span:before {
+            margin-top: -4px;
+            width: 8px;
+            height: 8px;
+            content: "";
+            display: block;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+            z-index: -2;
+            top: 50%
+        }
+
+    #Social-Sidebar.Label-Fancy.Pos-Left ul li a:hover
+    span {
+        left: 130%
+    }
+
+    #Social-Sidebar.Label-Fancy.Pos-Right ul li a:hover
+    span {
+        right: 130%
+    }
+
+    #Social-Sidebar.Large ul li
+    a {
+        width: 50px;
+        height: 50px;
+        line-height: 57px;
+        font-size: 25px
+    }
+
+    #Social-Sidebar.Pos-Left {
+        left: 0
+    }
+
+        #Social-Sidebar.Pos-Left ul li a
+        span {
+            left: -600%
+        }
+
+        #Social-Sidebar.Pos-Left ul li a:hover
+        span {
+            left: 100%
+        }
+
+        #Social-Sidebar.Pos-Left ul li a span:before {
+            left: -4px
+        }
+
+    #Social-Sidebar.Pos-Right {
+        right: 0
+    }
+
+        #Social-Sidebar.Pos-Right ul li a
+        span {
+            right: -600%
+        }
+
+        #Social-Sidebar.Pos-Right ul li a:hover
+        span {
+            right: 100%
+        }
+
+        #Social-Sidebar.Pos-Right ul li a span:before {
+            right: -4px
+        }
+
+    #Social-Sidebar.Corners.Pos-Left ul li:first-child
+    a {
+        -webkit-border-radius: 0 5px 0 0;
+        -moz-border-radius: 0 5px 0 0;
+        border-radius: 0 5px 0 0
+    }
+
+    #Social-Sidebar.Corners.Pos-Left ul li:last-child
+    a {
+        -webkit-border-radius: 0 0 5px 0;
+        -moz-border-radius: 0 0 5px 0;
+        border-radius: 0 0 5px 0
+    }
+
+    #Social-Sidebar.Corners.Pos-Right ul li:first-child
+    a {
+        -webkit-border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+        border-radius: 5px 0 0 0
+    }
+
+    #Social-Sidebar.Corners.Pos-Right ul li:last-child
+    a {
+        -webkit-border-radius: 0 0 0 5px;
+        -moz-border-radius: 0 0 0 5px;
+        border-radius: 0 0 0 5px
+    }
+
+    #Social-Sidebar.Corners-All.Pos-Left ul li
+    a {
+        -webkit-border-radius: 0 5px 5px 0;
+        -moz-border-radius: 0 5px 5px 0;
+        border-radius: 0 5px 5px 0
+    }
+
+    #Social-Sidebar.Corners-All.Pos-Right ul li
+    a {
+        -webkit-border-radius: 5px 0 0 5px;
+        -moz-border-radius: 5px 0 0 5px;
+        border-radius: 5px 0 0 5px
+    }
+
+    #Social-Sidebar.Shadow.Pos-Left {
+        -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3)
+    }
+
+    #Social-Sidebar.Shadow.Pos-Right {
+        -webkit-box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.3);
+        box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.3)
+    }
+
+    #Social-Sidebar.Shadow-All.Pos-Left ul li
+    a {
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+    }
+
+    #Social-Sidebar.Shadow-All.Pos-Right ul li
+    a {
+        -webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3)
+    }
+
+    #Social-Sidebar.Circle ul li
+    a {
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px
+    }
+
+    #Social-Sidebar.Circle.Pos-Left ul li
+    a {
+        margin-top: 5px;
+        left: 5px
+    }
+
+    #Social-Sidebar.Circle.Pos-Right ul li
+    a {
+        margin-top: 5px;
+        right: 5px
+    }
+
+    #Social-Sidebar.Theme-Light ul li
+    a {
+        background: #F0F0F0;
+        color: #555
+    }
+
+        #Social-Sidebar.Theme-Light ul li a:hover,
+        #Social-Sidebar.Theme-Light ul li a span,
+        #Social-Sidebar.Theme-Light ul li a span:before {
+            background: #E0E0E0
+        }
+
+    #Social-Sidebar.Theme-Trans ul li
+    a {
+        background: none;
+        color: rgba(0, 0, 0, 0.5)
+    }
+
+        #Social-Sidebar.Theme-Trans ul li a:hover,
+        #Social-Sidebar.Theme-Trans ul li a span,
+        #Social-Sidebar.Theme-Trans ul li a span:before {
+            background: #EEE
+        }
+
+    #Social-Sidebar.Theme-Color ul li
+    a {
+        background: #444;
+        color: #FFF
+    }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Aid"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Android"] {
+            background: #80BD01
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Apple"] {
+            background: #999
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Behance"] {
+            background: #222
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Blogger"] {
+            background: #FF6501
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Bookmark"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Bubbles"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Bullhorn"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Calendar"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Cart"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="CC"] {
+            background: #7FA517
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Circles"] {
+            background: #7090C8
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Cloud-Down"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Cloud-Up"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Cog"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="CSS3"] {
+            background: #1572B6
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Delicious"] {
+            background: #39F
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Deviantart"] {
+            background: #5E756F
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Dribbble"] {
+            background: #EA4C89
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Dropbox"] {
+            background: #007EE5
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Evernote"] {
+            background: #5FB336
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Facebook"] {
+            background: #234999
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="File-Down"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="File-Up"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Flag"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Flattr"] {
+            background: #EB8327
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Flickr"] {
+            background: #ED006E
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Forrst"] {
+            background: #3B7140
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Foursquare"] {
+            background: #1DAFEC
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Github"] {
+            background: #202021
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Google"] {
+            background: #E34429
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Google-Drive"] {
+            background: #0EA862
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="GPlus"] {
+            background: #E34429
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Heart"] {
+            background: #CD181F
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Home"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="HTML5"] {
+            background: #E44D26
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Instagram"] {
+            background: #31547A
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Joomla"] {
+            background: #0D6DAB
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Lab"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Lanyrd"] {
+            background: #2A66BE
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="LastFM"] {
+            background: #D21309
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Lightning"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="LinkedIn"] {
+            background: #007BB6
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Linux"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Mail"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Mixi"] {
+            background: #E0C074
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Paypal"] {
+            background: #00335E
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Phone"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Picassa"] {
+            background: #35A328
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Pinterest"] {
+            background: #CA2128
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Power"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="QQ"] {
+            background: #23A1DD
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Rdio"] {
+            background: #1875A4
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Reddit"] {
+            background: #FF4500
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="RenRen"] {
+            background: #105BA3
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Rocket"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="RSS"] {
+            background: #F57B05
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Share"] {
+            background: #017F49
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="SinaWeibo"] {
+            background: #E43037
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Skype"] {
+            background: #019BD7
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Soundcloud"] {
+            background: #F93900
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Spotify"] {
+            background: #A9D00B
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Stackoverflow"] {
+            background: #FF7A15
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Star"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Steam"] {
+            background: #222
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Stumbleupon"] {
+            background: #EB4823
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Support"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Tag"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Thumbs-Up"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Tumblr"] {
+            background: #1769FF
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Twitter"] {
+            background: #6CDFEA
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="User"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Users"] {
+            background: #444
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Vimeo"] {
+            background: #17B3E8
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="VK"] {
+            background: #57799E
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Windows"] {
+            background: #C40013
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Windows8"] {
+            background: #00ADEF
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Wordpress"] {
+            background: #326D95
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Xing"] {
+            background: #0C5459
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Yahoo"] {
+            background: #640F6C
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Yelp"] {
+            background: #B61100
+        }
+
+        #Social-Sidebar.Theme-Color ul li a[class*="Youtube"] {
+            background: #CD181F
+        }
+
+    #Social-Sidebar ul li a:hover {
+        color: #FFF
+    }
+
+    #Social-Sidebar ul li a[class*="Aid"]:hover,
+    #Social-Sidebar ul li a[class*="Aid"] span,
+    #Social-Sidebar ul li a[class*="Aid"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Android"]:hover,
+    #Social-Sidebar ul li a[class*="Android"] span,
+    #Social-Sidebar ul li a[class*="Android"] span:before {
+        background: #80BD01
+    }
+
+    #Social-Sidebar ul li a[class*="Apple"]:hover,
+    #Social-Sidebar ul li a[class*="Apple"] span,
+    #Social-Sidebar ul li a[class*="Apple"] span:before {
+        background: #999
+    }
+
+    #Social-Sidebar ul li a[class*="Behance"]:hover,
+    #Social-Sidebar ul li a[class*="Behance"] span,
+    #Social-Sidebar ul li a[class*="Behance"] span:before {
+        background: #222
+    }
+
+    #Social-Sidebar ul li a[class*="Blogger"]:hover,
+    #Social-Sidebar ul li a[class*="Blogger"] span,
+    #Social-Sidebar ul li a[class*="Blogger"] span:before {
+        background: #FF6501
+    }
+
+    #Social-Sidebar ul li a[class*="Bookmark"]:hover,
+    #Social-Sidebar ul li a[class*="Bookmark"] span,
+    #Social-Sidebar ul li a[class*="Bookmark"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Bubbles"]:hover,
+    #Social-Sidebar ul li a[class*="Bubbles"] span,
+    #Social-Sidebar ul li a[class*="Bubbles"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Bullhorn"]:hover,
+    #Social-Sidebar ul li a[class*="Bullhorn"] span,
+    #Social-Sidebar ul li a[class*="Bullhorn"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Calendar"]:hover,
+    #Social-Sidebar ul li a[class*="Calendar"] span,
+    #Social-Sidebar ul li a[class*="Calendar"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Cart"]:hover,
+    #Social-Sidebar ul li a[class*="Cart"] span,
+    #Social-Sidebar ul li a[class*="Cart"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="CC"]:hover,
+    #Social-Sidebar ul li a[class*="CC"] span,
+    #Social-Sidebar ul li a[class*="CC"] span:before {
+        background: #7FA517
+    }
+
+    #Social-Sidebar ul li a[class*="Circles"]:hover,
+    #Social-Sidebar ul li a[class*="Circles"] span,
+    #Social-Sidebar ul li a[class*="Circles"] span:before {
+        background: #7090C8
+    }
+
+    #Social-Sidebar ul li a[class*="Cloud-Down"]:hover,
+    #Social-Sidebar ul li a[class*="Cloud-Down"] span,
+    #Social-Sidebar ul li a[class*="Cloud-Down"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Cloud-Up"]:hover,
+    #Social-Sidebar ul li a[class*="Cloud-Up"] span,
+    #Social-Sidebar ul li a[class*="Cloud-Up"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Cog"]:hover,
+    #Social-Sidebar ul li a[class*="Cog"] span,
+    #Social-Sidebar ul li a[class*="Cog"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="CSS3"]:hover,
+    #Social-Sidebar ul li a[class*="CSS3"] span,
+    #Social-Sidebar ul li a[class*="CSS3"] span:before {
+        background: #1572B6
+    }
+
+    #Social-Sidebar ul li a[class*="Delicious"]:hover,
+    #Social-Sidebar ul li a[class*="Delicious"] span,
+    #Social-Sidebar ul li a[class*="Delicious"] span:before {
+        background: #39F
+    }
+
+    #Social-Sidebar ul li a[class*="Deviantart"]:hover,
+    #Social-Sidebar ul li a[class*="Deviantart"] span,
+    #Social-Sidebar ul li a[class*="Deviantart"] span:before {
+        background: #5E756F
+    }
+
+    #Social-Sidebar ul li a[class*="Dribbble"]:hover,
+    #Social-Sidebar ul li a[class*="Dribbble"] span,
+    #Social-Sidebar ul li a[class*="Dribbble"] span:before {
+        background: #EA4C89
+    }
+
+    #Social-Sidebar ul li a[class*="Dropbox"]:hover,
+    #Social-Sidebar ul li a[class*="Dropbox"] span,
+    #Social-Sidebar ul li a[class*="Dropbox"] span:before {
+        background: #007EE5
+    }
+
+    #Social-Sidebar ul li a[class*="Evernote"]:hover,
+    #Social-Sidebar ul li a[class*="Evernote"] span,
+    #Social-Sidebar ul li a[class*="Evernote"] span:before {
+        background: #5FB336
+    }
+
+    #Social-Sidebar ul li a[class*="Facebook"]:hover,
+    #Social-Sidebar ul li a[class*="Facebook"] span,
+    #Social-Sidebar ul li a[class*="Facebook"] span:before {
+        background: #234999
+    }
+
+    #Social-Sidebar ul li a[class*="File-Down"]:hover,
+    #Social-Sidebar ul li a[class*="File-Down"] span,
+    #Social-Sidebar ul li a[class*="File-Down"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="File-Up"]:hover,
+    #Social-Sidebar ul li a[class*="File-Up"] span,
+    #Social-Sidebar ul li a[class*="File-Up"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Flag"]:hover,
+    #Social-Sidebar ul li a[class*="Flag"] span,
+    #Social-Sidebar ul li a[class*="Flag"] span:before {
+        background: #EB8327
+    }
+
+    #Social-Sidebar ul li a[class*="Flattr"]:hover,
+    #Social-Sidebar ul li a[class*="Flattr"] span,
+    #Social-Sidebar ul li a[class*="Flattr"] span:before {
+        background: #EB8327
+    }
+
+    #Social-Sidebar ul li a[class*="Flickr"]:hover,
+    #Social-Sidebar ul li a[class*="Flickr"] span,
+    #Social-Sidebar ul li a[class*="Flickr"] span:before {
+        background: #ED006E
+    }
+
+    #Social-Sidebar ul li a[class*="Forrst"]:hover,
+    #Social-Sidebar ul li a[class*="Forrst"] span,
+    #Social-Sidebar ul li a[class*="Forrst"] span:before {
+        background: #3B7140
+    }
+
+    #Social-Sidebar ul li a[class*="Foursquare"]:hover,
+    #Social-Sidebar ul li a[class*="Foursquare"] span,
+    #Social-Sidebar ul li a[class*="Foursquare"] span:before {
+        background: #1DAFEC
+    }
+
+    #Social-Sidebar ul li a[class*="Github"]:hover,
+    #Social-Sidebar ul li a[class*="Github"] span,
+    #Social-Sidebar ul li a[class*="Github"] span:before {
+        background: #202021
+    }
+
+    #Social-Sidebar ul li a[class*="Google"]:hover,
+    #Social-Sidebar ul li a[class*="Google"] span,
+    #Social-Sidebar ul li a[class*="Google"] span:before {
+        background: #E34429
+    }
+
+    #Social-Sidebar ul li a[class*="Google-Drive"]:hover,
+    #Social-Sidebar ul li a[class*="Google-Drive"] span,
+    #Social-Sidebar ul li a[class*="Google-Drive"] span:before {
+        background: #0EA862
+    }
+
+    #Social-Sidebar ul li a[class*="GPlus"]:hover,
+    #Social-Sidebar ul li a[class*="GPlus"] span,
+    #Social-Sidebar ul li a[class*="GPlus"] span:before {
+        background: #E34429
+    }
+
+    #Social-Sidebar ul li a[class*="Heart"]:hover,
+    #Social-Sidebar ul li a[class*="Heart"] span,
+    #Social-Sidebar ul li a[class*="Heart"] span:before {
+        background: #CD181F
+    }
+
+    #Social-Sidebar ul li a[class*="Home"]:hover,
+    #Social-Sidebar ul li a[class*="Home"] span,
+    #Social-Sidebar ul li a[class*="Home"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="HTML5"]:hover,
+    #Social-Sidebar ul li a[class*="HTML5"] span,
+    #Social-Sidebar ul li a[class*="HTML5"] span:before {
+        background: #E44D26
+    }
+
+    #Social-Sidebar ul li a[class*="Instagram"]:hover,
+    #Social-Sidebar ul li a[class*="Instagram"] span,
+    #Social-Sidebar ul li a[class*="Instagram"] span:before {
+        background: #31547A
+    }
+
+    #Social-Sidebar ul li a[class*="Joomla"]:hover,
+    #Social-Sidebar ul li a[class*="Joomla"] span,
+    #Social-Sidebar ul li a[class*="Joomla"] span:before {
+        background: #0D6DAB
+    }
+
+    #Social-Sidebar ul li a[class*="Lab"]:hover,
+    #Social-Sidebar ul li a[class*="Lab"] span,
+    #Social-Sidebar ul li a[class*="Lab"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Lanyrd"]:hover,
+    #Social-Sidebar ul li a[class*="Lanyrd"] span,
+    #Social-Sidebar ul li a[class*="Lanyrd"] span:before {
+        background: #2A66BE
+    }
+
+    #Social-Sidebar ul li a[class*="LastFM"]:hover,
+    #Social-Sidebar ul li a[class*="LastFM"] span,
+    #Social-Sidebar ul li a[class*="LastFM"] span:before {
+        background: #D21309
+    }
+
+    #Social-Sidebar ul li a[class*="Lightning"]:hover,
+    #Social-Sidebar ul li a[class*="Lightning"] span,
+    #Social-Sidebar ul li a[class*="Lightning"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="LinkedIn"]:hover,
+    #Social-Sidebar ul li a[class*="LinkedIn"] span,
+    #Social-Sidebar ul li a[class*="LinkedIn"] span:before {
+        background: #007BB6
+    }
+
+    #Social-Sidebar ul li a[class*="Linux"]:hover,
+    #Social-Sidebar ul li a[class*="Linux"] span,
+    #Social-Sidebar ul li a[class*="Linux"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Mail"]:hover,
+    #Social-Sidebar ul li a[class*="Mail"] span,
+    #Social-Sidebar ul li a[class*="Mail"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Mixi"]:hover,
+    #Social-Sidebar ul li a[class*="Mixi"] span,
+    #Social-Sidebar ul li a[class*="Mixi"] span:before {
+        background: #E0C074
+    }
+
+    #Social-Sidebar ul li a[class*="Paypal"]:hover,
+    #Social-Sidebar ul li a[class*="Paypal"] span,
+    #Social-Sidebar ul li a[class*="Paypal"] span:before {
+        background: #00335E
+    }
+
+    #Social-Sidebar ul li a[class*="Phone"]:hover,
+    #Social-Sidebar ul li a[class*="Phone"] span,
+    #Social-Sidebar ul li a[class*="Phone"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Picassa"]:hover,
+    #Social-Sidebar ul li a[class*="Picassa"] span,
+    #Social-Sidebar ul li a[class*="Picassa"] span:before {
+        background: #35A328
+    }
+
+    #Social-Sidebar ul li a[class*="Pinterest"]:hover,
+    #Social-Sidebar ul li a[class*="Pinterest"] span,
+    #Social-Sidebar ul li a[class*="Pinterest"] span:before {
+        background: #CA2128
+    }
+
+    #Social-Sidebar ul li a[class*="Power"]:hover,
+    #Social-Sidebar ul li a[class*="Power"] span,
+    #Social-Sidebar ul li a[class*="Power"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="QQ"]:hover,
+    #Social-Sidebar ul li a[class*="QQ"] span,
+    #Social-Sidebar ul li a[class*="QQ"] span:before {
+        background: #23A1DD
+    }
+
+    #Social-Sidebar ul li a[class*="Rdio"]:hover,
+    #Social-Sidebar ul li a[class*="Rdio"] span,
+    #Social-Sidebar ul li a[class*="Rdio"] span:before {
+        background: #1875A4
+    }
+
+    #Social-Sidebar ul li a[class*="Reddit"]:hover,
+    #Social-Sidebar ul li a[class*="Reddit"] span,
+    #Social-Sidebar ul li a[class*="Reddit"] span:before {
+        background: #FF4500
+    }
+
+    #Social-Sidebar ul li a[class*="RenRen"]:hover,
+    #Social-Sidebar ul li a[class*="RenRen"] span,
+    #Social-Sidebar ul li a[class*="RenRen"] span:before {
+        background: #105BA3
+    }
+
+    #Social-Sidebar ul li a[class*="Rocket"]:hover,
+    #Social-Sidebar ul li a[class*="Rocket"] span,
+    #Social-Sidebar ul li a[class*="Rocket"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="RSS"]:hover,
+    #Social-Sidebar ul li a[class*="RSS"] span,
+    #Social-Sidebar ul li a[class*="RSS"] span:before {
+        background: #F57B05
+    }
+
+    #Social-Sidebar ul li a[class*="Share"]:hover,
+    #Social-Sidebar ul li a[class*="Share"] span,
+    #Social-Sidebar ul li a[class*="Share"] span:before {
+        background: #017F49
+    }
+
+    #Social-Sidebar ul li a[class*="SinaWeibo"]:hover,
+    #Social-Sidebar ul li a[class*="SinaWeibo"] span,
+    #Social-Sidebar ul li a[class*="SinaWeibo"] span:before {
+        background: #E43037
+    }
+
+    #Social-Sidebar ul li a[class*="Skype"]:hover,
+    #Social-Sidebar ul li a[class*="Skype"] span,
+    #Social-Sidebar ul li a[class*="Skype"] span:before {
+        background: #019BD7
+    }
+
+    #Social-Sidebar ul li a[class*="Soundcloud"]:hover,
+    #Social-Sidebar ul li a[class*="Soundcloud"] span,
+    #Social-Sidebar ul li a[class*="Soundcloud"] span:before {
+        background: #F93900
+    }
+
+    #Social-Sidebar ul li a[class*="Spotify"]:hover,
+    #Social-Sidebar ul li a[class*="Spotify"] span,
+    #Social-Sidebar ul li a[class*="Spotify"] span:before {
+        background: #A9D00B
+    }
+
+    #Social-Sidebar ul li a[class*="Stackoverflow"]:hover,
+    #Social-Sidebar ul li a[class*="Stackoverflow"] span,
+    #Social-Sidebar ul li a[class*="Stackoverflow"] span:before {
+        background: #FF7A15
+    }
+
+    #Social-Sidebar ul li a[class*="Star"]:hover,
+    #Social-Sidebar ul li a[class*="Star"] span,
+    #Social-Sidebar ul li a[class*="Star"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Steam"]:hover,
+    #Social-Sidebar ul li a[class*="Steam"] span,
+    #Social-Sidebar ul li a[class*="Steam"] span:before {
+        background: #222
+    }
+
+    #Social-Sidebar ul li a[class*="Stumbleupon"]:hover,
+    #Social-Sidebar ul li a[class*="Stumbleupon"] span,
+    #Social-Sidebar ul li a[class*="Stumbleupon"] span:before {
+        background: #EB4823
+    }
+
+    #Social-Sidebar ul li a[class*="Support"]:hover,
+    #Social-Sidebar ul li a[class*="Support"] span,
+    #Social-Sidebar ul li a[class*="Support"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Tag"]:hover,
+    #Social-Sidebar ul li a[class*="Tag"] span,
+    #Social-Sidebar ul li a[class*="Tag"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Thumbs-Up"]:hover,
+    #Social-Sidebar ul li a[class*="Thumbs-Up"] span,
+    #Social-Sidebar ul li a[class*="Thumbs-Up"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Tumblr"]:hover,
+    #Social-Sidebar ul li a[class*="Tumblr"] span,
+    #Social-Sidebar ul li a[class*="Tumblr"] span:before {
+        background: #1769FF
+    }
+
+    #Social-Sidebar ul li a[class*="Twitter"]:hover,
+    #Social-Sidebar ul li a[class*="Twitter"] span,
+    #Social-Sidebar ul li a[class*="Twitter"] span:before {
+        background: #6CDFEA
+    }
+
+    #Social-Sidebar ul li a[class*="User"]:hover,
+    #Social-Sidebar ul li a[class*="User"] span,
+    #Social-Sidebar ul li a[class*="User"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Users"]:hover,
+    #Social-Sidebar ul li a[class*="Users"] span,
+    #Social-Sidebar ul li a[class*="Users"] span:before {
+        background: #444
+    }
+
+    #Social-Sidebar ul li a[class*="Vimeo"]:hover,
+    #Social-Sidebar ul li a[class*="Vimeo"] span,
+    #Social-Sidebar ul li a[class*="Vimeo"] span:before {
+        background: #17B3E8
+    }
+
+    #Social-Sidebar ul li a[class*="VK"]:hover,
+    #Social-Sidebar ul li a[class*="VK"] span,
+    #Social-Sidebar ul li a[class*="VK"] span:before {
+        background: #57799E
+    }
+
+    #Social-Sidebar ul li a[class*="Windows"]:hover,
+    #Social-Sidebar ul li a[class*="Windows"] span,
+    #Social-Sidebar ul li a[class*="Windows"] span:before {
+        background: #C40013
+    }
+
+    #Social-Sidebar ul li a[class*="Windows8"]:hover,
+    #Social-Sidebar ul li a[class*="Windows8"] span,
+    #Social-Sidebar ul li a[class*="Windows8"] span:before {
+        background: #00ADEF
+    }
+
+    #Social-Sidebar ul li a[class*="Wordpress"]:hover,
+    #Social-Sidebar ul li a[class*="Wordpress"] span,
+    #Social-Sidebar ul li a[class*="Wordpress"] span:before {
+        background: #326D95
+    }
+
+    #Social-Sidebar ul li a[class*="Xing"]:hover,
+    #Social-Sidebar ul li a[class*="Xing"] span,
+    #Social-Sidebar ul li a[class*="Xing"] span:before {
+        background: #0C5459
+    }
+
+    #Social-Sidebar ul li a[class*="Yahoo"]:hover,
+    #Social-Sidebar ul li a[class*="Yahoo"] span,
+    #Social-Sidebar ul li a[class*="Yahoo"] span:before {
+        background: #640F6C
+    }
+
+    #Social-Sidebar ul li a[class*="Yelp"]:hover,
+    #Social-Sidebar ul li a[class*="Yelp"] span,
+    #Social-Sidebar ul li a[class*="Yelp"] span:before {
+        background: #B61100
+    }
+
+    #Social-Sidebar ul li a[class*="Youtube"]:hover,
+    #Social-Sidebar ul li a[class*="Youtube"] span,
+    #Social-Sidebar ul li a[class*="Youtube"] span:before {
+        background: #CD181F
+    }
+
+@media all and (max-width: 400px), all and (max-device-width: 400px) {
+    #Social-Sidebar.Pos-Left {
+        float: left
+    }
+
+    #Social-Sidebar.Pos-Right {
+        float: right
+    }
+
+    #Social-Sidebar {
+        margin-top: 10px;
+        position: static;
+        top: 0
+    }
+
+        #Social-Sidebar ul
+        li {
+            margin: 5px;
+            display: inline-block
+        }
+
+            #Social-Sidebar ul li
+            a {
+                padding: 0 10px;
+                width: auto;
+                overflow: hidden
+            }
+
+                #Social-Sidebar ul li a
+                span {
+                    width: auto;
+                    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+                    filter: alpha(opacity=1);
+                    opacity: 1;
+                    position: static;
+                    display: inline-block;
+                    background: #333;
+                    color: #FFF;
+                    float: right;
+                    z-index: 1000
+                }
+
+        #Social-Sidebar.Label-Square.Pos-Left ul li a
+        span {
+            text-align: center;
+            float: right
+        }
+
+        #Social-Sidebar.Label-Square.Pos-Right ul li a
+        span {
+            text-align: center;
+            float: left
+        }
+
+        #Social-Sidebar.Label-Curve.Pos-Left ul li a
+        span {
+            text-align: center;
+            float: right
+        }
+
+        #Social-Sidebar.Label-Curve.Pos-Right ul li a
+        span {
+            text-align: center;
+            float: left
+        }
+
+        #Social-Sidebar.Label-Round.Pos-Left ul li a
+        span {
+            text-align: center;
+            float: right
+        }
+
+        #Social-Sidebar.Label-Round.Pos-Right ul li a
+        span {
+            text-align: center;
+            float: left
+        }
+
+        #Social-Sidebar.Label-Fancy ul li a
+        span {
+            margin-top: 0;
+            padding: 0 8px;
+            line-height: 35px;
+            font-size: 16px;
+            top: 0
+        }
+
+        #Social-Sidebar.Label-Fancy.Large ul li a
+        span {
+            line-height: 52px;
+            font-size: 16px
+        }
+
+        #Social-Sidebar.Label-Fancy ul li a span:before {
+            display: none
+        }
+
+        #Social-Sidebar.Label-Fancy.Pos-Left ul li a:hover
+        span {
+            left: 0
+        }
+
+        #Social-Sidebar.Label-Fancy.Pos-Right ul li a:hover
+        span {
+            right: 0
+        }
+
+        #Social-Sidebar.Label-Fancy.Pos-Left ul li a
+        span {
+            text-align: center;
+            float: right
+        }
+
+        #Social-Sidebar.Label-Fancy.Pos-Right ul li a
+        span {
+            text-align: center;
+            float: left
+        }
+
+        #Social-Sidebar.Large ul li
+        a {
+            padding-left: 13px;
+            width: auto
+        }
+
+        #Social-Sidebar.Pos-Left ul li a
+        span {
+            left: 0
+        }
+
+        #Social-Sidebar.Pos-Left ul li a:hover
+        span {
+            left: 0
+        }
+
+        #Social-Sidebar.Pos-Left ul li a span:before {
+            left: 0
+        }
+
+        #Social-Sidebar.Pos-Right ul li a
+        span {
+            right: 0
+        }
+
+        #Social-Sidebar.Pos-Right ul li a:hover
+        span {
+            right: 0
+        }
+
+        #Social-Sidebar.Pos-Right ul li a span:before {
+            right: 0
+        }
+
+        #Social-Sidebar.Corners.Pos-Left ul li:first-child a,
+        #Social-Sidebar.Corners.Pos-Left ul li:last-child a,
+        #Social-Sidebar.Corners.Pos-Right ul li:first-child a,
+        #Social-Sidebar.Corners.Pos-Right ul li:last-child a,
+        #Social-Sidebar.Corners.Pos-Left ul li
+        a {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px
+        }
+
+        #Social-Sidebar.Corners-All.Pos-Left ul li a,
+        #Social-Sidebar.Corners-All.Pos-Right ul li
+        a {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px
+        }
+
+        #Social-Sidebar.Shadow.Pos-Left, #Social-Sidebar.Shadow.Pos-Right {
+            -webkit-box-shadow: 0 0 0 #000;
+            -moz-box-shadow: 0 0 0 #000;
+            box-shadow: 0 0 0 #000
+        }
+
+        #Social-Sidebar.Shadow-All.Pos-Left ul li
+        a {
+            -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+        }
+
+        #Social-Sidebar.Shadow-All.Pos-Right ul li
+        a {
+            -webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3)
+        }
+
+        #Social-Sidebar.Theme-Light ul li a,
+        #Social-Sidebar.Theme-Light ul li a
+        span {
+            background: #E0E0E0;
+            color: #555
+        }
+
+            #Social-Sidebar.Theme-Light ul li a:hover,
+            #Social-Sidebar.Theme-Light ul li a:hover
+            span {
+                color: #FFF
+            }
+
+        #Social-Sidebar.Theme-Trans ul li a,
+        #Social-Sidebar.Theme-Trans ul li a
+        span {
+            background: none;
+            color: rgba(0, 0, 0, 0.5)
+        }
+
+            #Social-Sidebar.Theme-Trans ul li a:hover,
+            #Social-Sidebar.Theme-Trans ul li a:hover
+            span {
+                color: #FFF
+            }
+
+        #Social-Sidebar ul li a[class*="Aid"] span,
+        #Social-Sidebar ul li a[class*="Android"] span,
+        #Social-Sidebar ul li a[class*="Apple"] span,
+        #Social-Sidebar ul li a[class*="Behance"] span,
+        #Social-Sidebar ul li a[class*="Blogger"] span,
+        #Social-Sidebar ul li a[class*="Bookmark"] span,
+        #Social-Sidebar ul li a[class*="Bubbles"] span,
+        #Social-Sidebar ul li a[class*="Bullhorn"] span,
+        #Social-Sidebar ul li a[class*="Calendar"] span,
+        #Social-Sidebar ul li a[class*="Cart"] span,
+        #Social-Sidebar ul li a[class*="CC"] span,
+        #Social-Sidebar ul li a[class*="Circles"] span,
+        #Social-Sidebar ul li a[class*="Cloud-Down"] span,
+        #Social-Sidebar ul li a[class*="Cloud-Up"] span,
+        #Social-Sidebar ul li a[class*="Cog"] span,
+        #Social-Sidebar ul li a[class*="CSS3"] span,
+        #Social-Sidebar ul li a[class*="Delicious"] span,
+        #Social-Sidebar ul li a[class*="Deviantart"] span,
+        #Social-Sidebar ul li a[class*="Dribbble"] span,
+        #Social-Sidebar ul li a[class*="Dropbox"] span,
+        #Social-Sidebar ul li a[class*="Evernote"] span,
+        #Social-Sidebar ul li a[class*="Facebook"] span,
+        #Social-Sidebar ul li a[class*="File-Down"] span,
+        #Social-Sidebar ul li a[class*="File-Up"] span,
+        #Social-Sidebar ul li a[class*="Flag"] span,
+        #Social-Sidebar ul li a[class*="Flattr"] span,
+        #Social-Sidebar ul li a[class*="Flickr"] span,
+        #Social-Sidebar ul li a[class*="Forrst"] span,
+        #Social-Sidebar ul li a[class*="Foursquare"] span,
+        #Social-Sidebar ul li a[class*="Github"] span,
+        #Social-Sidebar ul li a[class*="Google"] span,
+        #Social-Sidebar ul li a[class*="Google-Drive"] span,
+        #Social-Sidebar ul li a[class*="GPlus"] span,
+        #Social-Sidebar ul li a[class*="Heart"] span,
+        #Social-Sidebar ul li a[class*="Home"] span,
+        #Social-Sidebar ul li a[class*="HTML5"] span,
+        #Social-Sidebar ul li a[class*="Instagram"] span,
+        #Social-Sidebar ul li a[class*="Joomla"] span,
+        #Social-Sidebar ul li a[class*="Lab"] span,
+        #Social-Sidebar ul li a[class*="Lanyrd"] span,
+        #Social-Sidebar ul li a[class*="LastFM"] span,
+        #Social-Sidebar ul li a[class*="Lightning"] span,
+        #Social-Sidebar ul li a[class*="LinkedIn"] span,
+        #Social-Sidebar ul li a[class*="Linux"] span,
+        #Social-Sidebar ul li a[class*="Mail"] span,
+        #Social-Sidebar ul li a[class*="Mixi"] span,
+        #Social-Sidebar ul li a[class*="Paypal"] span,
+        #Social-Sidebar ul li a[class*="Phone"] span,
+        #Social-Sidebar ul li a[class*="Picassa"] span,
+        #Social-Sidebar ul li a[class*="Pinterest"] span,
+        #Social-Sidebar ul li a[class*="Power"] span,
+        #Social-Sidebar ul li a[class*="QQ"] span,
+        #Social-Sidebar ul li a[class*="Rdio"] span,
+        #Social-Sidebar ul li a[class*="Reddit"] span,
+        #Social-Sidebar ul li a[class*="RenRen"] span,
+        #Social-Sidebar ul li a[class*="Rocket"] span,
+        #Social-Sidebar ul li a[class*="RSS"] span,
+        #Social-Sidebar ul li a[class*="Share"] span,
+        #Social-Sidebar ul li a[class*="SinaWeibo"] span,
+        #Social-Sidebar ul li a[class*="Skype"] span,
+        #Social-Sidebar ul li a[class*="Soundcloud"] span,
+        #Social-Sidebar ul li a[class*="Spotify"] span,
+        #Social-Sidebar ul li a[class*="Stackoverflow"] span,
+        #Social-Sidebar ul li a[class*="Star"] span,
+        #Social-Sidebar ul li a[class*="Steam"] span,
+        #Social-Sidebar ul li a[class*="Stumbleupon"] span,
+        #Social-Sidebar ul li a[class*="Support"] span,
+        #Social-Sidebar ul li a[class*="Tag"] span,
+        #Social-Sidebar ul li a[class*="Thumbs-Up"] span,
+        #Social-Sidebar ul li a[class*="Tumblr"] span,
+        #Social-Sidebar ul li a[class*="Twitter"] span,
+        #Social-Sidebar ul li a[class*="User"] span,
+        #Social-Sidebar ul li a[class*="Users"] span,
+        #Social-Sidebar ul li a[class*="Vimeo"] span,
+        #Social-Sidebar ul li a[class*="VK"] span,
+        #Social-Sidebar ul li a[class*="Windows"] span,
+        #Social-Sidebar ul li a[class*="Windows8"] span,
+        #Social-Sidebar ul li a[class*="Wordpress"] span,
+        #Social-Sidebar ul li a[class*="Xing"] span,
+        #Social-Sidebar ul li a[class*="Yahoo"] span,
+        #Social-Sidebar ul li a[class*="Yelp"] span,
+        #Social-Sidebar ul li a[class*="Youtube"] span {
+            background: none
+        }
+}
+/* Sidebar social networks */

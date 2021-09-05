@@ -157,6 +157,7 @@ namespace PersonalCV.WebApp.Controllers
                 MapPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.MapPhoto)?.Value,
                 TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
                 WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
+                Phone = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Phone)?.Value,
             };
             return View("Shopping", model);
         }

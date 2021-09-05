@@ -17,6 +17,6 @@ namespace PersonalCV.WebApp.Models
         public string InstagramUrl { get; set; }
         public string WhatsappUrl { get; set; }
         public string MapPhoto { get; set; }
-
+        public string Phone { get; set; }
     }
 }
