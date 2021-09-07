@@ -1,5 +1,3 @@
-using System;
-
 namespace PersonalCV.WebApp.Models
 {
     public class ErrorViewModel
@@ -10,5 +8,6 @@ namespace PersonalCV.WebApp.Models
         public string TelegramUrl { get; set; }
         public string EmailUrl { get; set; }
         public string NotFoundPageBackground { get; set; }
+        public string Description { get; set; }
     }
 }

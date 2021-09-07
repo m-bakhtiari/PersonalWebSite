@@ -47,6 +47,18 @@ namespace PersonalCV.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Contact contact)
         {
+            var des = "با تشکر از پیام شما به زودی به پیام شما پاسخ خواهم داد. در صورت نیاز می توانید از شبکه های مجازی زیر با من در ارتباط باشید";
+            if (contact.Phone.Length != 11 || contact.Phone.Length != 8)
+            {
+                des = "";
+                des += "شماره تماس شما معتبر نمی باشد . لطفا پیام خود را با شماره تماس معتبر دوباره وارد نمایید";
+            }
+
+            if (string.IsNullOrWhiteSpace(contact.Phone) && string.IsNullOrWhiteSpace(contact.Email))
+            {
+                des = "";
+                des += "ایمیل یا شماره تماس خود را وارد نمایید . لطفا پیام خود را با ایمیل یا شماره تماس دوباره وارد نمایید ";
+            }
             await _contactService.Add(contact);
             var model = await _siteInfoService.GetInfoForErrorPage();
             return View("ContactMessage", new ErrorViewModel
@@ -57,11 +69,12 @@ namespace PersonalCV.WebApp.Controllers
                 LinkedInUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.LinkedIn)?.Value,
                 EmailUrl = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Email)?.Value,
                 NotFoundPageBackground = model.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground)?.Value,
+                Description = des
             });
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> SetAsRead(int id)
         {
             try
@@ -79,7 +92,7 @@ namespace PersonalCV.WebApp.Controllers
                     throw;
                 }
             }
-            return Ok();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

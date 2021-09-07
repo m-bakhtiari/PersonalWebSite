@@ -1,14 +1,14 @@
 ﻿
 @font-face {
     font-family: Vazir;
-    src: url('~/fonts/Vazir.eot') format('eot'),url('~/fonts/Vazir.ttf') format('ttf'),url('~/fonts/Vazir.woff') format('woff');
+    src: url('../fonts/Vazir.eot') format('eot'),url('../fonts/Vazir.ttf') format('ttf'),url('../fonts/Vazir.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
     direction: rtl;
-    font-family: 'Vazir';
+    font-family: 'Vazir' !important;
     font-weight: normal;
 }
 
@@ -2037,7 +2037,6 @@ body {
 
 .has-success:after,
 .has-danger:after {
-    font-family: 'Nucleo Outline';
     content: "\ea22";
     display: inline-block;
     position: absolute;
@@ -2321,7 +2320,6 @@ textarea.form-control {
     }
 
     .checkbox label::after {
-        font-family: 'Nucleo Outline';
         content: "\ea22";
         top: 0px;
         text-align: center;
@@ -2727,7 +2725,6 @@ input,
 optgroup,
 select,
 textarea {
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2900,7 +2897,6 @@ p {
 body {
     color: #2c2c2c;
     font-size: 14px;
-    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
@@ -3808,13 +3804,7 @@ License - nucleoapp.com/license/
 Created using IcoMoon - icomoon.io
 
 -------------------------------- */
-@font-face {
-    font-family: 'Nucleo Outline';
-    src: url("../fonts/nucleo-outline.eot");
-    src: url("../fonts/nucleo-outline.eot") format("embedded-opentype"), url("../fonts/nucleo-outline.woff2") format("woff2"), url("../fonts/nucleo-outline.woff") format("woff"), url("../fonts/nucleo-outline.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 /*------------------------
 	base class definition
@@ -7290,7 +7280,6 @@ a.credit {
     .count-box p {
         padding: 15px 0 0 0;
         margin: 0 0 0 60px;
-        font-family: "Raleway", sans-serif;
         font-size: 14px;
         color: #122f57;
     }
@@ -7301,7 +7290,6 @@ a.credit {
         margin-top: 20px;
         color: #122f57;
         font-size: 15px;
-        font-family: "Poppins", sans-serif;
         transition: ease-in-out 0.3s;
     }
 
@@ -7321,7 +7309,6 @@ a.credit {
     }
 
         #pricing .row-title h4 {
-            font-family: 'Montserrat-SemiBold', sans-serif;
             color: #697b91;
             font-size: 24px;
             margin-bottom: 10px;
@@ -7357,7 +7344,6 @@ a.credit {
             }
 
             #pricing .plan-box .plan-box-header .plan-title {
-                font-family: 'Montserrat-SemiBold', sans-serif;
                 font-size: 11px;
                 text-transform: uppercase;
                 letter-spacing: 4px;
@@ -7397,7 +7383,6 @@ a.credit {
 
         #pricing .price-holder .currency {
             position: absolute;
-            font-family: 'Montserrat-Light', sans-serif;
             font-size: 20px;
             color: #ffffff;
             left: -16px;
@@ -7410,7 +7395,6 @@ a.credit {
 
             #pricing .price-holder .number .num-big {
                 display: inline-block;
-                font-family: 'Montserrat-Bold', sans-serif;
                 font-size: 65px;
                 color: #ffffff;
             }
@@ -7421,14 +7405,12 @@ a.credit {
         }
 
         #pricing .price-holder .number .num-small {
-            font-family: 'Montserrat-Bold', sans-serif;
             font-size: 22px;
             color: #ffffff;
         }
 
         #pricing .price-holder .number .duration {
             display: inline-block;
-            font-family: 'Montserrat-Regular', sans-serif;
             opacity: 0.5;
             color: #ffffff;
         }
@@ -7472,7 +7454,6 @@ a.credit {
         color: #ffffff;
         text-decoration: none;
         text-align: center;
-        font-family: 'Montserrat-SemiBold', sans-serif;
         font-size: 15px;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -7906,7 +7887,6 @@ span {
     #Social-Sidebar.Label-Curve.Pos-Left ul li a
     span {
         text-align: center;
-        font-family: 'seven1', 'seven-en-webfont';
         font-size: 14px;
         font-weight: normal;
     }

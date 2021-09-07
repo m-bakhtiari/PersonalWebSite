@@ -24,7 +24,7 @@ namespace PersonalCV.Core.Services
         public async Task SetAsRead(int contactId)
         {
             var contact = await GetItemById(contactId);
-            contact.IsRead = true;
+            contact.IsRead = contact.IsRead == false ? true : false;
             await _context.SaveChangesAsync();
         }
 
