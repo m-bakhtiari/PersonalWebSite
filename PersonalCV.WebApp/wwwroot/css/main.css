@@ -4978,7 +4978,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .section {
-    padding: 70px 0;
+    padding: 20px 0;
     position: relative;
     background: #FFFFFF;
 }
@@ -7725,31 +7725,38 @@ a.credit {
 /* End of Call to Action */
 
 /* Sidebar social networks */
-#Social-Sidebar ol,
-#Social-Sidebar
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none
+#Social-Sidebar {
+    font-family: 'Vazir' !important;
+    font-weight: normal;
 }
 
-#Social-Sidebar a,
-#Social-Sidebar a:hover,
-#Social-Sidebar a:active {
-    text-decoration: none
-}
-
-    #Social-Sidebar a
-    img {
-        border: none
+    #Social-Sidebar ol,
+    #Social-Sidebar
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none
     }
 
-#Social-Sidebar
-span {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box
-}
+    #Social-Sidebar a,
+    #Social-Sidebar a:hover,
+    #Social-Sidebar a:active {
+        text-decoration: none
+    }
+
+        #Social-Sidebar a
+        img {
+            border: none
+        }
+
+    #Social-Sidebar
+    span {
+        font-family: 'Vazir' !important;
+        font-weight: normal;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box
+    }
 
 #Social-Sidebar {
     position: fixed;

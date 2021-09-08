@@ -51,9 +51,6 @@ namespace PersonalCV.Core.Enums
             [Description("HeaderPhoto")]
             HeaderMyPhoto = 15,
 
-            [Description("AboutTitle")]
-            AboutTitle = 16,
-
             [Description("FirstEducationTime")]
             FirstEducationTime = 17,
 

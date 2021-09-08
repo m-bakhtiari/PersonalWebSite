@@ -23,7 +23,10 @@ namespace PersonalCV.Core.Services
 
         public async Task Add(SiteInfo siteInfo, [AllowNull] IFormFile image)
         {
-            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.MapPhoto
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.CvFileForDownload)
             {
                 siteInfo.Value = GenerateUniqCode() + Path.GetExtension(image.FileName);
                 var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile", siteInfo.Value);
@@ -38,12 +41,19 @@ namespace PersonalCV.Core.Services
         public async Task Update(SiteInfo siteInfo, [AllowNull] IFormFile image)
         {
             var oldData = await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == siteInfo.Key);
-            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.MapPhoto
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.CvFileForDownload)
             {
-                var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile", oldData.Value);
-                if (File.Exists(deleteImagePath))
+                if (string.IsNullOrWhiteSpace(oldData.Value) == false)
                 {
-                    File.Delete(deleteImagePath);
+                    var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile",
+                        oldData.Value);
+                    if (File.Exists(deleteImagePath))
+                    {
+                        File.Delete(deleteImagePath);
+                    }
                 }
 
                 siteInfo.Value = GenerateUniqCode() + Path.GetExtension(image.FileName);
@@ -57,7 +67,10 @@ namespace PersonalCV.Core.Services
 
         public async Task Delete(SiteInfo siteInfo)
         {
-            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
+            if (siteInfo.Key == GeneralEnums.GeneralEnum.ProfilePhoto || siteInfo.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.MapPhoto
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground
+                                                                      || siteInfo.Key == GeneralEnums.GeneralEnum.CvFileForDownload)
             {
                 var deleteImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/profile", siteInfo.Value);
                 if (File.Exists(deleteImagePath))

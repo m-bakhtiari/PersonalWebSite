@@ -33,7 +33,8 @@
                         @Html.DisplayFor(modelItem => item.Key)
                     </td>
                     <td>
-                        @if (item.Key == GeneralEnums.GeneralEnum.ProfilePhoto || item.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto)
+                        @if (item.Key == GeneralEnums.GeneralEnum.ProfilePhoto || item.Key == GeneralEnums.GeneralEnum.HeaderMyPhoto
+                            || item.Key == GeneralEnums.GeneralEnum.MapPhoto || item.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground)
                         {
                             <img src="images/profile/@item.Value" alt="" style="max-height: 500px;max-width: 500px" />
                         }
