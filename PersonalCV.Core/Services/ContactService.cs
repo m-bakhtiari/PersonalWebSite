@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using PersonalCV.Core.Context;
 using PersonalCV.Core.Entities;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace PersonalCV.Core.Services
 
         public async Task Add(Contact contact)
         {
+            contact.RecordDate = DateTime.Now;
             await _context.Contacts.AddAsync(contact);
             await _context.SaveChangesAsync();
         }

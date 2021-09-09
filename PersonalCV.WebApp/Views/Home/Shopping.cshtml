@@ -82,11 +82,16 @@
                 <div class="row">
                     @if (Model.HostPlans != null)
                     {
+                        <div style="display: none">
+                            @{
+                                var i = 1;
+                            }
+                        </div>
                         @foreach (var item in Model.HostPlans)
                         {
                             <div class="col-xs-12 col-sm-6 col-md-3">
                                 <div class="plan-box">
-                                    <div class="plan-box-header color-bg1">
+                                    <div class="plan-box-header color-bg@(i)">
                                         <div class="plan-title h3">@item.Title</div>
                                     </div>
                                     <div class="plan-box-content">
@@ -101,9 +106,12 @@
                                         </ul>
                                     </div>
                                     <div class="plan-box-button">
-                                        <a class="color-bg1"></a>
+                                        <a class="color-bg@(i)"></a>
                                     </div>
                                 </div>
+                            </div>
+                            <div style="display: none">
+                                @(i++)
                             </div>
                         }
                     }

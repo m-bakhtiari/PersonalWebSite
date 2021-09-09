@@ -8,27 +8,27 @@
             <div class="nav-align-center nav nav-pills nav-pills-primary">
                 @if (ViewBag.IsAllSelected == "true")
                 {
-                    <input onclick="LoadTemplate(null,null)" value="همه" type="button" class="btn btn-outline-primary nav-link active fw-bold">
+                    <input onclick="LoadTemplate(null,null)" value="همه" type="button" class="btn btn-outline-primary nav-link active">
                 }
                 else
                 {
-                    <input onclick="LoadTemplate(null,null)" value="همه" type="button" class="btn btn-outline-primary nav-link fw-bold">
+                    <input onclick="LoadTemplate(null,null)" value="همه" type="button" class="btn btn-outline-primary nav-link">
                 }
                 @foreach (var group in Model.TemplateGroups)
                 {
                     @if (ViewBag.IsAllSelected == "true")
                     {
-                        <input onclick="LoadTemplate(@group.Id,null)" value="@group.Title" type="button" class="btn btn-outline-primary nav-link fw-bold" />
+                        <input onclick="LoadTemplate(@group.Id,null)" value="@group.Title" type="button" class="btn btn-outline-primary nav-link" />
                     }
                     else
                     {
                         @if (Model.Templates.Any())
                         {
-                            <input onclick="LoadTemplate(@group.Id, null)" value="@group.Title" type="button" class="btn btn-outline-primary fw-bold nav-link @(group.Id == Model.Templates?.FirstOrDefault().GroupId ? "active" : "")">
+                            <input onclick="LoadTemplate(@group.Id, null)" value="@group.Title" type="button" class="btn btn-outline-primary nav-link @(group.Id == Model.Templates?.FirstOrDefault().GroupId ? "active" : "")">
                         }
                         else
                         {
-                            <input onclick="LoadTemplate(@group.Id,null)" value="@group.Title" type="button" class="btn btn-outline-primary nav-link fw-bold" />
+                            <input onclick="LoadTemplate(@group.Id,null)" value="@group.Title" type="button" class="btn btn-outline-primary nav-link" />
                         }
                     }
                 }
@@ -42,7 +42,7 @@
                     @foreach (var temp in Model.Templates)
                     {
                         <div class="cc-porfolio-image img-raised col-md-6 mt-2" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                            <a href="@temp.SiteUrlForPreview">
+                            <a href="@temp.SiteUrlForPreview" target="_blank">
                                 <figure class="cc-effect">
                                     <img src="images/template/@temp.MainImage" alt="Image"/>
                                     <figcaption>

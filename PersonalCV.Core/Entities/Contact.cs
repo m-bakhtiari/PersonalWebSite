@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PersonalCV.Core.Entities
 {
@@ -22,5 +23,7 @@ namespace PersonalCV.Core.Entities
 
         [MaxLength(200)]
         public string Phone { get; set; }
+
+        public DateTime RecordDate { get; set; }
     }
 }

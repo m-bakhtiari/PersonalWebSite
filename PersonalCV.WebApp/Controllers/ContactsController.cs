@@ -53,13 +53,20 @@ namespace PersonalCV.WebApp.Controllers
                 des = "";
                 des += "شماره تماس شما معتبر نمی باشد . لطفا پیام خود را با شماره تماس معتبر دوباره وارد نمایید";
             }
-
-            if (string.IsNullOrWhiteSpace(contact.Phone) && string.IsNullOrWhiteSpace(contact.Email))
+            else if (string.IsNullOrWhiteSpace(contact.Phone) && string.IsNullOrWhiteSpace(contact.Email))
             {
                 des = "";
                 des += "ایمیل یا شماره تماس خود را وارد نمایید . لطفا پیام خود را با ایمیل یا شماره تماس دوباره وارد نمایید ";
             }
-            await _contactService.Add(contact);
+            else if (string.IsNullOrWhiteSpace(contact.Message))
+            {
+                des = "";
+                des += "پیامی وارد نشده است ";
+            }
+            else
+            {
+                await _contactService.Add(contact);
+            }
             var model = await _siteInfoService.GetInfoForErrorPage();
             return View("ContactMessage", new ErrorViewModel
             {

@@ -17,16 +17,17 @@ namespace PersonalCV.WebApp.Controllers
         private readonly TemplateService _templateService;
         private readonly SkillService _skillService;
         private readonly WhoisDomainCheckerService _whoisDomainCheckerService;
+        private readonly HostPlanService _hostPlanService;
 
-        public HomeController(SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, WhoisDomainCheckerService whoisDomainCheckerService)
+        public HomeController(SiteInfoService siteInfoService, TemplateGroupService templateGroupService, TemplateService templateService, SkillService skillService, WhoisDomainCheckerService whoisDomainCheckerService, HostPlanService hostPlanService)
         {
             _siteInfoService = siteInfoService;
             _templateGroupService = templateGroupService;
             _templateService = templateService;
             _skillService = skillService;
             _whoisDomainCheckerService = whoisDomainCheckerService;
+            _hostPlanService = hostPlanService;
         }
-
         public async Task<IActionResult> Index()
         {
             var siteInfo = await _siteInfoService.GetAll();
@@ -72,7 +73,6 @@ namespace PersonalCV.WebApp.Controllers
                 MapPhoto = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.MapPhoto)?.Value,
             };
 
-            ViewBag.IsAllSelected = "true";
             return View(model);
         }
 
@@ -129,9 +129,8 @@ namespace PersonalCV.WebApp.Controllers
         public async Task<IActionResult> GetBlobDownload()
         {
             var filename = await _siteInfoService.GetCvLink();
-            var path = $"{Directory.GetCurrentDirectory()}/wwwroot/images/profile/{filename}";
             var mediaType = "application/x-rar-compressed";
-            return PhysicalFile(path, mediaType, filename);
+            return PhysicalFile(filename, mediaType, filename);
         }
 
         [Route("shopping")]
@@ -158,7 +157,9 @@ namespace PersonalCV.WebApp.Controllers
                 TelegramUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.TelegramUrl)?.Value,
                 WhatsappUrl = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl)?.Value,
                 Phone = siteInfo.FirstOrDefault(x => x.Key == GeneralEnums.GeneralEnum.Phone)?.Value,
+                HostPlans = await _hostPlanService.GetAll()
             };
+            ViewBag.IsAllSelected = "true";
             return View("Shopping", model);
         }
 

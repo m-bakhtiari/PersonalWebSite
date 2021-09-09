@@ -3021,6 +3021,14 @@ body {
     background-color: #FF3636;
 }
 
+.nav-link:hover{
+    background-color: #00a63f
+}
+
+.nav-link.active:hover {
+    background-color: #00a63f
+}
+
 .tab-space {
     padding: 20px 0 50px 0px;
 }
@@ -7325,6 +7333,7 @@ a.credit {
         border-radius: 5px;
         margin-bottom: 20px;
         transform: scale(1);
+        min-height: 100px;
     }
 
         #pricing .plan-box:hover {
@@ -7336,7 +7345,7 @@ a.credit {
             border-top-right-radius: 5px;
             text-align: center;
             padding-top: 20px;
-            padding-bottom: 20px;
+            padding-bottom: 5px;
         }
 
             #pricing .plan-box .plan-box-header:hover {
@@ -7344,11 +7353,10 @@ a.credit {
             }
 
             #pricing .plan-box .plan-box-header .plan-title {
-                font-size: 11px;
+                font-size: 30px;
                 text-transform: uppercase;
                 letter-spacing: 4px;
                 color: #ffffff;
-                opacity: 0.5;
             }
 
         #pricing .plan-box.best-seller .plan-box-header .plan-title {
@@ -7417,6 +7425,7 @@ a.credit {
 
     #pricing .plan-box .plan-box-content {
         padding: 22px 20px;
+        min-height: 300px;
     }
 
         #pricing .plan-box .plan-box-content ul.c-list {

@@ -123,13 +123,16 @@ namespace PersonalCV.Core.Services
         {
             return await _context.SiteInfos.Where(x => x.Key == GeneralEnums.GeneralEnum.WhatsappUrl ||
                                                  x.Key == GeneralEnums.GeneralEnum.InstagramUrl || x.Key == GeneralEnums.GeneralEnum.TelegramUrl ||
-               x.Key == GeneralEnums.GeneralEnum.LinkedIn || x.Key == GeneralEnums.GeneralEnum.InstagramUrl).ToListAsync();
+                                                 x.Key == GeneralEnums.GeneralEnum.LinkedIn || x.Key == GeneralEnums.GeneralEnum.InstagramUrl ||
+                                                 x.Key == GeneralEnums.GeneralEnum.NotFoundPageBackground)
+                .ToListAsync();
         }
 
         public async Task<string> GetCvLink()
         {
             var link = await _context.SiteInfos.FirstOrDefaultAsync(x => x.Key == GeneralEnums.GeneralEnum.CvFileForDownload);
-            return link.Value;
+            return $"{Directory.GetCurrentDirectory()}/wwwroot/images/profile/{link.Value}" ;
+
         }
 
         public async Task<List<SiteInfo>> GetLayoutInfo()

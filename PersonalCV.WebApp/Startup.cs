@@ -93,6 +93,11 @@ namespace PersonalCV.WebApp
                     ctx.Request.Path = "/Error";
                     await next();
                 }
+                if (ctx.Response.StatusCode == 405)
+                {
+                    ctx.Request.Path = "/ErrorOnServer";
+                    await next();
+                }
             });
             app.UseHttpsRedirection();
             app.UseAuthentication();
