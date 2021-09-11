@@ -164,7 +164,7 @@ namespace PersonalCV.WebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<bool> CheckDomain(string domain)
+        public async Task<string> CheckDomain(string domain)
         {
             return await _whoisDomainCheckerService.CheckDomain(domain);
         }

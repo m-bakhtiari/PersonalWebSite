@@ -143,8 +143,29 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button onclick="SearchDomain()" class="btn btn-new" style="width: 100%;height: 100%">بگرد</button>
+                                        <div class="lds-ring" id="btnLoader"  style="display: none">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <button id="btnSearch" onclick="SearchDomain()" class="btn btn-new" style="width: 100%; height: 100%">بگرد</button>
                                     </div>
+                                </div>
+                            </div>
+                            <div id="loader" style="display: none">
+                                <div class="lds-ring">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <span class="h3 text-white">در حال جستجو لطفا صبر کنید...</span>
+                                <div class="lds-ring">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
                                 </div>
                             </div>
                             <div id="TrueSearchResult" style="display: none" class="mt-4">
@@ -250,25 +271,39 @@
     }
 
     function SearchDomain() {
-        var name = document.getElementById("sld").value;
-        var domain = document.getElementById("tld").value;
-        if (name != null) {
-            $.ajax({
-                type: "GET",
-                url: "/Home/CheckDomain?domain=" + name + domain
-            }).done(function (data, statusText, xhdr) {
-                if (data.toString() === "true") {
-                    document.getElementById('TrueSearchResult').style.display = "block";
-                    document.getElementById('FalseSearchResult').style.display = "none";
-                }
-                else if (data.toString() === "false") {
-                    document.getElementById('TrueSearchResult').style.display = "none";
-                    document.getElementById('FalseSearchResult').style.display = "block";
-                }
-            }).fail(function (xhdr, statusText, errorText) {
-                document.getElementById('TrueSearchResult').style.display = "none";
-                document.getElementById('FalseSearchResult').style.display = "none";
-            });
-        }
+        document.getElementById("btnSearch").disabled=true;
+        document.getElementById("loader").style.display = "block";
+        document.getElementById("btnLoader").style.display = "block";
+        document.getElementById("btnSearch").style.display = "none";
+
+        
+        //var delayInMilliseconds = 5000;
+        //setTimeout(function () {
+        //    var name = document.getElementById("sld").value;
+        //    var domain = document.getElementById("tld").value;
+        //    if (name != null) {
+        //        $.ajax({
+        //            type: "GET",
+        //            url: "/Home/CheckDomain?domain=" + name + domain
+        //        }).done(function (data, statusText, xhdr) {
+        //            if (data.toString() === "true") {
+        //                document.getElementById('TrueSearchResult').style.display = "block";
+        //                document.getElementById('FalseSearchResult').style.display = "none";
+        //            }
+        //            else if (data.toString() === "false") {
+        //                document.getElementById('TrueSearchResult').style.display = "none";
+        //                document.getElementById('FalseSearchResult').style.display = "block";
+        //            } else {
+
+        //            }
+        //        }).fail(function (xhdr, statusText, errorText) {
+        //            document.getElementById('TrueSearchResult').style.display = "none";
+        //            document.getElementById('FalseSearchResult').style.display = "none";
+        //        });
+        //    }
+        //}, delayInMilliseconds);
+        //document.getElementById("btnSearch").disabled=false;
+        //document.getElementById("loader").style.display = "none";
+        //document.getElementById("btnSearch").style.display = "block";
     }
 </script>
