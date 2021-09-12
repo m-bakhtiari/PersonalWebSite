@@ -51,6 +51,9 @@ namespace PersonalCV.Core.Enums
             [Description("HeaderPhoto")]
             HeaderMyPhoto = 15,
 
+            [Description("ApiKey")]
+            ApiKey = 16,
+
             [Description("FirstEducationTime")]
             FirstEducationTime = 17,
 

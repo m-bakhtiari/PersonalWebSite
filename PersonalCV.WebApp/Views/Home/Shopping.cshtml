@@ -143,7 +143,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <div class="lds-ring" id="btnLoader"  style="display: none">
+                                        <div class="lds-ring" id="btnLoader" style="display: none">
                                             <div></div>
                                             <div></div>
                                             <div></div>
@@ -177,6 +177,11 @@
                                 <i class="fa fa-check-circle fa-5x text-danger"></i>
                                 <span class="h5 text-danger">دامنه مورد نظر انتخاب شده است . نام دیگری انتخاب نمایید </span>
                                 <i class="fa fa-check-circle fa-5x text-danger"></i>
+                            </div>
+                            <div id="UnknownSearchResult" style="display: none" class="mt-4">
+                                <i class="fa fa-exclamation-circle fa-5x text-warning"></i>
+                                <span class="h5 text-danger">خطا در اتصال به سرور . لطفا دوباره تلاش نمایید</span>
+                                <i class="fa fa-exclamation-circle fa-5x text-warning"></i>
                             </div>
                         </div>
                     </div>
@@ -271,39 +276,49 @@
     }
 
     function SearchDomain() {
-        document.getElementById("btnSearch").disabled=true;
+        document.getElementById("btnSearch").disabled = true;
         document.getElementById("loader").style.display = "block";
         document.getElementById("btnLoader").style.display = "block";
         document.getElementById("btnSearch").style.display = "none";
+        document.getElementById('TrueSearchResult').style.display = "none";
+        document.getElementById('FalseSearchResult').style.display = "none";
+        document.getElementById('UnknownSearchResult').style.display = "none";
 
-        
-        //var delayInMilliseconds = 5000;
-        //setTimeout(function () {
-        //    var name = document.getElementById("sld").value;
-        //    var domain = document.getElementById("tld").value;
-        //    if (name != null) {
-        //        $.ajax({
-        //            type: "GET",
-        //            url: "/Home/CheckDomain?domain=" + name + domain
-        //        }).done(function (data, statusText, xhdr) {
-        //            if (data.toString() === "true") {
-        //                document.getElementById('TrueSearchResult').style.display = "block";
-        //                document.getElementById('FalseSearchResult').style.display = "none";
-        //            }
-        //            else if (data.toString() === "false") {
-        //                document.getElementById('TrueSearchResult').style.display = "none";
-        //                document.getElementById('FalseSearchResult').style.display = "block";
-        //            } else {
+        var delayInMilliseconds = 20000;
 
-        //            }
-        //        }).fail(function (xhdr, statusText, errorText) {
-        //            document.getElementById('TrueSearchResult').style.display = "none";
-        //            document.getElementById('FalseSearchResult').style.display = "none";
-        //        });
-        //    }
-        //}, delayInMilliseconds);
-        //document.getElementById("btnSearch").disabled=false;
-        //document.getElementById("loader").style.display = "none";
-        //document.getElementById("btnSearch").style.display = "block";
+        setTimeout(function () {
+            var name = document.getElementById("sld").value;
+            var domain = document.getElementById("tld").value;
+            if (name != null) {
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/CheckDomain?domain=" + name + domain
+                }).done(function (data, statusText, xhdr) {
+                    if (data.toString() === "true") {
+                        console.log(data.toString());
+                        document.getElementById('TrueSearchResult').style.display = "block";
+                        document.getElementById('FalseSearchResult').style.display = "none";
+                    }
+                    else if (data.toString() === "false") {
+                        console.log(data.toString());
+                        document.getElementById('TrueSearchResult').style.display = "none";
+                        document.getElementById('FalseSearchResult').style.display = "block";
+                    } else {
+                        console.log(data.toString());
+                        document.getElementById('TrueSearchResult').style.display = "none";
+                        document.getElementById('UnknownSearchResult').style.display = "block";
+                    }
+                }).fail(function (xhdr, statusText, errorText) {
+                    document.getElementById('TrueSearchResult').style.display = "none";
+                    document.getElementById('FalseSearchResult').style.display = "none";
+                });
+            }
+            document.getElementById("btnSearch").disabled = false;
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("btnSearch").style.display = "block";
+            document.getElementById("btnLoader").style.display = "none";
+        }, delayInMilliseconds);
+
+
     }
 </script>
