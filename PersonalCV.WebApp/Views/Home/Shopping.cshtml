@@ -284,34 +284,33 @@
         document.getElementById('FalseSearchResult').style.display = "none";
         document.getElementById('UnknownSearchResult').style.display = "none";
 
+        var name = document.getElementById("sld").value;
+        var domain = document.getElementById("tld").value;
+        var result = "";
+        if (name != null) {
+            $.ajax({
+                type: "GET",
+                url: "/Home/CheckDomain?domain=" + name + domain
+            }).done(function (data, statusText, xhdr) {
+                result = data.toString();
+            }).fail(function (xhdr, statusText, errorText) {
+                document.getElementById('TrueSearchResult').style.display = "none";
+                document.getElementById('FalseSearchResult').style.display = "none";
+            });
+        }
         var delayInMilliseconds = 20000;
 
         setTimeout(function () {
-            var name = document.getElementById("sld").value;
-            var domain = document.getElementById("tld").value;
-            if (name != null) {
-                $.ajax({
-                    type: "GET",
-                    url: "/Home/CheckDomain?domain=" + name + domain
-                }).done(function (data, statusText, xhdr) {
-                    if (data.toString() === "true") {
-                        console.log(data.toString());
-                        document.getElementById('TrueSearchResult').style.display = "block";
-                        document.getElementById('FalseSearchResult').style.display = "none";
-                    }
-                    else if (data.toString() === "false") {
-                        console.log(data.toString());
-                        document.getElementById('TrueSearchResult').style.display = "none";
-                        document.getElementById('FalseSearchResult').style.display = "block";
-                    } else {
-                        console.log(data.toString());
-                        document.getElementById('TrueSearchResult').style.display = "none";
-                        document.getElementById('UnknownSearchResult').style.display = "block";
-                    }
-                }).fail(function (xhdr, statusText, errorText) {
-                    document.getElementById('TrueSearchResult').style.display = "none";
-                    document.getElementById('FalseSearchResult').style.display = "none";
-                });
+            if (result === "true") {
+                document.getElementById('TrueSearchResult').style.display = "block";
+                document.getElementById('FalseSearchResult').style.display = "none";
+            }
+            else if (result === "false") {
+                document.getElementById('TrueSearchResult').style.display = "none";
+                document.getElementById('FalseSearchResult').style.display = "block";
+            } else {
+                document.getElementById('TrueSearchResult').style.display = "none";
+                document.getElementById('UnknownSearchResult').style.display = "block";
             }
             document.getElementById("btnSearch").disabled = false;
             document.getElementById("loader").style.display = "none";
