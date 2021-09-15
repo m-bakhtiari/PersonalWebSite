@@ -57,8 +57,8 @@
                                 <a class="btn btn-default btn-round btn-lg btn-icon" href="@Model.LinkedIn" rel="tooltip" title="Follow me on LinkedIn">
                                     <i class="fa fa-linkedin" style="font-size: 35px"></i>
                                 </a>
-                                <a class="btn btn-warning btn-round btn-lg btn-icon" href="@Model.Email" rel="tooltip" title="Contact me on Email">
-                                    <i class="fa fa-google" style="font-size: 35px"></i>
+                                <a class="btn btn-warning btn-round btn-lg btn-icon" href="mailto:@Model.Email" rel="tooltip" title="Contact me on Email">
+                                    <i class="fa fa-envelope" style="font-size: 35px"></i>
                                 </a>
                                 <a class="btn btn-success btn-round btn-lg btn-icon " href="@Model.WhatsappUrl" rel="tooltip" title="See me on whatsapp">
                                     <i class="fa fa-whatsapp" style="font-size: 35px"></i>
@@ -285,8 +285,8 @@
         <a class="btn-link " href="@Model.LinkedIn" rel="tooltip" title="LinkedIn">
             <i class="fa fa-linkedin fa-2x " aria-hidden="true"></i>
         </a>
-        <a class="btn-link text-warning" href="@Model.Email" rel="tooltip" title="Email">
-            <i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>
+        <a class="btn-link text-warning" href="mailto:@Model.Email" rel="tooltip" title="Email">
+            <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
         </a>
         <a class="btn-link text-danger" href="@Model.InstagramUrl" rel="tooltip" title="Instagram">
             <i class="fa fa-instagram fa-2x " aria-hidden="true"></i>
@@ -314,8 +314,8 @@
 
         <li>
             <a href="@Model.InstagramUrl" target="_blank" class="fa fa-instagram"
-               rel="nofollow" style="background:none repeat scroll 0% 0% orangered;">
-                <span style="background:none repeat scroll 0% 0% orangered;">اینستاگرام</span>
+               rel="nofollow" style="background: none repeat scroll 0% 0% #E34429;">
+                <span style="background: none repeat scroll 0% 0% #E34429;">اینستاگرام</span>
             </a>
         </li>
 
@@ -327,9 +327,16 @@
         </li>
 
         <li>
-            <a href="@Model.LinkedIn" rel="nofollow" class="fa fa-google-plus"
-               style="background:none repeat scroll 0% 0% #E34429;">
-                <span style="background:none repeat scroll 0% 0% #E34429;">لینکدین</span>
+            <a href="@Model.LinkedIn" rel="nofollow" class="fa fa-linkedin"
+               style="background:none repeat scroll 0% 0% #778899;">
+                <span style="background: none repeat scroll 0% 0% #778899;">لینکدین</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="@Model.LinkedIn" rel="nofollow" class="fa fa-envelope"
+               style="background:none repeat scroll 0% 0% #cd853f;">
+                <span style="background: none repeat scroll 0% 0% #cd853f;">ایمیل</span>
             </a>
         </li>
 
