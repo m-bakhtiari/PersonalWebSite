@@ -23,15 +23,10 @@
                     </div>
                 </div>
                 <div class="flex-c-m">
-                    <a href="@Model.InstagramUrl" class="login100-social-item bg-danger">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                    <a href="@Model.TelegramUrl" class="login100-social-item bg-primary">
-                        <i class="fa fa-telegram"></i>
-                    </a>
-                    <a href="@Model.WhatsAppUrl" class="login100-social-item bg-success">
-                        <i class="fa fa-whatsapp"></i>
-                    </a>
+                    <a rel="tooltip" title="Instagram" href="@Model.InstagramUrl" target="_blank" class="login100-social-item bg-danger"><i class="fa fa-instagram"></i></a>
+                    <a rel="tooltip" title="Telegram" href="@Model.TelegramUrl" target="_blank" class="login100-social-item bg-primary"><i class="fa fa-telegram"></i></a>
+                    <a rel="tooltip" title="Email" href="mailto:@Model.EmailUrl" target="_blank" class="login100-social-item bg-warning"><i class="fa fa-envelope"></i></a>
+                    <a rel="tooltip" title="WhatsApp" href="@Model.WhatsAppUrl" target="_blank" class="login100-social-item bg-success"><i class="fa fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>

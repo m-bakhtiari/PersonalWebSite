@@ -48,12 +48,8 @@ namespace PersonalCV.WebApp.Controllers
         public async Task<IActionResult> Create(Contact contact)
         {
             var des = "با تشکر از پیام شما به زودی به پیام شما پاسخ خواهم داد. در صورت نیاز می توانید از شبکه های مجازی زیر با من در ارتباط باشید";
-            if (contact.Phone.Length != 11 || contact.Phone.Length != 8)
-            {
-                des = "";
-                des += "شماره تماس شما معتبر نمی باشد . لطفا پیام خود را با شماره تماس معتبر دوباره وارد نمایید";
-            }
-            else if (string.IsNullOrWhiteSpace(contact.Phone) && string.IsNullOrWhiteSpace(contact.Email))
+
+            if (string.IsNullOrWhiteSpace(contact.Phone) && string.IsNullOrWhiteSpace(contact.Email))
             {
                 des = "";
                 des += "ایمیل یا شماره تماس خود را وارد نمایید . لطفا پیام خود را با ایمیل یا شماره تماس دوباره وارد نمایید ";
@@ -63,9 +59,18 @@ namespace PersonalCV.WebApp.Controllers
                 des = "";
                 des += "پیامی وارد نشده است ";
             }
-            else
+            else if(contact.Phone?.Length == 11)
             {
                 await _contactService.Add(contact);
+            }
+            else if (contact.Phone?.Length == 8)
+            {
+                await _contactService.Add(contact);
+            }
+            else
+            {
+                des = "";
+                des += "اطلاعات وارد شده معتبر نمی باشد";
             }
             var model = await _siteInfoService.GetInfoForErrorPage();
             return View("ContactMessage", new ErrorViewModel

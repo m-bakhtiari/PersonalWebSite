@@ -30,253 +30,254 @@
 </header>
 
 <div class="page-content">
-    <div>
-        <div id="profile" class="profile-page">
-            <div class="wrapper">
-                <div class="page-header page-header-small" filter-color="green">
-                    <div class="page-header-image" data-parallax="true" style="background-image: url('images/profile/@Model.HeaderPhoto')"></div>
-                    <div class="container">
-                        <div class="content-center">
-                            <div class="cc-profile-image"><a href="/"><img src="images/profile/@Model.ProfilePhoto" alt="Image" /></a></div>
-                            <div class="h2 title">محمدرضا بختیاری</div>
-                            <p class="category text-white">برنامه نویس بک اند ، فرانت اند و فول استک</p>
-                            <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">تماس با من</a>
-                            <a class="btn btn-primary" href="/download" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">دانلود رزومه</a>
-                            <a class="btn btn-primary" href="/shopping" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">سفارش پروژه</a>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <div class="container">
-                            <div class="button-container">
-                                <a class="btn btn-danger btn-round btn-lg btn-icon" href="@Model.InstagramUrl" rel="tooltip" title="Follow me on Instagram">
-                                    <i class="fa fa-instagram" style="font-size: 35px"></i>
-                                </a>
-                                <a class="btn btn-primary btn-round btn-lg btn-icon" href="@Model.TelegramUrl" rel="tooltip" title="Follow me on Telegram" style="background-color: #234999 !important">
-                                    <i class="fa fa-telegram" style="font-size: 35px"></i>
-                                </a>
-                                <a class="btn btn-default btn-round btn-lg btn-icon" href="@Model.LinkedIn" rel="tooltip" title="Follow me on LinkedIn">
-                                    <i class="fa fa-linkedin" style="font-size: 35px"></i>
-                                </a>
-                                <a class="btn btn-warning btn-round btn-lg btn-icon" href="mailto:@Model.Email" rel="tooltip" title="Contact me on Email">
-                                    <i class="fa fa-envelope" style="font-size: 35px"></i>
-                                </a>
-                                <a class="btn btn-success btn-round btn-lg btn-icon " href="@Model.WhatsappUrl" rel="tooltip" title="See me on whatsapp">
-                                    <i class="fa fa-whatsapp" style="font-size: 35px"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section" id="about">
+<div>
+<div id="profile" class="profile-page">
+    <div class="wrapper">
+        <div class="page-header page-header-small" filter-color="green">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('images/profile/@Model.HeaderPhoto')"></div>
             <div class="container">
-                <div class="card" data-aos="fade-up" data-aos-offset="10">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="card-body">
-                                <div class="h4 mt-0 title">درباره من</div>
-                                <p>@Model.AboutText</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                            <div class="card-body">
-                                <div class="h4 mt-0 title">بیوگرافی</div>
-                                <div class="row">
-                                    <div class="col-sm-4"><strong class="text-uppercase">سن:</strong></div>
-                                    <div class="col-sm-8">@Model.Age</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-sm-4"><strong class="text-uppercase">ایمیل:</strong></div>
-                                    <div class="col-sm-8">@Model.Email</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-sm-4"><strong class="text-uppercase">تلفن:</strong></div>
-                                    <div class="col-sm-8">@Model.Phone</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-sm-4"><strong class="text-uppercase">آدرس:</strong></div>
-                                    <div class="col-sm-8">@Model.Address</div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-sm-4"><strong class="text-uppercase">زبان:</strong></div>
-                                    <div class="col-sm-8">@Model.Language</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="content-center">
+                    <div class="cc-profile-image"><a href="/"><img src="images/profile/@Model.ProfilePhoto" alt="Image" /></a></div>
+                    <div class="h2 title">محمدرضا بختیاری</div>
+                    <p class="category text-white">برنامه نویس بک اند ، فرانت اند و فول استک</p>
+                    <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">تماس با من</a>
+                    <a class="btn btn-primary" href="/download" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">دانلود رزومه</a>
+                    <a class="btn btn-primary" href="/shopping" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">سفارش پروژه</a>
                 </div>
             </div>
-        </div>
-        <div class="section" id="skill">
-            <div class="container">
-                <div class="h4 text-center mb-4 title">مهارت های تخصصی</div>
-                @foreach (var skill in Model.Skills)
-                {
-                    <div class="mb-1">@skill.Title</div>
-                    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                        <div class="card-body">
-                            <div class="row">
-                                @foreach (var detail in skill.SkillDetails)
-                                {
-                                    <div class="col-md-6">
-                                        <div class="progress-container progress-primary">
-                                            <span class="progress-badge">@detail.Title</span>
-                                            <div class="progress" style="height: 10px">
-                                                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
-                                                     data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                                                     style="width: @detail.Percent%;"></div>
-                                                <span class="progress-value">@detail.Percent%</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-        <div id="experience" class="section">
-            <div class="container cc-experience">
-                <div class="h4 text-center mb-4 title">سابقه کار</div>
-                <div class="row no-gutters">
-
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-animate" data-aos="fade-up">
-                        <div class="count-box">
-                            <i class="fa fa-smile-o"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfCustomers" data-purecounter-duration="0" class="purecounter">@Model.CountOfCustomers</span>
-                            <p class="mt-1"><strong>مشتریان</strong></p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                        <div class="count-box">
-                            <i class="fa fa-book"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfPublishedProjects" data-purecounter-duration="0" class="purecounter">@Model.CountOfPublishedProjects</span>
-                            <p class="mt-1"><strong>پروژه</strong> که پابلیش شده اند</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                        <div class="count-box">
-                            <i class="fa fa-headphones"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfTestProjects" data-purecounter-duration="0" class="purecounter">@Model.CountOfTestProjects</span>
-                            <p class="mt-1"><strong>پروژه</strong> به صورت آموزشی انجام شده</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                        <div class="count-box">
-                            <i class="fa fa-clock-o"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model.YearsCountOfExperience" data-purecounter-duration="0" class="purecounter">@Model.YearsCountOfExperience</span>
-                            <p class="mt-1"><strong>سال</strong> کار به صورت حرفه ای</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body cc-experience-header">
-                                <p class="pr-2">@Model.FirstJobYear</p>
-                                <div class="h5 pr-2">@Model.FirstJobTitle</div>
-                            </div>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body">
-                                <div class="h5">@Model.FirstJobSubject</div>
-                                <p>@Model.FirstJobDescription</p>
-                            </div>
-                        </div>
+            <div class="section">
+                <div class="container">
+                    <div class="button-container">
+                        <a class="btn btn-danger btn-round btn-lg btn-icon" href="@Model.InstagramUrl" rel="tooltip" title="Follow me on Instagram">
+                            <i class="fa fa-instagram" style="font-size: 35px"></i>
+                        </a>
+                        <a class="btn btn-primary btn-round btn-lg btn-icon" href="@Model.TelegramUrl" rel="tooltip" title="Follow me on Telegram" style="background-color: #234999 !important">
+                            <i class="fa fa-telegram" style="font-size: 35px"></i>
+                        </a>
+                        <a class="btn btn-default btn-round btn-lg btn-icon" href="@Model.LinkedIn" rel="tooltip" title="Follow me on LinkedIn">
+                            <i class="fa fa-linkedin" style="font-size: 35px"></i>
+                        </a>
+                        <a class="btn btn-warning btn-round btn-lg btn-icon" href="mailto:@Model.Email" rel="tooltip" title="Contact me on Email">
+                            <i class="fa fa-envelope" style="font-size: 35px"></i>
+                        </a>
+                        <a class="btn btn-success btn-round btn-lg btn-icon " href="@Model.WhatsappUrl" rel="tooltip" title="See me on whatsapp">
+                            <i class="fa fa-whatsapp" style="font-size: 35px"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body cc-experience-header">
-                                <p class="pr-2">@Model.SecondJobYear</p>
-                                <div class="h5 pr-2">@Model.SecondJobTitle</div>
-                            </div>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body">
-                                <div class="h5">@Model.SecondJobSubject</div>
-                                <p>@Model.SecondJobDescription</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="github" class="section">
-            <div class="container cc-education">
-                <div class="h4 text-center mb-4 title">گیت هاب</div>
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body cc-education-header">
-                                <i class="fa fa-github fa-5x"></i>
-                                <p class="pr-2 h3">گیت هاب</p>
-                            </div>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body">
-                                <div class="h5">@Model.GithubText</div>
-                                <a href="@Model.GithubUrl" target="_blank" class="btn btn-secondary">مشاهده صفحه گیت هاب پروژه</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="education" class="section">
-            <div class="container cc-education">
-                <div class="h4 text-center mb-4 title">سابقه تحصیلات</div>
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body cc-education-header">
-                                <p class="pr-2">@Model.FirstEducationTime</p>
-                                <div class="h5 pr-2">@Model.FirstEducationDegree</div>
-                            </div>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body">
-                                <div class="h5">@Model.FirstEducationTitle</div>
-                                <p class="category pr-2">@Model.FirstEducationName</p>
-                                <p>@Model.FirstEducationDescription</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="row">
-                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body cc-education-header">
-                                <p class="pr-2">@Model.SecondEducationTime</p>
-                                <div class="h5 pr-2">@Model.SecondEducationDegree</div>
-                            </div>
-                        </div>
-                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                            <div class="card-body">
-                                <div class="h5">@Model.SecondEducationTitle</div>
-                                <p class="category">@Model.SecondEducationName</p>
-                                <p>@Model.SecondEducationDescription</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section" id="contact">
-            <div class="cc-contact-information" style="background-image: url('./images/profile/@Model.MapPhoto')">
-                <partial name="_ContactForm" model="@Model.Contact" />
             </div>
         </div>
     </div>
 </div>
+<div class="section" id="about">
+    <div class="container">
+        <div class="card" data-aos="fade-up" data-aos-offset="10">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card-body">
+                        <div class="h4 mt-0 title">درباره من</div>
+                        <p>@Model.AboutText</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card-body">
+                        <div class="h4 mt-0 title">بیوگرافی</div>
+                        <div class="row">
+                            <div class="col-sm-4"><strong class="text-uppercase">سن:</strong></div>
+                            <div class="col-sm-8">@Model.Age</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">ایمیل:</strong></div>
+                            <div class="col-sm-8">@Model.Email</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">تلفن:</strong></div>
+                            <div class="col-sm-8">@Model.Phone</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">آدرس:</strong></div>
+                            <div class="col-sm-8">@Model.Address</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4"><strong class="text-uppercase">زبان:</strong></div>
+                            <div class="col-sm-8">@Model.Language</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section" id="skill">
+    <div class="container">
+        <div class="h4 text-center mb-4 title">مهارت های تخصصی</div>
+        @foreach (var skill in Model.Skills)
+        {
+            <div class="mb-1">@skill.Title</div>
+            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var detail in skill.SkillDetails)
+                        {
+                            <div class="col-md-6">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">@detail.Title</span>
+                                    <div class="progress" style="height: 10px">
+                                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10"
+                                             data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: @detail.Percent%;"></div>
+                                        <span class="progress-value">@detail.Percent%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div id="experience" class="section">
+    <div class="container cc-experience">
+        <div class="h4 text-center mb-4 title">سابقه کار</div>
+        <div class="row no-gutters">
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-animate" data-aos="fade-up">
+                <div class="count-box">
+                    <i class="fa fa-smile-o"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfCustomers" data-purecounter-duration="0" class="purecounter">@Model.CountOfCustomers</span>
+                    <p class="mt-1"><strong>مشتریان</strong></p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <div class="count-box">
+                    <i class="fa fa-book"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfPublishedProjects" data-purecounter-duration="0" class="purecounter">@Model.CountOfPublishedProjects</span>
+                    <p class="mt-1"><strong>پروژه</strong> که پابلیش شده اند</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <div class="count-box">
+                    <i class="fa fa-headphones"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.CountOfTestProjects" data-purecounter-duration="0" class="purecounter">@Model.CountOfTestProjects</span>
+                    <p class="mt-1"><strong>پروژه</strong> به صورت آموزشی انجام شده</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <div class="count-box">
+                    <i class="fa fa-clock-o"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="@Model.YearsCountOfExperience" data-purecounter-duration="0" class="purecounter">@Model.YearsCountOfExperience</span>
+                    <p class="mt-1"><strong>سال</strong> کار به صورت حرفه ای</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body cc-experience-header">
+                        <p class="pr-2">@Model.FirstJobYear</p>
+                        <div class="h5 pr-2">@Model.FirstJobTitle</div>
+                    </div>
+                </div>
+                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body">
+                        <div class="h5">@Model.FirstJobSubject</div>
+                        <p>@Model.FirstJobDescription</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body cc-experience-header">
+                        <p class="pr-2">@Model.SecondJobYear</p>
+                        <div class="h5 pr-2">@Model.SecondJobTitle</div>
+                    </div>
+                </div>
+                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body">
+                        <div class="h5">@Model.SecondJobSubject</div>
+                        <p>@Model.SecondJobDescription</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="github" class="section">
+    <div class="container cc-education">
+        <div class="h4 text-center mb-4 title">گیت هاب</div>
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body cc-education-header">
+                        <i class="fa fa-github fa-5x"></i>
+                        <p class="pr-2 h3">گیت هاب</p>
+                    </div>
+                </div>
+                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body">
+                        <div class="h5">@Model.GithubText</div>
+                        <a href="@Model.GithubUrl" target="_blank" class="btn btn-secondary">مشاهده صفحه گیت هاب پروژه</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="education" class="section">
+    <div class="container cc-education">
+        <div class="h4 text-center mb-4 title">سابقه تحصیلات</div>
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body cc-education-header">
+                        <p class="pr-2">@Model.FirstEducationTime</p>
+                        <div class="h5 pr-2">@Model.FirstEducationDegree</div>
+                    </div>
+                </div>
+                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body">
+                        <div class="h5">@Model.FirstEducationTitle</div>
+                        <p class="category pr-2">@Model.FirstEducationName</p>
+                        <p>@Model.FirstEducationDescription</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row">
+                <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body cc-education-header">
+                        <p class="pr-2">@Model.SecondEducationTime</p>
+                        <div class="h5 pr-2">@Model.SecondEducationDegree</div>
+                    </div>
+                </div>
+                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                    <div class="card-body">
+                        <div class="h5">@Model.SecondEducationTitle</div>
+                        <p class="category">@Model.SecondEducationName</p>
+                        <p>@Model.SecondEducationDescription</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="contact">
+    <div class="cc-contact-information" style="background-image: url('./images/profile/@Model.MapPhoto')">
+        <partial name="_ContactForm" model="@Model.Contact" />
+    </div>
+</div>
+</div>
+</div>
+
 <footer class="footer">
     <div class="container text-center">
         <a class="btn-link text-success" href="@Model.WhatsappUrl" rel="tooltip" title="Whatsapp">
@@ -334,7 +335,7 @@
         </li>
 
         <li>
-            <a href="@Model.LinkedIn" rel="nofollow" class="fa fa-envelope"
+            <a href="mailto:@Model.Email" rel="nofollow" class="fa fa-envelope"
                style="background:none repeat scroll 0% 0% #cd853f;">
                 <span style="background: none repeat scroll 0% 0% #cd853f;">ایمیل</span>
             </a>
